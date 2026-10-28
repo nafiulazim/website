@@ -1,19 +1,21 @@
-# Dev Data Weekly
+# nafiulazim.com
 
-Weekly dashboards on global development and humanitarian data.
+Personal site and passion project: weekly dashboards on global development data.
 
 ## Structure
 ```
-index.html                      ← homepage (nafiulazim.com)
-CNAME                           ← custom domain, do not delete
-devdataweekly/issues/YYYY-MM-DD-topic/index.html  ← one folder per weekly dashboard
+index.html                                  homepage (nafiulazim.com)
+CNAME                                       custom domain, do not delete
+assets/site.css                             shared design
+assets/site.js                              shared animations + reviews (settings at the top)
+devdataweekly/issues/YYYY-MM-DD-topic/      one folder per weekly dashboard
 ```
 
-## Adding a new issue (weekly)
-1. Create a folder: `devdataweekly/issues/2026-11-04-climate-finance/`
-2. Put the new dashboard in it as `index.html`
-3. In the homepage `index.html`, copy an issue `<li>` block to the top of the list and update the number, title, summary, tag and link
-4. Commit and push. The site updates in about 1 minute.
+## Adding a new dashboard
+1. Add the folder `devdataweekly/issues/2026-11-04-climate-finance/index.html`
+2. In `index.html`, copy one `<a class="panel card">` block to the top of the Dashboards list and update it
+3. Commit. The site updates in about 1 minute.
 
-## Personalise once
-- Replace `[Your Name]` and the LinkedIn link in `index.html`
+## Reviews (approve before they appear)
+Reviews go to a Google Form. You tick "Approved" in the Google Sheet, and only approved rows show on the site.
+Settings live at the top of `assets/site.js` (`REVIEWS_CONFIG`).
