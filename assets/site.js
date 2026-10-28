@@ -88,7 +88,7 @@ function setupForm() {
     const btn = f.querySelector("button"); btn.disabled = true; btn.textContent = "Sending…";
     try {
       await fetch(REVIEWS_CONFIG.formAction, { method: "POST", mode: "no-cors", body });
-      f.reset(); msg.className = "form-msg ok"; msg.textContent = "Thank you! Your review will appear here once it's approved.";
+      f.reset(); msg.className = "form-msg ok"; msg.textContent = "Thank you for your feedback! It will appear here shortly.";
     } catch (e) { msg.className = "form-msg err"; msg.textContent = "That didn't send. Check your connection and try again."; }
     btn.disabled = false; btn.textContent = "Send review";
   });
