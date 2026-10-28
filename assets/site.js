@@ -4,11 +4,11 @@
 const REVIEWS_CONFIG = {
   // Google Form "formResponse" address, e.g.
   // "https://docs.google.com/forms/d/e/1FAIpQLSc.../formResponse"
-  formAction: "",
+  formAction: "https://docs.google.com/forms/d/e/1FAIpQLSfto6kspq54uXc_2IcjAhxs7LYtWujaSTbA0HMyxlYzi_oPxg/formResponse",
   // Field IDs from your Google Form's pre-filled link
-  fields: { name: "entry.0000000001", role: "entry.0000000002", rating: "entry.0000000003", review: "entry.0000000004" },
+  fields: { name: "entry.2129590836", role: "entry.1835103435", rating: "entry.161789734", review: "entry.1344080320" },
   // Published CSV link of the "Public" tab (approved reviews only)
-  approvedCsv: ""
+  approvedCsv: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRaXXmUKwzF9paUKcYEXPzjn8aKntLhjXg5-DzurXhz-P_09kT4_t_I267cjDsgX2TT2qYqCWcA2D0t/pub?gid=124137053&single=true&output=csv"
 };
 
 document.documentElement.classList.add("js");
