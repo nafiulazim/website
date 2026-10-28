@@ -63,7 +63,11 @@ img{max-width:100%}
 .nav ul a:hover,.nav ul a.on{color:var(--fg);background:rgba(var(--w),.06)}
 .nav .cta{padding:8px 14px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:700;transition:border-color .2s,background .2s}
 .nav .cta:hover{border-color:var(--teal);background:rgba(63,208,201,.1)}
-@media (max-width:760px){.nav ul{display:none}}
+@media (max-width:760px){
+  .nav .wrap{flex-wrap:wrap;height:auto;padding-block:10px 0;row-gap:4px}
+  .nav ul{order:3;width:100%;overflow-x:auto;gap:2px;padding-bottom:6px;scrollbar-width:none}
+  .nav ul a{padding:6px 10px;font-size:13px;white-space:nowrap}
+}
 
 /* type */
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
@@ -74,7 +78,8 @@ h3{font-size:20px;font-weight:700;line-height:1.2}
 .lede{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:60ch;margin:0}
 .grad{background:linear-gradient(90deg,var(--teal),var(--sky) 55%,var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
 .mono{font-family:var(--mono)}
-section{padding-block:clamp(56px,9vw,110px)}
+section{padding-block:clamp(56px,9vw,110px);scroll-margin-top:72px}
+@media (max-width:760px){section{scroll-margin-top:100px}}
 .sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:760px}
 
 /* pills & buttons */

@@ -13,7 +13,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=4">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 <style>
 .d-hero{padding-block:clamp(48px,8vw,96px) 24px}
 .d-hero .wrap{display:grid;gap:20px}
@@ -41,6 +41,7 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
 
 /* 239 dots: one dot = one million people */
 .dots{display:grid;grid-template-columns:repeat(24,1fr);gap:5px}
+@media (max-width:560px){.dots{grid-template-columns:repeat(16,1fr);gap:4px}}
 .dots i{aspect-ratio:1;border-radius:50%;background:rgba(var(--w),.08);max-width:100%}
 .dots i.p{background:var(--teal)} .dots i.t{background:var(--amber)} .dots i.n{background:rgba(255,107,87,.55)}
 .js [data-anim].dots i{transform:scale(0);transition:transform .5s var(--ease)}
@@ -72,16 +73,15 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
 @media (max-width:520px){.crow{grid-template-columns:110px 1fr 54px;gap:8px;font-size:13px}}
 
 /* donor shift */
-.shift{display:grid;gap:40px}
-.sh-lab{display:flex;justify-content:space-between;font-size:14px;margin-bottom:10px}
-.sh-track{position:relative;height:28px}
-.sh-track::before{content:"";position:absolute;left:0;right:0;top:13px;height:2px;background:rgba(var(--w),.08)}
-.seg{position:absolute;top:12px;height:4px;border-radius:2px;transform-origin:left}
-.knob{position:absolute;top:4px;width:20px;height:20px;border-radius:50%;margin-left:-10px;display:grid;place-items:center}
-.knob.old{background:var(--ink);border:2px solid var(--dim)}
-.knob span{position:absolute;top:24px;font-family:var(--mono);font-size:12px;white-space:nowrap;color:var(--muted)}
-.axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:26px}
-
+.shift{display:grid;gap:26px}
+.donor{display:grid;gap:8px}
+.sh-lab{display:flex;justify-content:space-between;gap:10px;font-size:15px;margin-bottom:2px}
+.pair{display:grid;grid-template-columns:56px 1fr 48px;gap:10px;align-items:center;font-size:13px}
+.pl{color:var(--muted)}
+.pt{height:14px;border-radius:99px;background:rgba(var(--w),.05);overflow:hidden}
+.pt .seg{display:block;height:100%;border-radius:99px;transform-origin:left}
+.pv{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--dim);margin:0 58px 0 66px}
 /* ground */
 .ground{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media (max-width:1000px){.ground{grid-template-columns:repeat(2,1fr)}}
@@ -168,15 +168,15 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
     <div class="panel reveal d1">
       <div class="ph"><div><h3>Who pays is changing</h3><p>Share of government humanitarian funding</p></div><span class="src">ALNAP GHA Report 2026 · OCHA FTS</span></div>
       <div class="shift" data-anim>
-        <div>
-          <div class="sh-lab"><span><b>United States</b></span><span class="mono" style="color:var(--coral)">−17 pts</span></div>
-          <div class="sh-track"><span class="seg" style="left:57.5%;width:42.5%;background:linear-gradient(90deg,var(--coral),rgba(255,107,87,.3))"></span>
-            <span class="knob" style="left:57.5%;background:var(--coral)"><span>23% now</span></span><span class="knob old" style="left:100%"><span style="right:0">~40% before</span></span></div>
+        <div class="donor">
+          <div class="sh-lab"><b>United States</b><span class="mono" style="color:var(--coral)">−17 pts</span></div>
+          <div class="pair"><span class="pl">Before</span><span class="pt"><i class="seg" style="width:100%;background:rgba(var(--w),.22)"></i></span><span class="pv">~40%</span></div>
+          <div class="pair"><span class="pl">2025</span><span class="pt"><i class="seg" style="width:57.5%;background:var(--coral)"></i></span><span class="pv">23%</span></div>
         </div>
-        <div>
-          <div class="sh-lab"><span><b>Gulf donors</b></span><span class="mono" style="color:var(--teal)">+7 pts</span></div>
-          <div class="sh-track"><span class="seg" style="left:25%;width:17.5%;background:linear-gradient(90deg,rgba(63,208,201,.3),var(--teal))"></span>
-            <span class="knob old" style="left:25%"><span>10% before</span></span><span class="knob" style="left:42.5%;background:var(--teal)"><span>17% now</span></span></div>
+        <div class="donor">
+          <div class="sh-lab"><b>Gulf donors</b><span class="mono" style="color:var(--teal)">+7 pts</span></div>
+          <div class="pair"><span class="pl">Before</span><span class="pt"><i class="seg" style="width:25%;background:rgba(var(--w),.22)"></i></span><span class="pv">10%</span></div>
+          <div class="pair"><span class="pl">2025</span><span class="pt"><i class="seg" style="width:42.5%;background:var(--teal)"></i></span><span class="pv">17%</span></div>
         </div>
         <div class="axis"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span></div>
       </div>
@@ -249,11 +249,11 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
   }
   dots.innerHTML = h;
 
-  const c = [["Occupied Palestinian T.",4.1],["Sudan",2.9],["Afghanistan",1.7],["South Sudan",1.5],["DR Congo",1.4],["Haiti",0.893],["Burkina Faso",0.662],["Mali",0.551],["Colombia",0.384],["Cameroon",0.308],["Central African Rep.",0.264]];
+  const c = [["Palestine (oPt)",4.1],["Sudan",2.9],["Afghanistan",1.7],["South Sudan",1.5],["DR Congo",1.4],["Haiti",0.893],["Burkina Faso",0.662],["Mali",0.551],["Colombia",0.384],["Cameroon",0.308],["C. African Rep.",0.264]];
   document.getElementById("countries").innerHTML = c.map(([n, v], i) =>
     `<div class="crow"><span>${n}</span><span class="cb"><i style="width:${(v / 4.1 * 100).toFixed(1)}%;transition-delay:${i * 70}ms"></i></span><span class="v">$${v >= 1 ? v.toFixed(1) + "B" : Math.round(v * 1000) + "M"}</span></div>`).join("");
 })();
 </script>
-<script src="/assets/site.js?v=4"></script>
+<script src="/assets/site.js?v=5"></script>
 </body>
 </html>
