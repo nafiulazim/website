@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nafiul Azim</title>
+<meta name="description" content="One live dashboard a week on global development and humanitarian data.">
+<meta property="og:title" content="Nafiul Azim · Dev Data Weekly">
+<meta property="og:description" content="One live dashboard a week on global development and humanitarian data.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: masthead, short bio, then an issue index styled like a report register */
+:root{--bg:#f3f5f6;--panel:#fff;--fg:#17212b;--muted:#5a6673;--line:#d7dde2;--accent:#1f6f8b;--hot:#c8402f;
+ --display:"Fraunces",Georgia,serif;--body:"Public Sans",system-ui,sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root{--bg:#111820;--panel:#18222c;--fg:#e8edf1;--muted:#9aa7b3;--line:#2a3743;--accent:#4fa9c8;--hot:#e2654f;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6;padding:40px max(16px,env(safe-area-inset-right,0px)) 56px max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:860px;margin:0 auto;display:grid;gap:36px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,8vw,72px);line-height:1;margin:8px 0 14px}
+h2{font-family:var(--display);font-weight:600;font-size:24px;margin:0 0 12px}
+p{max-width:65ch;margin:0}
+.lede{font-size:19px;color:var(--muted)}
+.about{display:grid;grid-template-columns:1fr;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.links a{border:1px solid var(--line);border-radius:4px;padding:6px 12px;color:var(--accent);text-decoration:none;font-weight:600;font-size:14px}
+.links a:hover,.links a:focus-visible{border-color:var(--accent)}
+.issues{list-style:none;margin:0;padding:0;border-top:2px solid var(--fg)}
+.issue{display:grid;grid-template-columns:70px 1fr auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
+.issue .no{font-family:var(--mono);color:var(--muted);font-size:14px}
+.issue a{color:var(--fg);font-family:var(--display);font-size:21px;font-weight:600;text-decoration:none}
+.issue a:hover,.issue a:focus-visible{color:var(--accent)}
+.issue .meta{font-size:14px;color:var(--muted)}
+.tag{font-family:var(--mono);font-size:12px;color:var(--hot);white-space:nowrap}
+.issue.next a,.issue.next{color:var(--muted)}
+footer{font-size:13px;color:var(--muted)}
+@media (max-width:560px){.issue{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Nafiul Azim · Development data, made readable</div>
+    <h1>Dev Data Weekly</h1>
+    <p class="lede">One dashboard a week on the numbers shaping development and humanitarian work: funding, crises, climate, health, gender and the SDGs.</p>
+  </header>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>I'm Nafiul Azim, an international development professional working with the UN and NGOs. Each week I turn public data from OCHA, the World Bank, WHO, UNHCR and others into a clear dashboard, then share what it means for people working in the field.</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#issues">All issues</a>
+    </div>
+  </section>
+
+  <section id="issues">
+    <h2>Issues</h2>
+    <ol class="issues">
+      <!-- ADD NEW ISSUES AT THE TOP: copy one <li> block and change the details -->
+      <li class="issue">
+        <span class="no">#01</span>
+        <div><a href="devdataweekly/issues/2026-10-28-aid-gap/">The 2026 Aid Gap</a><div class="meta">239M people in need, 87M prioritised. Where the money goes, and who pays now.</div></div>
+        <span class="tag">Humanitarian · 28 Oct 2026</span>
+      </li>
+      <li class="issue next">
+        <span class="no">#02</span>
+        <div><span style="font-family:var(--display);font-size:21px;font-weight:600">Climate finance: promised vs delivered</span><div class="meta">Coming 4 Nov 2026</div></div>
+        <span class="tag">Climate</span>
+      </li>
+    </ol>
+  </section>
+
+  <footer>Data from public sources, cited on each dashboard. Views are personal and do not represent any employer.</footer>
+</div>
+</body>
+</html>

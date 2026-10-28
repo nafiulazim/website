@@ -1,0 +1,121 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta property="og:title" content="The 2026 Aid Gap"><meta property="og:description" content="239 million people need aid in 2026. The plan targets 87 million. Dev Data Weekly #01.">
+<title>The 2026 Aid Gap</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Public+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a field-report sheet — a big thesis number, then needs vs reach funnel, then country asks, then the money shift */
+:root{
+  --bg:#f3f5f6; --panel:#ffffff; --fg:#17212b; --muted:#5a6673; --line:#d7dde2;
+  --need:#c8402f; --target:#d98a2b; --reach:#1f6f8b; --accent:#1f6f8b;
+  --display:"Fraunces",Georgia,serif; --body:"Public Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#111820; --panel:#18222c; --fg:#e8edf1; --muted:#9aa7b3; --line:#2a3743;
+  --need:#e2654f; --target:#e6a44a; --reach:#4fa9c8; --accent:#4fa9c8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111820; --panel:#18222c; --fg:#e8edf1; --muted:#9aa7b3; --line:#2a3743;
+  --need:#e2654f; --target:#e6a44a; --reach:#4fa9c8; --accent:#4fa9c8; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:32px 48px}
+.wrap{max-width:960px;margin:0 auto;display:grid;gap:28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,6vw,58px);line-height:1.05;margin:6px 0 10px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--need)}
+h2{font-family:var(--display);font-weight:600;font-size:22px;margin:0 0 4px;text-wrap:balance}
+.lede{max-width:65ch;color:var(--muted);margin:0}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:22px}
+.sub{color:var(--muted);font-size:14px;margin:0 0 16px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.kpi{border-top:3px solid var(--line);padding-top:10px}
+.kpi b{display:block;font-family:var(--display);font-size:34px;font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi span{font-size:14px;color:var(--muted)}
+.kpi.red{border-color:var(--need)} .kpi.red b{color:var(--need)}
+.funnel{display:grid;gap:10px}
+.frow{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center}
+.frow .lab{font-size:14px;font-weight:600}
+.bar{height:34px;border-radius:3px;display:flex;align-items:center;padding-left:10px;color:#fff;font-family:var(--mono);font-size:13px;white-space:nowrap}
+.note{font-size:13px;color:var(--muted);margin-top:12px}
+.chart{overflow-x:auto}
+.crow{display:grid;grid-template-columns:130px 1fr 64px;gap:10px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px}
+.crow .v{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.crow .t{height:14px;background:var(--target);border-radius:2px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.shift{display:grid;gap:14px}
+.srow .lab{display:flex;justify-content:space-between;font-size:14px;margin-bottom:4px}
+.srow .lab span:last-child{font-family:var(--mono)}
+.track{height:12px;background:var(--line);border-radius:2px;position:relative}
+.track i{position:absolute;left:0;top:0;bottom:0;border-radius:2px}
+.voices{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+.voices li{border-left:3px solid var(--need);padding-left:12px;font-size:15px}
+.voices small{display:block;color:var(--muted);font-size:12px;font-family:var(--mono)}
+footer{font-size:13px;color:var(--muted);display:grid;gap:6px}
+footer a{color:var(--accent)}
+@media (max-width:520px){.frow{grid-template-columns:1fr}.crow{grid-template-columns:100px 1fr 56px}}
+</style>
+<style>*{box-sizing:border-box}body{margin:0}</style></head><body>
+
+<div class="wrap">
+  <header>
+    <a href="/" style="color:var(--accent);font-size:14px;text-decoration:none">← All issues</a><div class="eyebrow">Dev Data Weekly · Issue 01 · Humanitarian financing · 28 Oct 2026</div>
+    <h1>239 million people need aid in 2026. The plan targets <em>87 million</em>.</h1>
+    <p class="lede">Funding cuts forced the UN to shrink its 2026 appeal to the smallest ask since 2017. This page shows who is in, who is out, and where the money comes from now.</p>
+  </header>
+
+  <section class="kpis" aria-label="Key figures">
+    <div class="kpi red"><b>239M</b><span>people in need of humanitarian aid</span></div>
+    <div class="kpi"><b>$23B</b><span>"hyper-prioritised" ask for 2026 (of $33B full plan)</span></div>
+    <div class="kpi"><b>$12B</b><span>received for the 2025 appeal, lowest in a decade</span></div>
+    <div class="kpi red"><b>25M</b><span>fewer people reached in 2025 than in 2024</span></div>
+  </section>
+
+  <section class="panel">
+    <h2>From need to help: the funnel</h2>
+    <p class="sub">People, in millions. 2026 Global Humanitarian Overview.</p>
+    <div class="funnel" id="funnel"></div>
+    <p class="note">Only about 36% of people in need sit inside the hyper-prioritised tier. Anyone outside it is planned for only if extra money arrives.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Where the 2026 money is needed</h2>
+    <p class="sub">Appeal requirements by country, US$ billions. OCHA, GHO 2026 At a Glance.</p>
+    <div class="chart" id="countries"></div>
+  </section>
+
+  <div class="two">
+    <section class="panel">
+      <h2>Who pays is changing</h2>
+      <p class="sub">Share of government humanitarian funding, 2025 vs earlier.</p>
+      <div class="shift" id="shift"></div>
+      <p class="note">Source: Global Humanitarian Assistance Report 2026 (ALNAP), based on OCHA FTS.</p>
+    </section>
+    <section class="panel">
+      <h2>What the gap looks like on the ground</h2>
+      <ul class="voices">
+        <li>Afghanistan: about one third of the $1.7B plan funded, leaving a $1.1B gap.<small>OCHA Afghanistan, 2026</small></li>
+        <li>Gaza: fewer than 1 million of 2.1 million people get monthly food aid from October.<small>OCHA oPt, 22 Oct 2026</small></li>
+        <li>DRC: 2026 requirements cut 45%; monthly food targets cut up to 73%.<small>OCHA DRC, Jan 2026</small></li>
+        <li>Sudan: only 7.5% of 2.2 million people targeted have received shelter aid.<small>GHO 2026, Sudan</small></li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="panel">
+    <h2>Put the number in perspective</h2>
+    <p style="margin:0;max-width:65ch">The UN says the full appeal could be funded if everyone earning over $100,000 a year gave <b>$0.20 a day</b>. The $23B priority ask is about 1% of the $2.7 trillion the world spent on defence last year.</p>
+  </section>
+
+  <footer>
+    <div><b>For live figures</b>, check <a href="https://fts.unocha.org" target="_blank" rel="noopener">OCHA Financial Tracking Service</a> and <a href="https://humanitarianaction.info/document/global-humanitarian-overview-2026" target="_blank" rel="noopener">humanitarianaction.info</a>. Figures here were compiled on 28 Oct 2026.</div>
+    <div>Sources: OCHA GHO 2026 At a Glance; OCHA news (8 Dec 2025); The New Humanitarian; ALNAP GHA Report 2026; OCHA Afghanistan, oPt and DRC updates; UN UNifeed.</div>
+    <div>Views are personal and do not represent any employer.</div>
+  </footer>
+</div>
+
+<script>
+const funnel=[["People in need",239,"var(--need)"],["Targeted (full plan)",135,"var(--target)"],["Hyper-prioritised",87,"var(--reach)"]];
+document.getElementById("funnel").innerHTML=funnel.map(([l,v,c])=>`<div class="frow"><div class="lab">${l}</div><div><div class="bar" style="width:${v/239*100}%;min-width:70px;background:${c}">${v}M</div></div></div>`).join("");
+const c=[["Occupied Palestinian T.",4.1],["Sudan",2.9],["Afghanistan",1.7],["South Sudan",1.5],["DR Congo",1.4],["Haiti",0.893],["Burkina Faso",0.662],["Mali",0.551],["Colombia",0.384],["Cameroon",0.308],["Central African Rep.",0.264]];
+document.getElementById("countries").innerHTML=c.map(([n,v])=>`<div class="crow"><div>${n}</div><div><div class="t" style="width:${v/4.1*100}%"></div></div><div class="v">$${v>=1?v.toFixed(1)+"B":Math.round(v*1000)+"M"}</div></div>`).join("");
+const s=[["United States, before","40%",40,"var(--muted)"],["United States, 2025","23%",23,"var(--need)"],["Gulf donors, before","10%",10,"var(--muted)"],["Gulf donors, 2025","17%",17,"var(--reach)"]];
+document.getElementById("shift").innerHTML=s.map(([l,t,v,col])=>`<div class="srow"><div class="lab"><span>${l}</span><span>${t}</span></div><div class="track"><i style="width:${v/40*100}%;background:${col}"></i></div></div>`).join("");
+</script>
+</body></html>
