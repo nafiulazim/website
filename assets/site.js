@@ -94,3 +94,15 @@ function setupForm() {
   });
 }
 loadReviews(); setupForm();
+
+/* Light / dark toggle */
+(() => {
+  const b = document.getElementById("theme-btn"); if (!b) return;
+  const root = document.documentElement;
+  b.addEventListener("click", () => {
+    const cur = root.getAttribute("data-theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    const next = cur === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+})();
