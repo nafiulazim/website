@@ -106,3 +106,62 @@ loadReviews(); setupForm();
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 })();
+
+/* Scroll progress bar + nav shadow */
+(() => {
+  const bar = document.createElement("div"); bar.className = "progress"; bar.setAttribute("aria-hidden", "true");
+  document.body.prepend(bar);
+  const nav = document.querySelector(".nav");
+  let ticking = false;
+  function upd() {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`;
+    if (nav) nav.classList.toggle("scrolled", scrollY > 8);
+    ticking = false;
+  }
+  addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+  upd();
+})();
+
+/* Highlight the nav link for the section in view */
+(() => {
+  const links = [...document.querySelectorAll('.nav ul a[href*="#"]')];
+  if (!links.length || !("IntersectionObserver" in window)) return;
+  const map = new Map();
+  links.forEach((a) => { const id = a.getAttribute("href").split("#")[1]; const s = id && document.getElementById(id); if (s) map.set(s, a); });
+  if (!map.size) return;
+  const o = new IntersectionObserver((es) => {
+    es.forEach((e) => { if (e.isIntersecting) { links.forEach((l) => l.classList.remove("on")); map.get(e.target).classList.add("on"); } });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  map.forEach((_, s) => o.observe(s));
+})();
+
+/* Cursor spotlight on panels */
+(() => {
+  if (matchMedia("(hover: none)").matches) return;
+  document.addEventListener("pointermove", (e) => {
+    const p = e.target.closest && e.target.closest(".panel"); if (!p) return;
+    const r = p.getBoundingClientRect();
+    p.style.setProperty("--mx", e.clientX - r.left + "px");
+    p.style.setProperty("--my", e.clientY - r.top + "px");
+  }, { passive: true });
+})();
+
+/* Countdown to the next Wednesday dashboard (14:00 Bangkok = 07:00 UTC) */
+(() => {
+  const els = document.querySelectorAll("[data-next-drop]"); if (!els.length) return;
+  function next() {
+    const n = new Date(); const t = new Date(Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate(), 7, 0, 0));
+    let add = (3 - t.getUTCDay() + 7) % 7; if (add === 0 && n >= t) add = 7;
+    t.setUTCDate(t.getUTCDate() + add); return t;
+  }
+  function tick() {
+    const ms = next() - new Date(), d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60;
+    els.forEach((el) => {
+      el.querySelector("[data-d]").textContent = String(d).padStart(2, "0");
+      el.querySelector("[data-h]").textContent = String(h).padStart(2, "0");
+      el.querySelector("[data-m]").textContent = String(m).padStart(2, "0");
+    });
+  }
+  tick(); setInterval(tick, 30000);
+})();
