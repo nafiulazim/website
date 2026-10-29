@@ -178,3 +178,8 @@ textarea{min-height:120px;resize:vertical}
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .reveal{opacity:1;transform:none;filter:none}
 }
+
+/* nav hides on scroll down, returns on scroll up */
+.nav{transition:transform .45s var(--ease),opacity .3s}
+.nav.hide{transform:translateY(calc(-100% - 24px));opacity:0}
+.nav:focus-within{transform:none;opacity:1}

@@ -112,11 +112,17 @@ loadReviews(); setupForm();
   const bar = document.createElement("div"); bar.className = "progress"; bar.setAttribute("aria-hidden", "true");
   document.body.prepend(bar);
   const nav = document.querySelector(".nav");
-  let ticking = false;
+  let ticking = false, last = scrollY;
   function upd() {
     const h = document.documentElement.scrollHeight - innerHeight;
     bar.style.transform = `scaleX(${h > 0 ? Math.min(1, scrollY / h) : 0})`;
-    if (nav) nav.classList.toggle("scrolled", scrollY > 8);
+    if (nav) {
+      nav.classList.toggle("scrolled", scrollY > 8);
+      const y = scrollY, dy = y - last;
+      if (y < 80 || dy < -4) nav.classList.remove("hide");
+      else if (dy > 6) nav.classList.add("hide");
+      last = y;
+    }
     ticking = false;
   }
   addEventListener("scroll", () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
