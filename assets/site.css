@@ -238,3 +238,7 @@ a.byline{text-decoration:none;color:inherit}
 .brand .word small{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:5px}
 @media (max-width:380px){.brand .word small{display:none}}
 .brand .mark span{background:#0b1322}
+.brand .word b{font-size:21px}
+.brand .mark{width:42px;height:42px;border-radius:13px}
+.brand .mark span{border-radius:11.5px;font-size:15px}
+@media (max-width:380px){.brand .word b{font-size:19px}}
