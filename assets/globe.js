@@ -7,20 +7,16 @@ window.LAND=[-541,-698,-541,-374,-522,-715,-522,-591,-503,-729,-503,-699,-484,-7
   const D = Math.PI / 180, L = window.LAND, N = L.length / 2;
   const lat = new Float32Array(N), lon = new Float32Array(N);
   for (let i = 0; i < N; i++) { lat[i] = L[2 * i] / 10 * D; lon[i] = L[2 * i + 1] / 10 * D; }
-  // 2026 appeal requirements from Dev Data Weekly #01 (OCHA GHO 2026)
-  const hot = [
-    { n: "oPt", v: "$4.1B", la: 31.5, lo: 34.5, s: 4.1 },
-    { n: "Sudan", v: "$2.9B", la: 15.5, lo: 30.0, s: 2.9 },
-    { n: "Afghanistan", v: "$1.7B", la: 34.0, lo: 66.0, s: 1.7 },
-    { n: "DR Congo", v: "$1.4B", la: -2.5, lo: 23.5, s: 1.4 },
-    { n: "Haiti", v: "$0.9B", la: 19.0, lo: -72.5, s: 0.9 },
-    { n: "Burkina Faso", v: "$0.7B", la: 12.3, lo: -1.5, s: 0.66 },
-    { n: "Colombia", v: "$0.4B", la: 4.5, lo: -74.0, s: 0.38 }
-  ].map((h) => ({ ...h, la: h.la * D, lo: h.lo * D }));
+  // Generic hubs across every region (no labels, no figures)
+  const hubs = [[40.7,-74],[38.9,-77],[19.4,-99.1],[4.7,-74.1],[-15.8,-47.9],[-33.4,-70.6],[18.5,-72.3],[51.5,-0.1],[46.2,6.1],[41.9,12.5],[14.7,-17.4],[6.5,3.4],[9,38.7],[-1.3,36.8],[15.6,32.5],[-4.3,15.3],[-26.2,28],[30,31.2],[31.9,35.9],[33.9,35.5],[34.5,69.2],[24.9,67],[23.8,90.4],[28.6,77.2],[13.8,100.5],[16.9,96.2],[-6.2,106.8],[14.6,121],[35.7,139.7],[-33.9,151.2],[-9.4,147.2],[55.8,37.6]]
+    .map(([a, o]) => ({ la: a * D, lo: o * D, ph: Math.random() }));
+  const vec = (la, lo) => [Math.cos(la) * Math.sin(lo), Math.sin(la), Math.cos(la) * Math.cos(lo)];
+  const arcs = []; let lastSpawn = 0;
+  const pal = ["teal", "sky", "amber"];
   let W = 0, R = 0, dpr = 1, rot = -30 * D, tilt = 18 * D, vel = 0.0016, drag = null, visible = true, colors = {};
   function readColors() {
     const cs = getComputedStyle(document.documentElement);
-    colors = { w: cs.getPropertyValue("--w").trim(), teal: cs.getPropertyValue("--teal").trim(), coral: cs.getPropertyValue("--coral").trim(), fg: cs.getPropertyValue("--fg").trim(), muted: cs.getPropertyValue("--muted").trim(), acc: cs.getPropertyValue("--accent-rgb").trim(), ink: cs.getPropertyValue("--ink").trim() };
+    colors = { w: cs.getPropertyValue("--w").trim(), teal: cs.getPropertyValue("--teal").trim(), sky: cs.getPropertyValue("--sky").trim(), amber: cs.getPropertyValue("--amber").trim(), coral: cs.getPropertyValue("--coral").trim(), fg: cs.getPropertyValue("--fg").trim(), muted: cs.getPropertyValue("--muted").trim(), acc: cs.getPropertyValue("--accent-rgb").trim(), ink: cs.getPropertyValue("--ink").trim() };
   }
   function size() {
     dpr = Math.min(2, devicePixelRatio || 1); W = cv.clientWidth;
@@ -32,6 +28,24 @@ window.LAND=[-541,-698,-541,-374,-522,-715,-522,-591,-503,-729,-503,-699,-484,-7
     const y = Math.cos(tilt) * Math.sin(la) - Math.sin(tilt) * cl * Math.cos(d);
     const z = Math.sin(tilt) * Math.sin(la) + Math.cos(tilt) * cl * Math.cos(d);
     return [W / 2 + R * x, W / 2 - R * y, z];
+  }
+  function view(v, lift) {
+    const cr = Math.cos(rot), sr = Math.sin(rot), ct = Math.cos(tilt), st = Math.sin(tilt);
+    const x = v[0] * cr + v[2] * sr, z1 = -v[0] * sr + v[2] * cr;
+    const y = ct * v[1] - st * z1, z = st * v[1] + ct * z1;
+    return [W / 2 + R * lift * x, W / 2 - R * lift * y, z, Math.hypot(x, y) * lift];
+  }
+  function spawn() {
+    let a, b, tries = 0;
+    do { a = hubs[(Math.random() * hubs.length) | 0]; b = hubs[(Math.random() * hubs.length) | 0]; tries++; }
+    while ((a === b || Math.acos(Math.max(-1, Math.min(1, vec(a.la, a.lo).reduce((s, x, i) => s + x * vec(b.la, b.lo)[i], 0)))) < 0.45 || Math.acos(Math.max(-1, Math.min(1, vec(a.la, a.lo).reduce((s, x, i) => s + x * vec(b.la, b.lo)[i], 0)))) > 1.5) && tries < 30);
+    const va = vec(a.la, a.lo), vb = vec(b.la, b.lo);
+    const om = Math.acos(Math.max(-1, Math.min(1, va[0] * vb[0] + va[1] * vb[1] + va[2] * vb[2])));
+    arcs.push({ va, vb, om, born: performance.now(), life: 2600 + om * 900, c: pal[(Math.random() * pal.length) | 0] });
+  }
+  function slerp(A, B, om, t) {
+    const so = Math.sin(om) || 1e-6, k1 = Math.sin((1 - t) * om) / so, k2 = Math.sin(t * om) / so;
+    return [A[0] * k1 + B[0] * k2, A[1] * k1 + B[1] * k2, A[2] * k1 + B[2] * k2];
   }
   let t0 = performance.now();
   function frame(t) {
@@ -55,30 +69,35 @@ window.LAND=[-541,-698,-541,-374,-522,-715,-522,-591,-503,-729,-503,-699,-484,-7
       ctx.fillStyle = `rgba(${colors.w},${0.16 + p[2] * 0.5})`;
       ctx.beginPath(); ctx.arc(p[0], p[1], ds * 0.62, 0, 6.3); ctx.fill();
     }
-    // hotspots
-    const pulse = (t / 1600) % 1;
-    ctx.font = `600 ${Math.max(11, R / 17)}px Geist, Manrope, system-ui, sans-serif`;
-    for (const h of hot) {
-      const p = proj(h.la, h.lo); if (p[2] <= 0.05) continue;
-      const a = Math.min(1, p[2] * 1.6), r0 = 3 + h.s * 1.3;
-      for (const k of [0, 0.5]) {
-        const q = (pulse + k) % 1;
-        ctx.strokeStyle = `rgba(255,110,90,${(1 - q) * 0.55 * a})`; ctx.lineWidth = 1.4;
-        ctx.beginPath(); ctx.arc(p[0], p[1], r0 + q * r0 * 2.6, 0, 7); ctx.stroke();
+    // flowing data arcs
+    if (!reduce && t - lastSpawn > 520 && arcs.length < 9) { spawn(); lastSpawn = t; }
+    if (reduce && !arcs.length) for (let k = 0; k < 6; k++) spawn();
+    for (let k = arcs.length - 1; k >= 0; k--) {
+      const A = arcs[k], prog = reduce ? 0.75 : (t - A.born) / A.life;
+      if (prog > 1.35) { arcs.splice(k, 1); continue; }
+      const head = Math.min(1, prog), tail = Math.max(0, prog - 0.45), steps = 28, col = colors[A.c] || colors.teal;
+      let prev = null;
+      for (let j = 0; j <= steps; j++) {
+        const u = tail + (head - tail) * (j / steps);
+        const lift = 1 + Math.sin(Math.PI * u) * Math.min(0.16, A.om * 0.11);
+        const q = view(slerp(A.va, A.vb, A.om, u), lift);
+        const hidden = q[2] < 0 && q[3] < 1;
+        if (prev && !hidden && !prev.h) {
+          ctx.strokeStyle = col; ctx.globalAlpha = (j / steps) * 0.85 * (prog > 1 ? Math.max(0, 1 - (prog - 1) / 0.35) : 1);
+          ctx.lineWidth = 1.6; ctx.beginPath(); ctx.moveTo(prev.x, prev.y); ctx.lineTo(q[0], q[1]); ctx.stroke();
+        }
+        prev = { x: q[0], y: q[1], h: hidden };
       }
-      ctx.fillStyle = colors.coral; ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(p[0], p[1], r0 * 0.7, 0, 7); ctx.fill();
-      if (p[2] > 0.3) {
-        const left = p[0] > W / 2 + R * 0.25 || (p[0] < W / 2 - R * 0.05);
-        const tw = ctx.measureText(h.n + " " + h.v).width;
-        const lx = left ? p[0] - r0 - 10 - tw : p[0] + r0 + 10, ly = p[1] - r0 - 4;
-        ctx.globalAlpha = Math.min(1, (p[2] - 0.3) * 2.5);
-        ctx.strokeStyle = `rgba(${colors.w},0.35)`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(p[0] + (left ? -1 : 1) * r0 * 0.6, p[1] - r0 * 0.6); ctx.lineTo(left ? lx + tw + 2 : lx - 2, ly + 2); ctx.stroke();
-        const w = ctx.measureText(h.n).width;
-        ctx.lineJoin = "round"; ctx.lineWidth = 4; ctx.strokeStyle = colors.ink;
-        ctx.strokeText(h.n, lx, ly); ctx.strokeText(" " + h.v, lx + w, ly);
-        ctx.fillStyle = colors.fg; ctx.fillText(h.n, lx, ly);
-        ctx.fillStyle = colors.coral; ctx.fillText(" " + h.v, lx + w, ly);
-      }
+      if (prog <= 1 && prev && !prev.h) { ctx.globalAlpha = 1; ctx.fillStyle = col; ctx.beginPath(); ctx.arc(prev.x, prev.y, 2.6, 0, 7); ctx.fill(); }
+      ctx.globalAlpha = 1;
+    }
+    // hubs
+    for (const h of hubs) {
+      const q = view(vec(h.la, h.lo), 1); if (q[2] <= 0.02) continue;
+      const a2 = Math.min(1, q[2] * 1.5), ph = ((t / 2200) + h.ph) % 1;
+      ctx.strokeStyle = colors.teal; ctx.globalAlpha = (1 - ph) * 0.5 * a2; ctx.lineWidth = 1.2;
+      ctx.beginPath(); ctx.arc(q[0], q[1], 2.5 + ph * 9, 0, 7); ctx.stroke();
+      ctx.globalAlpha = a2; ctx.fillStyle = colors.teal; ctx.beginPath(); ctx.arc(q[0], q[1], 2.4, 0, 7); ctx.fill();
       ctx.globalAlpha = 1;
     }
     if (!reduce && visible) requestAnimationFrame(frame);

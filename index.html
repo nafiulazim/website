@@ -47,7 +47,7 @@
 .globe-wrap{margin:0;position:relative;display:grid;gap:10px;justify-items:center}
 #globe{width:100%;max-width:560px;aspect-ratio:1;cursor:grab;touch-action:pan-y}
 .globe-wrap figcaption{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:-20px}
-.globe-wrap figcaption .dot{width:7px;height:7px;border-radius:50%;background:var(--coral);animation:ping 2.2s infinite}
+.globe-wrap figcaption .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:ping 2.2s infinite}
 .ticker-pill{gap:10px;padding:6px 14px 6px 12px}
 .tk-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
 .ticker{position:relative;display:inline-grid;min-width:min(290px,52vw);height:1.4em;overflow:hidden;color:var(--fg);font-weight:500}
@@ -195,7 +195,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
   <div class="wrap">
     <div class="hero-top">
     <div class="hero-copy">
-      <div class="stamp fade"><span class="pill ticker-pill"><span class="dot"></span><span class="tk-label">Now tracking</span><span class="ticker" id="ticker" aria-live="off"><span>239M people need aid in 2026</span><span>87M in the UN's priority plan</span><span>$12B raised in 2025, lowest in a decade</span><span>36% priority coverage</span></span></span></div>
+      <div class="stamp fade"><span class="pill ticker-pill"><span class="dot"></span><span class="tk-label">Dev Data Weekly</span><span class="ticker" id="ticker" aria-live="off"><span>One new dashboard every week</span><span>Public data only, every number cited</span><span>Aid, climate, health and the SDGs</span><span>Built to read on any screen</span></span></span></div>
       <h1 aria-label="Development data, made visible.">
         <span class="w" style="--i:0"><span>Development</span></span>
         <span class="w" style="--i:1"><span>data,</span></span>
@@ -207,9 +207,9 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
         <a class="btn btn-ghost" href="#dashboards">Browse all</a>
       </div>
     </div>
-    <figure class="globe-wrap fade f2" aria-label="Globe showing 2026 humanitarian appeal hotspots">
-      <canvas id="globe" role="img" aria-label="Rotating globe marking 2026 appeal requirements: occupied Palestinian territory $4.1B, Sudan $2.9B, Afghanistan $1.7B, DR Congo $1.4B, Haiti $0.9B, Burkina Faso $0.7B, Colombia $0.4B."></canvas>
-      <figcaption><span class="dot"></span>2026 appeal hotspots · from Dashboard #01 · drag to spin</figcaption>
+    <figure class="globe-wrap fade f2" aria-label="Globe with data flowing between regions">
+      <canvas id="globe" role="img" aria-label="A rotating globe with data flowing between cities across every region."></canvas>
+      <figcaption><span class="dot"></span>Data from every region · drag to spin</figcaption>
     </figure>
     </div>
 
@@ -388,7 +388,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
 })();
 </script>
 <script src="/assets/site.js?v=12"></script>
-<script src="/assets/globe.js?v=1"></script>
+<script src="/assets/globe.js?v=2"></script>
 <script>
 /* Drifting data-network background */
 (() => {
