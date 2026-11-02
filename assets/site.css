@@ -242,3 +242,8 @@ a.byline{text-decoration:none;color:inherit}
 .brand .mark{width:42px;height:42px;border-radius:13px}
 .brand .mark span{border-radius:11.5px;font-size:15px}
 @media (max-width:380px){.brand .word b{font-size:19px}}
+.brand .word b{font-size:24px}
+.brand .mark{width:46px;height:46px;border-radius:14px}
+.brand .mark span{border-radius:12.5px;font-size:16px}
+.brand .word small{font-size:10px}
+@media (max-width:380px){.brand .word b{font-size:20px}.brand .mark{width:40px;height:40px}}
