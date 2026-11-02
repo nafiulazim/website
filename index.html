@@ -49,6 +49,7 @@
 .globe-wrap figcaption{justify-self:center;text-align:center;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;margin-top:-18px;padding-left:.32em;
   background:linear-gradient(90deg,var(--dim) 0%,var(--dim) 35%,var(--teal) 45%,var(--sky) 50%,var(--amber) 55%,var(--dim) 65%,var(--dim) 100%);background-size:250% 100%;
   -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite}
+.globe-wrap figcaption b{font-weight:700;color:var(--teal);-webkit-text-fill-color:var(--teal)}
 @keyframes shimmer{from{background-position:100% 0}to{background-position:-150% 0}}
 .ticker-pill{gap:10px;padding:6px 14px 6px 12px}
 .tk-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
@@ -211,7 +212,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     </div>
     <figure class="globe-wrap fade f2" aria-label="Behind every number, people: a globe with data flowing between regions">
       <canvas id="globe" role="img" aria-label="A rotating globe with data flowing between cities across every region."></canvas>
-      <figcaption>Behind every number, people</figcaption>
+      <figcaption>Behind every number, <b>people</b></figcaption>
     </figure>
     </div>
 
