@@ -49,7 +49,12 @@
 .globe-wrap figcaption{justify-self:center;text-align:center;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;margin-top:-18px;padding-left:.32em;
   background:linear-gradient(90deg,var(--dim) 0%,var(--dim) 35%,var(--teal) 45%,var(--sky) 50%,var(--amber) 55%,var(--dim) 65%,var(--dim) 100%);background-size:250% 100%;
   -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite}
-.globe-wrap figcaption b{font-weight:700;color:var(--teal);-webkit-text-fill-color:var(--teal)}
+.globe-wrap figcaption b{font-weight:700;color:var(--teal);-webkit-text-fill-color:var(--teal);padding:3px 6px 3px 9px;margin-left:2px;border-radius:7px;
+  box-shadow:inset 0 0 0 1px rgba(var(--accent-rgb),.35),0 0 22px -6px rgba(var(--accent-rgb),.55);
+  background:linear-gradient(90deg,rgba(var(--accent-rgb),.22),rgba(var(--accent-rgb),.12)) no-repeat 0 0/0% 100%;animation:hl 1.1s var(--ease) 1s forwards,glow 3.2s ease-in-out 2.2s infinite}
+@keyframes hl{to{background-size:100% 100%}}
+@keyframes glow{50%{box-shadow:inset 0 0 0 1px rgba(var(--accent-rgb),.6),0 0 30px -4px rgba(var(--accent-rgb),.75)}}
+@media (prefers-reduced-motion:reduce){.globe-wrap figcaption b{background-size:100% 100%}}
 @keyframes shimmer{from{background-position:100% 0}to{background-position:-150% 0}}
 .ticker-pill{gap:10px;padding:6px 14px 6px 12px}
 .tk-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
