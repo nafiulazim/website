@@ -220,3 +220,21 @@ a.byline{text-decoration:none;color:inherit}
 @media (min-width:2200px){html{zoom:1.4}.wrap{max-width:1440px}}
 @media (min-width:2800px){html{zoom:1.75}}
 @media (min-width:3400px){html{zoom:2.1}}
+
+/* brand lockup: gradient-ring monogram + editorial wordmark */
+@property --spin{syntax:"<angle>";inherits:false;initial-value:210deg}
+.brand{gap:11px}
+.brand .mark{position:relative;width:38px;height:38px;border-radius:12px;padding:1.6px;flex:none;
+  background:conic-gradient(from var(--spin),#45d6cd,#86b6ff,#a99bff,#f2b54a,#45d6cd);
+  box-shadow:0 6px 18px -8px rgba(var(--accent-rgb),.7);transition:--spin 1.2s var(--ease),transform .4s var(--spring)}
+.brand .mark span{display:grid;place-items:center;width:100%;height:100%;border-radius:10.5px;background:var(--ink-2);
+  font-family:var(--display);font-weight:800;font-size:14px;letter-spacing:-.04em}
+.brand .mark span i{font-style:normal;background:linear-gradient(135deg,#45d6cd,#86b6ff 55%,#f2b54a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand:hover .mark{--spin:570deg;transform:rotate(-6deg) scale(1.04)}
+.brand .word{display:grid;line-height:1}
+.brand .word b{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.035em;color:var(--fg)}
+.brand .word b em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.14em;letter-spacing:-.01em;margin-left:.18em;
+  background:linear-gradient(90deg,var(--teal),var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.06em}
+.brand .word small{font-family:var(--mono);font-size:9.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:5px}
+@media (max-width:380px){.brand .word small{display:none}}
+.brand .mark span{background:#0b1322}
