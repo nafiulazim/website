@@ -45,9 +45,11 @@
 .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
 .hero-top{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(24px,4vw,56px);align-items:center}
 .globe-wrap{margin:0;position:relative;display:grid;gap:10px;justify-items:center}
-#globe{width:100%;max-width:560px;aspect-ratio:1;cursor:grab;touch-action:pan-y}
-.globe-wrap figcaption{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);margin-top:-20px}
-.globe-wrap figcaption .dot{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:ping 2.2s infinite}
+#globe{width:100%;max-width:560px;aspect-ratio:1}
+.globe-wrap figcaption{justify-self:center;text-align:center;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;margin-top:-18px;padding-left:.32em;
+  background:linear-gradient(90deg,var(--dim) 0%,var(--dim) 35%,var(--teal) 45%,var(--sky) 50%,var(--amber) 55%,var(--dim) 65%,var(--dim) 100%);background-size:250% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 4.5s linear infinite}
+@keyframes shimmer{from{background-position:100% 0}to{background-position:-150% 0}}
 .ticker-pill{gap:10px;padding:6px 14px 6px 12px}
 .tk-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal)}
 .ticker{position:relative;display:inline-grid;min-width:min(290px,52vw);height:1.4em;overflow:hidden;color:var(--fg);font-weight:500}
@@ -209,7 +211,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     </div>
     <figure class="globe-wrap fade f2" aria-label="Globe with data flowing between regions">
       <canvas id="globe" role="img" aria-label="A rotating globe with data flowing between cities across every region."></canvas>
-      <figcaption><span class="dot"></span>Data from every region · drag to spin</figcaption>
+      <figcaption>Data from every region</figcaption>
     </figure>
     </div>
 
@@ -388,7 +390,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
 })();
 </script>
 <script src="/assets/site.js?v=12"></script>
-<script src="/assets/globe.js?v=2"></script>
+<script src="/assets/globe.js?v=3"></script>
 <script>
 /* Drifting data-network background */
 (() => {

@@ -102,10 +102,6 @@ window.LAND=[-541,-698,-541,-374,-522,-715,-522,-591,-503,-729,-503,-699,-484,-7
     }
     if (!reduce && visible) requestAnimationFrame(frame);
   }
-  cv.addEventListener("pointerdown", (e) => { drag = { x: e.clientX, r: rot }; cv.setPointerCapture(e.pointerId); cv.style.cursor = "grabbing"; });
-  cv.addEventListener("pointermove", (e) => { if (drag) rot = drag.r + (e.clientX - drag.x) / R; });
-  const end = () => { drag = null; cv.style.cursor = "grab"; };
-  cv.addEventListener("pointerup", end); cv.addEventListener("pointercancel", end);
   new MutationObserver(readColors).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", readColors);
   if ("IntersectionObserver" in window) new IntersectionObserver(([e]) => { const was = visible; visible = e.isIntersecting; if (visible && !was && !reduce) { t0 = performance.now(); requestAnimationFrame(frame); } }).observe(cv);
