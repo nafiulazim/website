@@ -171,3 +171,39 @@ loadReviews(); setupForm();
   }
   tick(); setInterval(tick, 30000);
 })();
+
+/* Share buttons: <div class="share" data-share> with links/buttons carrying data-net */
+(() => {
+  const boxes = document.querySelectorAll("[data-share]"); if (!boxes.length) return;
+  const meta = (p) => (document.querySelector(`meta[property="${p}"]`) || {}).content || "";
+  const url = meta("og:url") || location.href.split("#")[0];
+  const title = meta("og:title") || document.title;
+  const desc = meta("og:description") || "";
+  const e = encodeURIComponent;
+  const links = {
+    linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${e(url)}`,
+    x: `https://twitter.com/intent/tweet?text=${e(title)}&url=${e(url)}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${e(url)}`,
+    whatsapp: `https://wa.me/?text=${e(title + " " + url)}`,
+    telegram: `https://t.me/share/url?url=${e(url)}&text=${e(title)}`,
+    email: `mailto:?subject=${e(title)}&body=${e(desc + "\n\n" + url)}`
+  };
+  boxes.forEach((box) => {
+    if (navigator.share) box.classList.add("can-native");
+    box.querySelectorAll("a[data-net]").forEach((a) => {
+      const n = a.dataset.net; if (!links[n]) return;
+      a.href = links[n];
+      if (n !== "email") { a.target = "_blank"; a.rel = "noopener"; }
+    });
+    const copy = box.querySelector('[data-net="copy"]');
+    if (copy) copy.addEventListener("click", async () => {
+      const html = copy.innerHTML;
+      try { await navigator.clipboard.writeText(url); copy.textContent = "Link copied"; }
+      catch (err) { window.prompt("Copy this link:", url); }
+      copy.classList.add("copied");
+      setTimeout(() => { copy.innerHTML = html; copy.classList.remove("copied"); }, 2000);
+    });
+    const nat = box.querySelector('[data-net="native"]');
+    if (nat) nat.addEventListener("click", () => navigator.share({ title, text: desc, url }).catch(() => {}));
+  });
+})();
