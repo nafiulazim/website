@@ -37,3 +37,6 @@ Settings live at the top of `assets/site.js` (`REVIEWS_CONFIG`).
 - The hero "Latest" bento tile and the issue's card thumbnail must show a small version of THAT issue's main chart (its own chart type) in its own accent colour, as inline SVG with an `acc-<colour>` class defining `--a`/`--a-rgb` for light and dark. Never reuse another issue's preview visual (e.g. don't reuse the dot grid).
 - The first card in the Dashboards list is the featured one (full width); new issues go first.
 - Each issue's og.jpg must show that issue's own main chart and accent; give it a new file name if it replaces an older image (so social sites refresh their previews).
+
+## Theme
+Dark is the default on every page. The theme script in each page's <head> sets data-theme="dark" unless the visitor chose light with the toggle (saved in localStorage). Copy this script unchanged into new issues.
