@@ -320,3 +320,6 @@ a.byline{text-decoration:none;color:inherit}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:760px){.sub{grid-template-columns:1fr}.sub-note{grid-column:1}}
 .panel.plain::before,.panel.plain::after{display:none!important}
+
+/* softer dark (Nov 2026) */
+:root:not([data-theme="light"]){--ink:#131c2c;--ink-2:#1a2539;--ink-3:#223048;--line:rgba(170,195,235,.16);--line-2:rgba(170,195,235,.28);--fg:#f1f4f9;--muted:#b3bfd0;--dim:#8d9bb0;--nav:22,31,48;--panel-bg:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.04));--panel-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 24px 50px -36px rgba(0,0,0,.6)}
