@@ -2,6 +2,15 @@
 
 Personal site and passion project: weekly dashboards on global development data.
 
+
+## ⚠️ DATA ACCURACY: THE MOST IMPORTANT RULE (read before building anything)
+Credible, correct numbers matter more than design, speed or anything else. A dashboard with one wrong number is worse than no dashboard. If in doubt, leave it out.
+1. SOURCE: only credible public sources (original UN/World Bank/OECD/IMF/national statistics reports and datasets, peer institutions, established news outlets). Every number must be confirmed in the ORIGINAL report/dataset, or by at least two independent reputable sources that agree exactly. Leave out anything that can't be confirmed or where sources disagree.
+2. CROSS-CHECK BEFORE BUILDING: write a validation log (number, unit, period, scope, source URLs, exact quote/table where found). Then do a second, separate pass: re-open each source and re-check every value, unit (million vs billion, % vs percentage points), year/period, geography and definition (e.g. "provided and mobilised" vs "provided"; "people in need" vs "people targeted").
+3. CONSISTENCY CHECKS (all must pass): parts add up to totals; shares match their numerators and denominators (recompute every %); no two numbers on the page contradict each other; the same figure is written identically everywhere (headline, takeaways, charts, tooltips, preview image, brief, data files, homepage card, LinkedIn post); derived numbers show their formula in the tooltip; rounding never changes meaning, and rounded values say "about".
+4. AUTOMATED CHECK: run `python3 tools/check_numbers.py <issue-slug>` after building. It must report 0 problems (every number in the headline, takeaways, social tags, homepage card/tile and data.csv must appear in a data-tip with a data-src). Fix and rerun until clean.
+5. REPORT: in the PR, include the validation log, the consistency checks you did (with the sums/percentages recomputed), the checker output, and the numbers you left out and why.
+
 ## Structure
 ```
 index.html                                  homepage (nafiulazim.com)
