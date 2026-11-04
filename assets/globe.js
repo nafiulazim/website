@@ -15,7 +15,7 @@ window.LAND=[-541,-698,-541,-374,-522,-715,-522,-591,-503,-729,-503,-699,-484,-7
   const pal = ["teal", "sky", "amber"];
   let W = 0, R = 0, dpr = 1, rot = -30 * D, tilt = 18 * D, vel = 0.0016, drag = null, visible = true, colors = {};
   function readColors() {
-    const cs = getComputedStyle(document.documentElement);
+    const cs = getComputedStyle(document.querySelector(".hero") || document.documentElement);
     colors = { w: cs.getPropertyValue("--w").trim(), teal: cs.getPropertyValue("--teal").trim(), sky: cs.getPropertyValue("--sky").trim(), amber: cs.getPropertyValue("--amber").trim(), coral: cs.getPropertyValue("--coral").trim(), fg: cs.getPropertyValue("--fg").trim(), muted: cs.getPropertyValue("--muted").trim(), acc: cs.getPropertyValue("--accent-rgb").trim(), ink: cs.getPropertyValue("--ink").trim() };
   }
   function size() {

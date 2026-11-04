@@ -326,3 +326,12 @@ a.byline{text-decoration:none;color:inherit}
 .chart-dl{position:relative;top:-3px;margin-left:10px;vertical-align:middle;display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--line-2);background:rgba(var(--w),.05);color:var(--muted);font:600 11px var(--mono);text-decoration:none;opacity:.75;transition:opacity .2s,color .2s,border-color .2s}
 .chart-dl:hover,.chart-dl:focus-visible{opacity:1;color:var(--fg);border-color:var(--fg)}
 .data-link{margin-top:12px!important;font-size:13px}.data-link a{color:var(--teal)}
+
+/* ===== Dark frame + light content (Nov 2026): nav, hero, dashboard headline, closing and footer are always dark ===== */
+.nav,.hero,.d-hero,.closing,footer.site{--ink:#131c2c;--ink-2:#1a2539;--ink-3:#223048;--line:rgba(170,195,235,.16);--line-2:rgba(170,195,235,.28);--fg:#f1f4f9;--muted:#b3bfd0;--dim:#8d9bb0;--teal:#45d6cd;--amber:#f2b54a;--coral:#ff6e5a;--sky:#86b6ff;--violet:#a99bff;--w:255,255,255;--nav:22,31,48;--on-accent:#06110f;--accent-rgb:69,214,205;--net:134,182,255;--panel-bg:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.04));--panel-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 24px 50px -36px rgba(0,0,0,.6);--glow-a:rgba(69,214,205,.16);--glow-b:rgba(169,155,255,.10);--glow-c:rgba(255,110,90,.07);color:var(--fg);color-scheme:dark}
+.d-hero{--issue:var(--issue-d,#45d6cd);--issue-rgb:var(--issue-d-rgb,69,214,205)}
+.hero,.d-hero,.closing,footer.site{background:radial-gradient(900px 420px at 85% 0%,rgba(69,214,205,.13),transparent 60%),radial-gradient(700px 380px at 0% 100%,rgba(169,155,255,.09),transparent 60%),#131c2c;position:relative}
+.hero{padding-bottom:72px}.d-hero{padding-bottom:56px}
+body:has(.hero),body:has(.d-hero){background:linear-gradient(#131c2c 0 220px,var(--ink) 220px)}
+.hero,.d-hero{box-shadow:0 -400px 0 0 #131c2c}
+.nav>.wrap{background:rgba(22,31,48,.94)!important}

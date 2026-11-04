@@ -87,3 +87,10 @@ Test: if someone reads only the title, do they know what the data says? "Climate
 ## Link previews stay fresh (required)
 - Every preview image has a unique file name (og.jpg for a new issue; if it ever changes, og-v2.jpg, og-v3.jpg …). Never overwrite an existing preview image under the same name: LinkedIn, Facebook and WhatsApp cache images by URL.
 - Whenever a headline changes, update og:title, twitter:title, og:image:alt AND re-render the preview image under a new file name in the same commit.
+
+## Theme: dark frame + light content (Nov 2026, replaces "dark default")
+- Default view = LIGHT content with an always-DARK frame: nav, homepage hero (.hero), dashboard headline area (.d-hero), closing CTA (.closing) and footer. The frame tokens live in assets/site.css ("Dark frame + light content").
+- The toggle switches the content to full dark (localStorage theme="dark"). The theme script in every page head: data-theme = "dark" only if localStorage says "dark", otherwise "light".
+- Every issue page must define its dark accent for the hero: on :root add --issue-d and --issue-d-rgb (the dark-mode values of --issue), e.g. :root{--issue-d:#6fd685;--issue-d-rgb:111,214,133;--issue:#2f8a3e;...}.
+- Homepage hero tiles using an accent class need a dark value inside .hero (e.g. .hero .acc-green{--a:#6fd685;--a-rgb:111,214,133}).
+- Check every new page in BOTH modes: light (default) and dark (toggle).

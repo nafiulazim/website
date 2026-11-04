@@ -25,10 +25,10 @@
 <meta name="twitter:description" content="One interactive dashboard every week on global development and humanitarian data.">
 <meta name="twitter:image" content="https://nafiulazim.com/assets/og-home.jpg">
 <meta name="theme-color" content="#131c2c">
-<script>(function(){var t=null;try{t=localStorage.getItem("theme")}catch(e){}document.documentElement.setAttribute("data-theme",t==="light"?"light":"dark")})()</script>
+<script>(function(){var t=null;try{t=localStorage.getItem("theme")}catch(e){}document.documentElement.setAttribute("data-theme",t==="dark"?"dark":"light")})()</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=28">
+<link rel="stylesheet" href="/assets/site.css?v=30">
 <style>
 /* ---------- hero ---------- */
 .hero{position:relative;padding-block:clamp(56px,9vw,112px) clamp(40px,6vw,72px)}
@@ -95,6 +95,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .acc-green{--a:#6fd685;--a-rgb:111,214,133}}
 :root[data-theme="dark"] .acc-green{--a:#6fd685;--a-rgb:111,214,133}
 .acc-coral{--a:var(--coral);--a-rgb:255,110,90}
+.hero .acc-green{--a:#6fd685;--a-rgb:111,214,133}
 .b-main .b-title em{color:var(--a,var(--coral))}
 .b-main .b-cat{border-color:rgba(var(--a-rgb,0,0,0),.4);color:var(--a,var(--muted))}
 .mini{width:100%;height:auto;display:block}
@@ -424,7 +425,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
 
 <script src="/assets/site.js?v=23"></script>
 <script src="/assets/dashboards.js?v=9"></script>
-<script src="/assets/globe.js?v=3"></script>
+<script src="/assets/globe.js?v=4"></script>
 <script>
 /* Drifting data-network background */
 (() => {
