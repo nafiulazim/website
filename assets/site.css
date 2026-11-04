@@ -297,3 +297,16 @@ a.byline{text-decoration:none;color:inherit}
 .rel p{margin:0;color:var(--muted);font-size:14px}
 .rel-go{font-size:13px;font-weight:600;color:var(--teal)}
 .cards .card[hidden]{display:none!important} .cards.filtered>.card:first-child{grid-column:auto}
+/* takeaways + reuse */
+.takeaways{border-left:3px solid var(--issue,var(--teal))}
+.takeaways ol{margin:12px 0 0;padding-left:22px;display:grid;gap:10px;font-size:clamp(16px,1.6vw,19px);line-height:1.5}
+.takeaways li::marker{color:var(--issue,var(--teal));font-weight:700}
+.takeaways b{color:var(--fg)}
+.tk-note{margin:14px 0 0;font-size:13px;color:var(--dim)}
+.reuse{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center}
+.reuse h3{margin:6px 0 8px}.reuse p{color:var(--muted);margin:0}
+.reuse-btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.cite{border:1px dashed var(--line-2);border-radius:14px;padding:16px}
+.cite .lab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.cite p{margin:8px 0 0!important;font-family:"Geist Mono",monospace;font-size:13px;line-height:1.55;word-break:break-word;color:var(--fg)!important}
+@media (max-width:760px){.reuse{grid-template-columns:1fr}}

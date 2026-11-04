@@ -49,3 +49,11 @@ window.DDW = [
   }
   bar.addEventListener("click", (e) => { const b = e.target.closest(".fpill"); if (b) apply(b.dataset.k); });
 })();
+
+/* Copy citation buttons */
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-copy]"); if (!b) return;
+  const t = document.getElementById(b.dataset.copy)?.textContent || "";
+  const done = () => { const o = b.textContent; b.textContent = "Copied ✓"; setTimeout(() => (b.textContent = o), 1600); };
+  (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(done).catch(() => { const r = document.createRange(); r.selectNodeContents(document.getElementById(b.dataset.copy)); getSelection().removeAllRanges(); getSelection().addRange(r); });
+});

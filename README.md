@@ -51,3 +51,8 @@ Theme keys: humanitarian, climate, health, children, gender, migration, finance.
 3. Issue page hero `.metaline`: add `<span class="ttag t-<main>">icon Full label</span><span class="rtag">Region</span>`.
 4. Issue page: add `<section class="tight gut" data-related="<this page url>"></section>` right before the Sources section, and include `<script src="/assets/dashboards.js?v=N"></script>` after site.js.
 The homepage filter pills and "More on this theme" links build themselves from these.
+
+## Takeaways, data download and citation (required for every new dashboard)
+- Right after `</header>`: a `.takeaways` section with exactly 3 one-line takeaways, using only figures that appear on the page with data-tip/data-src.
+- Before the related section: the "Use this data" `.reuse` section (copy from Issue 02) with the CSV link, the copy-citation button and the citation `Azim, N. (YEAR). TITLE. Dev Data Weekly #NN, DATE. URL`.
+- `data.csv` in the issue folder: one row per unique data-tip (Figure, Source, Dashboard, Compiled), UTF-8 with BOM. Generate it from the rendered page so chart-drawn values are included, and update the "All N figures" count.
