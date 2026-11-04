@@ -26,3 +26,8 @@ Settings live at the top of `assets/site.js` (`REVIEWS_CONFIG`).
 - Use the newest edition of a dataset; don't publish outdated figures when a newer edition exists.
 - Don't publish derived numbers (own arithmetic) unless clearly labelled as such.
 - If not enough validated numbers are available, make a smaller dashboard and say so in the PR, rather than filling gaps.
+
+## Design rules (for every dashboard)
+- Each dashboard must look clearly different from the previous ones: change the chart types (e.g. columns, donut, dot grid, gap bars, list rows, timeline, map-like tiles), the layout of the KPI and "On the ground" sections, and the accent colour. Keep only the shared brand pieces the same (nav, logo, byline, share bar, sources, disclaimer, footer).
+- Before building, look at the last two issues and avoid repeating their chart forms and layout.
+- Every chart must be interactive: hovering (or tapping on phones, or keyboard focus) over a bar, segment, column or row shows a tooltip with the exact value, year and source.
