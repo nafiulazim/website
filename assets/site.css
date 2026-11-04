@@ -319,3 +319,4 @@ a.byline{text-decoration:none;color:inherit}
 .sub-note{grid-column:2;margin:-8px 0 0;font-size:13px;color:var(--dim)}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (max-width:760px){.sub{grid-template-columns:1fr}.sub-note{grid-column:1}}
+.panel.plain::before,.panel.plain::after{display:none!important}

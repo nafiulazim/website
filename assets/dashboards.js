@@ -63,14 +63,17 @@ document.addEventListener("click", (e) => {
   document.querySelectorAll("[data-subscribe]").forEach((box) => {
     box.classList.add("tight", "gut");
     box.innerHTML = `<div class="wrap"><div class="panel sub reveal in"><div class="sub-copy"><span class="eyebrow">Data Stories · free newsletter</span><h3>Get each dashboard in your inbox</h3><p>One data story every Wednesday: 3 key takeaways and a link to the full dashboard. No spam, unsubscribe anytime.</p></div>
-      <form class="sub-form" action="https://buttondown.com/api/emails/embed-subscribe/nafiulazim" method="post" target="_blank">
+      <form class="sub-form" action="https://buttondown.com/api/emails/embed-subscribe/nafiulazim" method="post">
         <label class="sr-only" for="sub-${Math.random().toString(36).slice(2,7)}">Email address</label>
         <input type="email" name="email" required placeholder="you@example.org" autocomplete="email" aria-label="Email address">
         <input type="hidden" name="tag" value="${location.pathname === "/" ? "homepage" : "dashboard"}">
-        <input type="hidden" value="1" name="embed">
+        <input type="hidden" value="1" name="embed"><input type="hidden" name="redirect" value="https://nafiulazim.com/subscribed/">
         <button type="submit" class="btn btn-primary">Subscribe</button>
       </form><p class="sub-note">Check your inbox to confirm. Views my own.</p></div></div>`;
     const f = box.querySelector("form");
     f.addEventListener("submit", () => setTimeout(() => { f.reset(); box.querySelector(".sub-note").textContent = "Almost done: check your inbox and click the confirmation link."; }, 300));
   });
 })();
+
+/* keep "latest dashboard" link on /subscribed current */
+(() => { const a = document.getElementById("latest"); if (a && window.DDW && DDW[0]) a.href = DDW[0].url; })();
