@@ -59,3 +59,6 @@ The homepage filter pills and "More on this theme" links build themselves from t
 
 ## Analytics
 Every page must include the Cloudflare Web Analytics snippet just before `</body>` (copy it from any existing page).
+
+## Newsletter
+Every dashboard page includes `<section data-subscribe></section>` just before the related section (dashboards.js renders the Buttondown form for `nafiulazim`).

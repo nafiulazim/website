@@ -310,3 +310,12 @@ a.byline{text-decoration:none;color:inherit}
 .cite .lab{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
 .cite p{margin:8px 0 0!important;font-family:"Geist Mono",monospace;font-size:13px;line-height:1.55;word-break:break-word;color:var(--fg)!important}
 @media (max-width:760px){.reuse{grid-template-columns:1fr}}
+/* newsletter */
+.sub{display:grid;grid-template-columns:1.1fr 1fr;gap:20px 32px;align-items:center;background:radial-gradient(600px 260px at 100% 0%,rgba(var(--teal-rgb,63,208,201),.14),transparent 60%),var(--panel,transparent)}
+.sub h3{margin:6px 0 8px;font-size:clamp(22px,2.6vw,30px)}.sub-copy p{margin:0;color:var(--muted)}
+.sub-form{display:flex;gap:10px;flex-wrap:wrap}
+.sub-form input[type=email]{flex:1 1 220px;min-height:48px;padding:0 16px;border-radius:999px;border:1px solid var(--line-2);background:rgba(var(--w),.04);color:var(--fg);font:inherit;font-size:16px}
+.sub-form input:focus{outline:2px solid var(--teal);outline-offset:2px}
+.sub-note{grid-column:2;margin:-8px 0 0;font-size:13px;color:var(--dim)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:760px){.sub{grid-template-columns:1fr}.sub-note{grid-column:1}}
