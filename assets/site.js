@@ -207,3 +207,42 @@ loadReviews(); setupForm();
     if (nat) nat.addEventListener("click", () => navigator.share({ title, text: desc, url }).catch(() => {}));
   });
 })();
+
+/* Data tooltips: hover (mouse), tap (touch) or focus (keyboard) on [data-tip] shows exact value + source */
+(() => {
+  const tip = document.createElement("div"); tip.className = "dtip"; tip.setAttribute("role", "tooltip"); document.body.appendChild(tip);
+  let cur = null, shownAt = 0;
+  const html = (el) => { const e = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    return `<b>${e(el.dataset.tip)}</b>${el.dataset.src ? `<span>Source: ${e(el.dataset.src)}</span>` : ""}`; };
+  function place(x, y) {
+    const r = tip.getBoundingClientRect(), pad = 12;
+    let left = x - r.width / 2, top = y - r.height - 14;
+    if (top < pad) top = y + 18;
+    left = Math.max(pad, Math.min(innerWidth - r.width - pad, left));
+    tip.style.left = left + "px"; tip.style.top = top + "px";
+  }
+  function show(el, x, y) {
+    if (cur !== el) shownAt = performance.now();
+    cur = el; tip.innerHTML = html(el); tip.classList.add("on");
+    if (x == null) { const r = el.getBoundingClientRect(); x = r.left + r.width / 2; y = r.top; }
+    place(x, y);
+  }
+  function hide() { cur = null; tip.classList.remove("on"); }
+  function prep(root) { root.querySelectorAll("[data-tip]").forEach((el) => { if (el.hasAttribute("data-notab")) return; if (!el.hasAttribute("tabindex")) el.tabIndex = 0; if (!el.getAttribute("aria-label")) el.setAttribute("aria-label", el.dataset.tip + (el.dataset.src ? ". Source: " + el.dataset.src : "")); }); }
+  prep(document);
+  new MutationObserver((ms) => ms.forEach((m) => m.addedNodes.forEach((n) => n.nodeType === 1 && prep(n.parentNode || n)))).observe(document.body, { childList: true, subtree: true });
+  document.addEventListener("pointermove", (e) => {
+    if (e.pointerType !== "mouse") return;
+    const el = e.target.closest && e.target.closest("[data-tip]");
+    if (el) show(el, e.clientX, e.clientY); else if (cur) hide();
+  }, { passive: true });
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest && e.target.closest("[data-tip]");
+    if (el && e.pointerType !== "mouse") { if (cur === el && performance.now() - shownAt > 450) hide(); else show(el); }
+    else if (!el) hide();
+  });
+  document.addEventListener("focusin", (e) => { if (e.target.matches && e.target.matches("[data-tip]")) show(e.target); });
+  document.addEventListener("focusout", hide);
+  addEventListener("scroll", () => { if (cur && !cur.matches(":focus")) hide(); }, { passive: true });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") hide(); });
+})();

@@ -264,3 +264,13 @@ a.byline{text-decoration:none;color:inherit}
   background:conic-gradient(from 210deg,#45d6cd,#86b6ff,#a99bff,#f2b54a,#45d6cd);box-shadow:0 6px 18px -8px rgba(var(--accent-rgb),.7)}
 .mark.sm span{display:grid;place-items:center;width:100%;height:100%;border-radius:10.5px;background:#0b1322;font-family:var(--display);font-weight:800;font-size:14px;letter-spacing:-.04em}
 .mark.sm span i{font-style:normal;background:linear-gradient(135deg,#45d6cd,#86b6ff 55%,#f2b54a);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* data tooltips: any element with data-tip (+ optional data-src) */
+[data-tip]{cursor:help}
+[data-tip]:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.dtip{position:fixed;z-index:80;pointer-events:none;max-width:min(280px,calc(100vw - 24px));padding:10px 12px;border-radius:12px;
+  background:var(--ink-2);color:var(--fg);border:1px solid var(--line-2);box-shadow:0 16px 40px -16px rgba(0,0,0,.45);
+  font-size:13px;line-height:1.4;opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}
+.dtip.on{opacity:1;transform:none}
+.dtip b{display:block;font-family:var(--mono);font-size:14px;font-weight:500;color:var(--fg)}
+.dtip span{display:block;margin-top:4px;font-family:var(--mono);font-size:11px;color:var(--dim)}

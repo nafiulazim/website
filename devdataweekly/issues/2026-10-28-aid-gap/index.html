@@ -30,7 +30,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=16">
+<link rel="stylesheet" href="/assets/site.css?v=20">
 <style>
 .d-hero{padding-block:clamp(48px,8vw,96px) 24px}
 .d-hero .wrap{display:grid;gap:20px}
@@ -101,8 +101,8 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
 .pv{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
 .axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--dim);margin:0 58px 0 66px}
 /* ground */
-.ground{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media (max-width:1000px){.ground{grid-template-columns:repeat(2,1fr)}}
+.ground{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.ground{grid-template-columns:1fr}}
 @media (max-width:520px){.ground{grid-template-columns:1fr}}
 .g{display:grid;gap:10px;align-content:start;transition:transform .35s var(--ease),border-color .35s}
 .g:hover{transform:translateY(-4px);border-color:rgba(255,107,87,.4)}
@@ -144,7 +144,7 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
   <div class="wrap">
     <div class="crumbs reveal"><a href="/#dashboards">← All dashboards</a><span>/</span><span class="mono">Dev Data Weekly #01</span></div>
     <h1 class="reveal d1">239 million people need aid. The plan targets <em class="serif">87 million.</em></h1>
-    <p class="lede reveal d2">Funding cuts pushed the UN to shrink its 2026 humanitarian appeal to the smallest ask since 2017. Here's who is in, who is left out, and where the money now comes from.</p>
+    <p class="lede reveal d2">Funding cuts pushed the UN to scale back its 2026 humanitarian appeal. Here's who is in, who is left out, and where the money now comes from.</p>
     <div class="hero-meta reveal d3">
       <a class="byline" href="/#about"><span class="mark sm" aria-hidden="true"><span><i>NA</i></span></span><span class="who"><b>By Nafiul Azim</b><span>International development professional</span></span></a>
       <div class="metaline"><span class="pill"><span class="dot"></span>Data compiled 28 Oct 2026</span><span class="pill">Humanitarian financing</span></div>
@@ -165,10 +165,10 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
 
 <section class="tight gut">
   <div class="wrap kpis">
-    <div class="panel kpi hot reveal"><b data-count="239" data-suffix="M">239M</b><span>people in need of humanitarian aid in 2026</span></div>
-    <div class="panel kpi reveal d1"><b data-count="23" data-prefix="$" data-suffix="B">$23B</b><span>"hyper-prioritised" ask, out of a $33B full plan</span></div>
-    <div class="panel kpi reveal d2"><b data-count="12" data-prefix="$" data-suffix="B">$12B</b><span>received for the 2025 appeal, the lowest in a decade</span></div>
-    <div class="panel kpi hot reveal d3"><b data-count="25" data-suffix="M">25M</b><span>fewer people reached in 2025 than in 2024</span></div>
+    <div class="panel kpi hot reveal" data-tip="239 million people in need of humanitarian assistance (end of 2025)" data-src="OCHA, Global Humanitarian Overview 2026 (Dec 2025)"><b data-count="239" data-suffix="M">239M</b><span>people in need of humanitarian aid in 2026</span></div>
+    <div class="panel kpi reveal d1" data-tip="US$23 billion prioritised ask (87M people); full plan US$33 billion (135M people)" data-src="OCHA, Global Humanitarian Overview 2026 (Dec 2025); OCHA launch release, 8 Dec 2025"><b data-count="23" data-prefix="$" data-suffix="B">$23B</b><span>"hyper-prioritised" ask, out of a $33B full plan</span></div>
+    <div class="panel kpi reveal d2" data-tip="87M of 239M people in need are in the hyper-prioritised tier (36%)" data-src="OCHA, Global Humanitarian Overview 2026 (Dec 2025); The New Humanitarian"><b data-count="36" data-suffix="%">36%</b><span>of people in need are in the 2026 priority plan</span></div>
+    <div class="panel kpi hot reveal d3" data-tip="25 million fewer people reached in 2025 than in 2024" data-src="OCHA, GHO 2026 launch release (8 Dec 2025)"><b data-count="25" data-suffix="M">25M</b><span>fewer people reached in 2025 than in 2024</span></div>
   </div>
 </section>
 
@@ -176,15 +176,15 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
   <div class="wrap grid-wide">
     <div class="panel reveal">
       <div class="ph"><div><h3>Every dot is one million people</h3><p>239 dots for 239 million people in need</p></div><span class="src">GHO 2026</span></div>
-      <div class="dots" id="dots" data-anim></div>
+      <div class="dots" id="dots" data-anim role="img" aria-label="239 dots: 87 million prioritised, 48 million more targeted if fully funded, 104 million in need but not targeted."></div>
       <div class="legend"><span><i style="background:var(--teal)"></i>Prioritised · 87M</span><span><i style="background:var(--amber)"></i>Targeted if fully funded · +48M</span><span><i style="background:rgba(255,107,87,.55)"></i>In need, not targeted · 104M</span></div>
     </div>
     <div class="panel reveal d1">
       <div class="ph"><div><h3>From need to help</h3><p>People, millions</p></div></div>
       <div class="funnel" data-anim>
-        <div class="fr"><div class="lab"><span>In need</span><b>239M</b></div><div class="tr"><i style="width:100%;background:linear-gradient(90deg,var(--coral),#ff8f6b)"></i></div></div>
-        <div class="fr"><div class="lab"><span>Targeted (full plan)</span><b>135M</b></div><div class="tr"><i style="width:56.5%;background:linear-gradient(90deg,var(--amber),#ffd27a)"></i></div></div>
-        <div class="fr"><div class="lab"><span>Hyper-prioritised</span><b>87M</b></div><div class="tr"><i style="width:36.4%;background:linear-gradient(90deg,var(--teal),#7ee6df)"></i></div></div>
+        <div class="fr" data-tip="In need: 239 million people" data-src="OCHA, Global Humanitarian Overview 2026 (Dec 2025)"><div class="lab"><span>In need</span><b>239M</b></div><div class="tr"><i style="width:100%;background:linear-gradient(90deg,var(--coral),#ff8f6b)"></i></div></div>
+        <div class="fr" data-tip="Targeted under the full plan: 135 million people (US$33B)" data-src="OCHA, Global Humanitarian Overview 2026 (Dec 2025)"><div class="lab"><span>Targeted (full plan)</span><b>135M</b></div><div class="tr"><i style="width:56.5%;background:linear-gradient(90deg,var(--amber),#ffd27a)"></i></div></div>
+        <div class="fr" data-tip="Hyper-prioritised: 87 million people (US$23B)" data-src="OCHA, Global Humanitarian Overview 2026 (Dec 2025)"><div class="lab"><span>Hyper-prioritised</span><b>87M</b></div><div class="tr"><i style="width:36.4%;background:linear-gradient(90deg,var(--teal),#7ee6df)"></i></div></div>
       </div>
       <div class="callout">Only about <strong>36%</strong> of people in need are in the priority tier. The rest are reached only if extra money arrives.</div>
     </div>
@@ -202,13 +202,13 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
       <div class="shift" data-anim>
         <div class="donor">
           <div class="sh-lab"><b>United States</b><span class="mono" style="color:var(--coral)">−17 pts</span></div>
-          <div class="pair"><span class="pl">Before</span><span class="pt"><i class="seg" style="width:100%;background:rgba(var(--w),.22)"></i></span><span class="pv">~40%</span></div>
-          <div class="pair"><span class="pl">2025</span><span class="pt"><i class="seg" style="width:57.5%;background:var(--coral)"></i></span><span class="pv">23%</span></div>
+          <div class="pair" data-tip="United States: around 40% of government humanitarian funding (before 2025)" data-src="ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)"><span class="pl">Before</span><span class="pt"><i class="seg" style="width:100%;background:rgba(var(--w),.22)"></i></span><span class="pv">~40%</span></div>
+          <div class="pair" data-tip="United States: 23% of government humanitarian funding (2025)" data-src="ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)"><span class="pl">2025</span><span class="pt"><i class="seg" style="width:57.5%;background:var(--coral)"></i></span><span class="pv">23%</span></div>
         </div>
         <div class="donor">
           <div class="sh-lab"><b>Gulf donors</b><span class="mono" style="color:var(--teal)">+7 pts</span></div>
-          <div class="pair"><span class="pl">Before</span><span class="pt"><i class="seg" style="width:25%;background:rgba(var(--w),.22)"></i></span><span class="pv">10%</span></div>
-          <div class="pair"><span class="pl">2025</span><span class="pt"><i class="seg" style="width:42.5%;background:var(--teal)"></i></span><span class="pv">17%</span></div>
+          <div class="pair" data-tip="Gulf donors: 10% of government humanitarian funding (before 2025)" data-src="ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)"><span class="pl">Before</span><span class="pt"><i class="seg" style="width:25%;background:rgba(var(--w),.22)"></i></span><span class="pv">10%</span></div>
+          <div class="pair" data-tip="Gulf donors: 17% of government humanitarian funding (2025)" data-src="ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)"><span class="pl">2025</span><span class="pt"><i class="seg" style="width:42.5%;background:var(--teal)"></i></span><span class="pv">17%</span></div>
         </div>
         <div class="axis"><span>0%</span><span>10%</span><span>20%</span><span>30%</span><span>40%</span></div>
       </div>
@@ -221,16 +221,15 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
   <div class="wrap">
     <div class="sec-head reveal" style="margin-bottom:22px"><span class="eyebrow">On the ground</span><h2>What the gap looks like</h2></div>
     <div class="ground" data-anim>
-      <div class="panel g reveal"><span class="place">Afghanistan</span><b>$1.1B</b><p>still unfunded of a $1.7B plan, about one third covered.</p><div class="meter"><i style="width:67%"></i></div><span class="src">OCHA Afghanistan</span></div>
-      <div class="panel g reveal d1"><span class="place">Gaza</span><b>&lt;1M</b><p>of 2.1 million people will get monthly food aid from October 2026.</p><div class="meter"><i style="width:55%"></i></div><span class="src">OCHA oPt, 22 Oct 2026</span></div>
-      <div class="panel g reveal d2"><span class="place">DR Congo</span><b>−73%</b><p>cut to monthly food assistance targets; 2026 requirements cut by 45%.</p><div class="meter"><i style="width:73%"></i></div><span class="src">OCHA DRC, Jan 2026</span></div>
-      <div class="panel g reveal d3"><span class="place">Sudan</span><b>7.5%</b><p>of 2.2 million people targeted have received shelter aid.</p><div class="meter"><i style="width:92.5%"></i></div><span class="src">GHO 2026 · Sudan</span></div>
+      <div class="panel g reveal" data-tip="Fewer than 1 million of an estimated 2.1 million people in Gaza reached with monthly food aid from October 2026" data-src="OCHA oPt, Humanitarian Situation Report, 22 Oct 2026"><span class="place">Gaza</span><b>&lt;1M</b><p>of 2.1 million people will get monthly food aid from October 2026.</p><div class="meter"><i style="width:55%"></i></div><span class="src">OCHA oPt, 22 Oct 2026</span></div>
+      <div class="panel g reveal d1" data-tip="Monthly food assistance targets cut by up to 73%; 2026 HNRP requirements cut by 45% vs 2025" data-src="OCHA DRC, 2026 HNRP launch release, 28 Jan 2026"><span class="place">DR Congo</span><b>−73%</b><p>cut to monthly food assistance targets; 2026 requirements cut by 45%.</p><div class="meter"><i style="width:73%"></i></div><span class="src">OCHA DRC, Jan 2026</span></div>
+      <div class="panel g reveal d2" data-tip="7.5% of 2.2 million people targeted have received shelter assistance" data-src="OCHA, GHO 2026, Sudan chapter"><span class="place">Sudan</span><b>7.5%</b><p>of 2.2 million people targeted have received shelter aid.</p><div class="meter"><i style="width:92.5%"></i></div><span class="src">GHO 2026 · Sudan</span></div>
     </div>
   </div>
 </section>
 
 <section class="tight gut">
-  <div class="wrap panel persp reveal">
+  <div class="wrap panel persp reveal" data-tip="Full appeal fundable if everyone earning over $100,000 gave $0.20 a day; the $23B ask is just over 1% of $2.7 trillion global defence spending" data-src="UN Emergency Relief Coordinator Tom Fletcher, GHO 2026 launch (UN UNifeed)">
     <div class="big grad">$0.20</div>
     <div>
       <p>The UN says the <strong>full appeal could be funded</strong> if everyone earning over $100,000 a year gave $0.20 a day.</p>
@@ -297,15 +296,16 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
   let h = "";
   for (let i = 0; i < 239; i++) {
     const cls = i < 87 ? "p" : i < 135 ? "t" : "n";
-    h += `<i class="${cls}" style="transition-delay:${(i * 6)}ms"></i>`;
+    const tipTxt = cls === "p" ? "Prioritised: 87 million people" : cls === "t" ? "Targeted if fully funded: +48 million (135M total)" : "In need, not targeted: 104 million";
+    h += `<i class="${cls}" data-tip="${tipTxt}" data-src="OCHA, Global Humanitarian Overview 2026 (Dec 2025)" data-notab style="transition-delay:${(i * 6)}ms"></i>`;
   }
   dots.innerHTML = h;
 
-  const c = [["Palestine (oPt)",4.1],["Sudan",2.9],["Afghanistan",1.7],["South Sudan",1.5],["DR Congo",1.4],["Haiti",0.893],["Burkina Faso",0.662],["Mali",0.551],["Colombia",0.384],["Cameroon",0.308],["C. African Rep.",0.264]];
+  const c = [["Palestine (oPt)",4.1],["Afghanistan",1.7],["South Sudan",1.5],["DR Congo",1.4],["Haiti",0.893],["Burkina Faso",0.662],["Mali",0.551],["Colombia",0.384],["Cameroon",0.308],["C. African Rep.",0.264]];
   document.getElementById("countries").innerHTML = c.map(([n, v], i) =>
-    `<div class="crow"><span>${n}</span><span class="cb"><i style="width:${(v / 4.1 * 100).toFixed(1)}%;transition-delay:${i * 70}ms"></i></span><span class="v">$${v >= 1 ? v.toFixed(1) + "B" : Math.round(v * 1000) + "M"}</span></div>`).join("");
+    `<div class="crow" data-tip="${n}: US$${v >= 1 ? v.toFixed(2).replace(/0$/,"") + " billion" : Math.round(v * 1000) + " million"} required in 2026" data-src="OCHA, GHO 2026 At a Glance (8 Dec 2025)"><span>${n}</span><span class="cb"><i style="width:${(v / 4.1 * 100).toFixed(1)}%;transition-delay:${i * 70}ms"></i></span><span class="v">$${v >= 1 ? v.toFixed(1) + "B" : Math.round(v * 1000) + "M"}</span></div>`).join("");
 })();
 </script>
-<script src="/assets/site.js?v=12"></script>
+<script src="/assets/site.js?v=21"></script>
 </body>
 </html>
