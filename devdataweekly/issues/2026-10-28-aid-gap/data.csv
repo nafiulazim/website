@@ -1,29 +1,31 @@
-﻿Figure,Source,Dashboard,Compiled
-239 million people in need of humanitarian assistance (end of 2025),"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-US$23 billion prioritised ask (87M people); full plan US$33 billion (135M people),"OCHA, Global Humanitarian Overview 2026 (Dec 2025); OCHA launch release, 8 Dec 2025",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-87M of 239M people in need are in the hyper-prioritised tier (36%),"OCHA, Global Humanitarian Overview 2026 (Dec 2025); The New Humanitarian",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-25 million fewer people reached in 2025 than in 2024,"OCHA, GHO 2026 launch release (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Prioritised: 87 million people,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Targeted if fully funded: +48 million (135M total),"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-"In need, not targeted: 104 million","OCHA, Global Humanitarian Overview 2026 (Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-In need: 239 million people,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Targeted under the full plan: 135 million people (US$33B),"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Hyper-prioritised: 87 million people (US$23B),"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Palestine (oPt): US$4.1 billion required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Afghanistan: US$1.7 billion required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-South Sudan: US$1.5 billion required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-DR Congo: US$1.4 billion required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Haiti: US$893 million required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Burkina Faso: US$662 million required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Mali: US$551 million required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Colombia: US$384 million required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Cameroon: US$308 million required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-C. African Rep.: US$264 million required in 2026,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-United States: around 40% of government humanitarian funding (before 2025),"ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-United States: 23% of government humanitarian funding (2025),"ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Gulf donors: 10% of government humanitarian funding (before 2025),"ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Gulf donors: 17% of government humanitarian funding (2025),"ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Fewer than 1 million of an estimated 2.1 million people in Gaza reached with monthly food aid from October 2026,"OCHA oPt, Humanitarian Situation Report, 22 Oct 2026",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-Monthly food assistance targets cut by up to 73%; 2026 HNRP requirements cut by 45% vs 2025,"OCHA DRC, 2026 HNRP launch release, 28 Jan 2026",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-7.5% of 2.2 million people targeted have received shelter assistance,"OCHA, GHO 2026, Sudan chapter",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
-"Full appeal fundable if everyone earning over $100,000 gave $0.20 a day; the $23B ask is just over 1% of $2.7 trillion global defence spending","UN Emergency Relief Coordinator Tom Fletcher, GHO 2026 launch (UN UNifeed)",Dev Data Weekly #01: The 2026 Aid Gap,28 Oct 2026
+﻿Indicator,Value,Unit,Year,Country / group,Type,Source,Source link,Note
+People in need of humanitarian assistance,239,million people,2026,Global,Reported,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,Figure as of end of 2025
+People targeted under the full 2026 plan,135,million people,2026,Global,Reported,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+People in the hyper-prioritised tier,87,million people,2026,Global,Reported,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Hyper-prioritised share of people in need,36,%,2026,Global,Calculated,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,87M ÷ 239M
+"People in need, not targeted",104,million people,2026,Global,Calculated,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,239M − 135M
+Full plan funding requirement,33,US$ billion,2026,Global,Reported,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Hyper-prioritised funding requirement,23,US$ billion,2026,Global,Reported,"OCHA, Global Humanitarian Overview 2026 (Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Change in people reached vs previous year,-25,million people,2025,Global,Reported,"OCHA, GHO 2026 launch release (8 Dec 2025)",https://www.unocha.org/news/todays-top-news-global-humanitarian-overview-2026-sudan-occupied-palestinian-territory,25 million fewer people reached in 2025 than in 2024
+Humanitarian funding requirement,4.1,US$ billion,2026,Occupied Palestinian Territory,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,1.7,US$ billion,2026,Afghanistan,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,1.5,US$ billion,2026,South Sudan,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,1.4,US$ billion,2026,DR Congo,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,0.893,US$ billion,2026,Haiti,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,0.662,US$ billion,2026,Burkina Faso,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,0.551,US$ billion,2026,Mali,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,0.384,US$ billion,2026,Colombia,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,0.308,US$ billion,2026,Cameroon,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Humanitarian funding requirement,0.264,US$ billion,2026,Central African Republic,Reported,"OCHA, GHO 2026 At a Glance (8 Dec 2025)",https://www.unocha.org/attachments/cdccb8f4-11b0-4999-bb3f-d1c54c8ff21c/GHO2026_At_a_glance_EN.pdf,
+Share of government humanitarian funding,40,%,Before 2025,United States,Reported,"ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)",https://alnap.org/help-library/resources/global-humanitarian-assistance-gha-report-2026/summary/,"Approximate (""around 40%"")"
+Share of government humanitarian funding,23,%,2025,United States,Reported,"ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)",https://alnap.org/help-library/resources/global-humanitarian-assistance-gha-report-2026/summary/,
+Share of government humanitarian funding,10,%,Before 2025,Gulf donors,Reported,"ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)",https://alnap.org/help-library/resources/global-humanitarian-assistance-gha-report-2026/summary/,
+Share of government humanitarian funding,17,%,2025,Gulf donors,Reported,"ALNAP, Global Humanitarian Assistance Report 2026 (OCHA FTS data)",https://alnap.org/help-library/resources/global-humanitarian-assistance-gha-report-2026/summary/,
+People reached with monthly food aid,1,million people,Oct 2026,Gaza,Reported,"OCHA oPt, Humanitarian Situation Report, 22 Oct 2026",https://www.ochaopt.org/content/humanitarian-situation-report-22-october-2026,"Upper bound: ""fewer than 1 million"""
+Estimated population,2.1,million people,Oct 2026,Gaza,Reported,"OCHA oPt, Humanitarian Situation Report, 22 Oct 2026",https://www.ochaopt.org/content/humanitarian-situation-report-22-october-2026,
+Cut in monthly food assistance targets,73,%,2026,DR Congo,Reported,"OCHA DRC, 2026 HNRP launch release, 28 Jan 2026",https://allafrica.com/stories/202601280120.html,"""Up to"" 73%"
+Cut in HNRP funding requirements vs 2025,45,%,2026,DR Congo,Reported,"OCHA DRC, 2026 HNRP launch release, 28 Jan 2026",https://allafrica.com/stories/202601280120.html,
+Share of targeted people who received shelter assistance,7.5,%,2026,Sudan,Reported,"OCHA, GHO 2026, Sudan chapter",https://humanitarianaction.info/document/global-humanitarian-overview-2026/article/sudan-4,Of 2.2 million people targeted
+People targeted for shelter assistance,2.2,million people,2026,Sudan,Reported,"OCHA, GHO 2026, Sudan chapter",https://humanitarianaction.info/document/global-humanitarian-overview-2026/article/sudan-4,
+Daily contribution per high earner to fund the full appeal,0.2,US$ per day,2026,"People earning over US$100,000",Reported,"UN Emergency Relief Coordinator, GHO 2026 launch (UN UNifeed)",https://media.un.org/unifeed/en/asset/d351/d3510835,
+Global defence spending (reference),2700,US$ billion,2025,Global,Reported,"UN Emergency Relief Coordinator, GHO 2026 launch (UN UNifeed)",https://media.un.org/unifeed/en/asset/d351/d3510835,Cited as US$2.7 trillion

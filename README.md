@@ -55,7 +55,7 @@ The homepage filter pills and "More on this theme" links build themselves from t
 ## Takeaways, data download and citation (required for every new dashboard)
 - Right after `</header>`: a `.takeaways` section with exactly 3 one-line takeaways, using only figures that appear on the page with data-tip/data-src.
 - Before the related section: the "Use this data" `.reuse` section (copy from Issue 02) with the CSV link, the copy-citation button and the citation `Azim, N. (YEAR). TITLE. Dev Data Weekly #NN, DATE. URL`.
-- `data.csv` in the issue folder: one row per unique data-tip (Figure, Source, Dashboard, Compiled), UTF-8 with BOM. Generate it from the rendered page so chart-drawn values are included, and update the "All N figures" count.
+- Data files in the issue folder, in TIDY format: `data.xlsx` (sheets "Data" + "Notes") and `data.csv` (same Data sheet, UTF-8 with BOM). Columns: Indicator, Value (plain number only), Unit, Year, Country / group, Type (Reported or Calculated), Source, Source link (direct URL to the original), Note (formula for calculated values, caveats like "approximate"). One number per row; split ranges and before/after pairs into separate rows. Only figures that appear on the page. Copy the generator approach used for Issues 01–02 and update the "All N figures" count. Buttons: Excel (primary) + CSV.
 
 ## Analytics
 Every page must include the Cloudflare Web Analytics snippet just before `</body>` (copy it from any existing page).
