@@ -43,3 +43,11 @@ Dark is the default on every page. The theme script in each page's <head> sets d
 
 ## Countdown
 The homepage "Next dashboard drops in" tile has `data-latest="YYYY-MM-DD"`. Set it to the date of the newest published issue; the timer then counts down to 12 pm (noon) Bangkok, seven days later.
+
+## Themes and tags (required for every new dashboard)
+Theme keys: humanitarian, climate, health, children, gender, migration, finance. Region keys: global, asiapac, africa, mena, latam, europe.
+1. Add an entry at the TOP of `window.DDW` in `assets/dashboards.js` (n, title, url, date, topic, also[≤2], region, one-line summary), then bump `dashboards.js?v=` on all pages.
+2. Homepage card: add `data-topics="<main> <also…>"` on the `<a class="panel card">` and a `<div class="tags">` with `<span class="ttag t-<key>">icon Label</span>` chips after the `.meta` line. Upcoming cards get tags too.
+3. Issue page hero `.metaline`: add `<span class="ttag t-<main>">icon Full label</span><span class="rtag">Region</span>`.
+4. Issue page: add `<section class="tight gut" data-related="<this page url>"></section>` right before the Sources section, and include `<script src="/assets/dashboards.js?v=N"></script>` after site.js.
+The homepage filter pills and "More on this theme" links build themselves from these.
