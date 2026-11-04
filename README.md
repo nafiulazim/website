@@ -74,3 +74,7 @@ Test: if someone reads only the title, do they know what the data says? "Climate
 - Card/registry title: the same finding in under ~70 characters. The homepage hero "Latest" tile (.b-main: .b-title, mini chart, legend, source line) must use the same finding headline and a mini chart that shows that finding.
 - The headline must match the main message of the preview image and the LinkedIn hook.
 - Never let the headline imply the opposite of the finding (e.g. leading with a bigger promise when the story is under-delivery).
+
+## Link previews stay fresh (required)
+- Every preview image has a unique file name (og.jpg for a new issue; if it ever changes, og-v2.jpg, og-v3.jpg …). Never overwrite an existing preview image under the same name: LinkedIn, Facebook and WhatsApp cache images by URL.
+- Whenever a headline changes, update og:title, twitter:title, og:image:alt AND re-render the preview image under a new file name in the same commit.
