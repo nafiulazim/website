@@ -62,7 +62,8 @@ Theme keys: humanitarian, climate, health, children, gender, migration, finance.
 The homepage filter pills and "More on this theme" links build themselves from these.
 
 ## Takeaways, data download and citation (required for every new dashboard)
-- Right after `</header>`: a `.takeaways` section with exactly 3 one-line takeaways, using only figures that appear on the page with data-tip/data-src.
+- Right after `</header>`: a `.takeaways` section with exactly 3 takeaways, using only figures that appear on the page with data-tip/data-src.
+- TAKEAWAYS MUST BE SELF-EXPLANATORY: each one is understood on its own by someone who reads nothing else. Say WHAT was measured, FOR WHOM and WHEN (e.g. "climate finance for developing countries in 2024", "share of government humanitarian funding"); plain words, no jargon (explain any technical term in a few words, e.g. "adapt (for example flood defences)"); when comparing figures from different periods, say so; never link two facts with "after", "because" or "due to" unless the source states that link; add no claims that are not validated on the page. Max ~35 words each.
 - Before the related section: the "Use this data" `.reuse` section (copy from Issue 02) with the CSV link, the copy-citation button and the citation `Azim, N. (YEAR). TITLE. Dev Data Weekly #NN, DATE. URL`.
 - Data files in the issue folder, in TIDY format: `data.xlsx` (sheets "Data" + "Notes") and `data.csv` (same Data sheet, UTF-8 with BOM). Columns: Indicator, Value (plain number only), Unit, Year, Country / group, Type (Reported or Calculated), Source, Source link (direct URL to the original), Note (formula for calculated values, caveats like "approximate"). One number per row; split ranges and before/after pairs into separate rows. Only figures that appear on the page. Copy the generator approach used for Issues 01–02 and update the "All N figures" count. Buttons: Excel (primary) + CSV.
 
