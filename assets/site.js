@@ -153,7 +153,7 @@ loadReviews(); setupForm();
   }, { passive: true });
 })();
 
-/* Countdown to the next Wednesday dashboard (14:00 Bangkok = 07:00 UTC) */
+/* Countdown to the next Wednesday dashboard (12:00 Bangkok = 05:00 UTC) */
 (() => {
   const els = document.querySelectorAll("[data-next-drop]"); if (!els.length) return;
   function next(el) {
@@ -161,12 +161,12 @@ loadReviews(); setupForm();
     const last = el.dataset.latest; // date of the latest published issue, YYYY-MM-DD
     if (last) {
       const [y, m, d] = last.split("-").map(Number);
-      const t = new Date(Date.UTC(y, m - 1, d, 7, 0, 0)); // 14:00 Bangkok on that day
+      const t = new Date(Date.UTC(y, m - 1, d, 5, 0, 0)); // 12:00 Bangkok on that day
       t.setUTCDate(t.getUTCDate() + 7);
       while (t <= now) t.setUTCDate(t.getUTCDate() + 7);
       return t;
     }
-    const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 7, 0, 0));
+    const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 5, 0, 0));
     let add = (3 - t.getUTCDay() + 7) % 7; if (add === 0 && now >= t) add = 7;
     t.setUTCDate(t.getUTCDate() + add); return t;
   }
