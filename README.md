@@ -40,3 +40,6 @@ Settings live at the top of `assets/site.js` (`REVIEWS_CONFIG`).
 
 ## Theme
 Dark is the default on every page. The theme script in each page's <head> sets data-theme="dark" unless the visitor chose light with the toggle (saved in localStorage). Copy this script unchanged into new issues.
+
+## Countdown
+The homepage "Next dashboard drops in" tile has `data-latest="YYYY-MM-DD"`. Set it to the date of the newest published issue; the timer then counts down to 2 pm Bangkok, seven days later.

@@ -156,14 +156,23 @@ loadReviews(); setupForm();
 /* Countdown to the next Wednesday dashboard (14:00 Bangkok = 07:00 UTC) */
 (() => {
   const els = document.querySelectorAll("[data-next-drop]"); if (!els.length) return;
-  function next() {
-    const n = new Date(); const t = new Date(Date.UTC(n.getUTCFullYear(), n.getUTCMonth(), n.getUTCDate(), 7, 0, 0));
-    let add = (3 - t.getUTCDay() + 7) % 7; if (add === 0 && n >= t) add = 7;
+  function next(el) {
+    const now = new Date();
+    const last = el.dataset.latest; // date of the latest published issue, YYYY-MM-DD
+    if (last) {
+      const [y, m, d] = last.split("-").map(Number);
+      const t = new Date(Date.UTC(y, m - 1, d, 7, 0, 0)); // 14:00 Bangkok on that day
+      t.setUTCDate(t.getUTCDate() + 7);
+      while (t <= now) t.setUTCDate(t.getUTCDate() + 7);
+      return t;
+    }
+    const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 7, 0, 0));
+    let add = (3 - t.getUTCDay() + 7) % 7; if (add === 0 && now >= t) add = 7;
     t.setUTCDate(t.getUTCDate() + add); return t;
   }
   function tick() {
-    const ms = next() - new Date(), d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60;
     els.forEach((el) => {
+      const ms = next(el) - new Date(), d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24, m = Math.floor(ms / 6e4) % 60;
       el.querySelector("[data-d]").textContent = String(d).padStart(2, "0");
       el.querySelector("[data-h]").textContent = String(h).padStart(2, "0");
       el.querySelector("[data-m]").textContent = String(m).padStart(2, "0");
