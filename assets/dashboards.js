@@ -11,9 +11,9 @@ window.DDW_TOPICS = {
 };
 window.DDW_REGIONS = { global: "Global", asiapac: "Asia-Pacific", africa: "Africa", mena: "Middle East & North Africa", latam: "Latin America & Caribbean", europe: "Europe" };
 window.DDW = [
-  { n: 2, title: "Climate finance: promised vs delivered", url: "/devdataweekly/issues/2026-11-04-climate-finance/", date: "2026-11-04",
+  { n: 2, title: "$136.7B in climate finance. Just 7% reached the poorest countries.", url: "/devdataweekly/issues/2026-11-04-climate-finance/", date: "2026-11-04",
     topic: "climate", also: ["finance"], region: "global", summary: "$136.7B delivered in 2024, $300B promised by 2035. Who is still waiting." },
-  { n: 1, title: "The 2026 Aid Gap", url: "/devdataweekly/issues/2026-10-28-aid-gap/", date: "2026-10-28",
+  { n: 1, title: "239M people need aid. The 2026 plan targets 87M.", url: "/devdataweekly/issues/2026-10-28-aid-gap/", date: "2026-10-28",
     topic: "humanitarian", also: ["finance"], region: "global", summary: "239M people in need, 87M prioritised. Where the money goes, and who pays now." }
 ];
 

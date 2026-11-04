@@ -66,3 +66,11 @@ Every dashboard page includes `<section data-subscribe></section>` just before t
 ## Brief and chart images (required for every new dashboard)
 After the page is final, run `python3 tools/build_assets.py <issue-slug>`. It renders `charts/chart-N.png` (light theme, with source and nafiulazim.com footer) for every panel that has a heading and 2+ data-tip marks, and `brief.pdf` (one A4 page: title, lede, takeaways, first two charts, sources, link). Open brief.pdf and check it is ONE page and readable; if a chart is cut off, adjust and rerun. Commit charts/ and brief.pdf.
 The "Take it with you" reuse section (copy from Issue 02): primary button = brief.pdf, Copy citation, and a small "For analysts" line linking data.xlsx and data.csv. Chart ↓ PNG icons are added automatically by dashboards.js.
+
+## Titles: state the finding, not the topic (required)
+Every dashboard headline (h1), homepage card title, registry title, <title>, og:title/twitter:title, preview image headline and citation must STATE THE FINDING with a validated number, not name the topic.
+Test: if someone reads only the title, do they know what the data says? "Climate finance: promised vs delivered" fails; "Rich countries delivered $136.7 billion. The poorest got 7%." passes.
+- h1: 1-2 short sentences, max ~12 words each, the key number or contrast highlighted in <em class="serif">.
+- Card/registry title: the same finding in under ~70 characters.
+- The headline must match the main message of the preview image and the LinkedIn hook.
+- Never let the headline imply the opposite of the finding (e.g. leading with a bigger promise when the story is under-delivery).
