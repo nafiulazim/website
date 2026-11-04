@@ -68,7 +68,7 @@ After the page is final, run `python3 tools/build_assets.py <issue-slug>`. It re
 The "Take it with you" reuse section (copy from Issue 02): primary button = brief.pdf, Copy citation, and a small "For analysts" line linking data.xlsx and data.csv. Chart ↓ PNG icons are added automatically by dashboards.js.
 
 ## Titles: state the finding, not the topic (required)
-Every dashboard headline (h1), homepage card title, registry title, <title>, og:title/twitter:title, preview image headline and citation must STATE THE FINDING with a validated number, not name the topic.
+Every dashboard headline must NAME THE TOPIC and STATE THE FINDING (e.g. "in climate finance", "humanitarian aid"), so a reader who sees only the first line knows both what it is about and what the data says. This applies to the headline (h1), homepage card title, registry title, <title>, og:title/twitter:title, preview image headline and citation must STATE THE FINDING with a validated number, not name the topic.
 Test: if someone reads only the title, do they know what the data says? "Climate finance: promised vs delivered" fails; "Rich countries delivered $136.7 billion. The poorest got 7%." passes.
 - h1: 1-2 short sentences, max ~12 words each, the key number or contrast highlighted in <em class="serif">.
 - Card/registry title: the same finding in under ~70 characters. The homepage hero "Latest" tile (.b-main: .b-title, mini chart, legend, source line) must use the same finding headline and a mini chart that shows that finding.
