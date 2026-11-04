@@ -100,7 +100,7 @@
 .ring circle{fill:none;stroke-width:9}
 .ring .bg{stroke:rgba(var(--w),.08)}
 .ring .fg{stroke:var(--teal);stroke-linecap:round;stroke-dasharray:226.2;stroke-dashoffset:226.2;transition:stroke-dashoffset 1.8s var(--ease) .3s}
-.ring.in .fg{stroke-dashoffset:144}
+.ring.in .fg{stroke-dashoffset:123}
 .count{display:flex;gap:10px}
 .count div{display:grid;gap:2px;text-align:center;min-width:54px;padding:10px 6px;border-radius:12px;background:rgba(var(--w),.04);border:1px solid var(--line)}
 .count b{font-family:var(--mono);font-size:26px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1}
@@ -211,7 +211,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
       </h1>
       <p class="lede fade">I'm Nafiul, an international development professional who loves building dashboards. Every week I turn public data on aid, crises, climate and the SDGs into one clear, interactive story.</p>
       <div class="hero-actions fade f2">
-        <a class="btn btn-primary" href="/devdataweekly/issues/2026-10-28-aid-gap/">Explore the latest dashboard <span class="arr">→</span></a>
+        <a class="btn btn-primary" href="/devdataweekly/issues/2026-11-04-climate-finance/">Explore the latest dashboard <span class="arr">→</span></a>
         <a class="btn btn-ghost" href="#dashboards">Browse all</a>
       </div>
     </div>
@@ -222,34 +222,34 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     </div>
 
     <div class="bento">
-      <a class="panel b-main reveal" href="/devdataweekly/issues/2026-10-28-aid-gap/" aria-label="Open the latest dashboard: The 2026 Aid Gap">
-        <div class="b-top"><span class="b-live"><span class="dot"></span>Latest · #01</span><span class="b-cat">Humanitarian</span></div>
-        <div class="b-title">239 million people need aid. The plan targets <em>87 million.</em></div>
+      <a class="panel b-main reveal" href="/devdataweekly/issues/2026-11-04-climate-finance/" aria-label="Open the latest dashboard: Climate finance, promised vs delivered">
+        <div class="b-top"><span class="b-live"><span class="dot"></span>Latest · #02</span><span class="b-cat">Climate finance</span></div>
+        <div class="b-title">Rich countries promised $100 billion. The new goal is <em>$300 billion.</em></div>
         <div class="dots" id="hero-dots" data-anim aria-hidden="true"></div>
-        <div class="legend"><span><i style="background:var(--teal)"></i>Prioritised 87M</span><span><i style="background:var(--amber)"></i>If fully funded +48M</span><span><i style="background:var(--coral);opacity:.6"></i>Not targeted 104M</span></div>
-        <div class="b-foot"><span class="src">1 dot = 1 million people · OCHA GHO 2026</span><span class="b-go">Open dashboard <span>→</span></span></div>
+        <div class="legend"><span><i style="background:var(--teal)"></i>Delivered in 2024 $137B</span><span><i style="background:var(--coral);opacity:.6"></i>Still to reach the 2035 goal $163B</span></div>
+        <div class="b-foot"><span class="src">1 dot = $1 billion a year · OECD 2026</span><span class="b-go">Open dashboard <span>→</span></span></div>
       </a>
 
       <div class="panel tile reveal d1">
-        <span class="k">Priority coverage</span>
+        <span class="k">2035 goal, covered</span>
         <div class="ring" id="ring" data-anim>
           <svg viewBox="0 0 84 84" aria-hidden="true"><circle class="bg" cx="42" cy="42" r="36"/><circle class="fg" cx="42" cy="42" r="36"/></svg>
-          <div class="big"><span data-count="36" data-suffix="%">36%</span></div>
+          <div class="big"><span data-count="46" data-suffix="%">46%</span></div>
         </div>
-        <p>of people in need are in the 2026 priority plan</p>
+        <p>of the $300B-a-year goal is already delivered (2024 level)</p>
       </div>
 
       <div class="panel tile reveal d2">
-        <span class="k">Raised in 2025</span>
-        <div class="big"><span data-count="12" data-prefix="$" data-suffix="B">$12B</span></div>
-        <p>for UN appeals, the lowest in a decade</p>
+        <span class="k">Low-income countries</span>
+        <div class="big"><span data-count="7" data-suffix="%">7%</span></div>
+        <p>of 2024 climate finance reached them</p>
       </div>
 
       <div class="panel tile t-next reveal d3">
         <div class="row">
           <div style="display:grid;gap:8px">
             <span class="k">Next dashboard drops in</span>
-            <h3>Climate finance: promised vs delivered</h3>
+            <h3>Who is most exposed to climate disasters?</h3>
           </div>
           <div class="count" data-next-drop aria-label="Time until the next dashboard">
             <div><b data-d>--</b><small>days</small></div>
@@ -274,6 +274,13 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     <div class="sec-head reveal"><span class="eyebrow">Dev Data Weekly</span><h2>Dashboards, <span class="serif">one a week.</span></h2><p class="lede">Each one covers a single topic, built only from public sources, with every number cited.</p></div>
     <div class="cards">
       <!-- NEW ISSUES GO FIRST: copy one <a class="panel card"> block -->
+      <a class="panel card reveal" href="/devdataweekly/issues/2026-11-04-climate-finance/">
+        <div class="thumb" aria-hidden="true"><i style="height:100%;background:linear-gradient(180deg,var(--coral),rgba(255,110,90,.12))"></i><i style="height:23%;background:linear-gradient(180deg,var(--amber),rgba(242,181,74,.12))"></i><i style="height:10.5%"></i><i style="height:60%;opacity:.45"></i><i style="height:40%;opacity:.45"></i><i style="height:26%;opacity:.45"></i><i style="height:18%;opacity:.3"></i><i style="height:12%;opacity:.3"></i></div>
+        <div class="meta"><span class="tag live">Live · #02</span><span class="mono" style="color:var(--dim)">4 Nov 2026</span></div>
+        <h3>Climate finance: promised vs delivered</h3>
+        <p>$136.7B delivered in 2024, $300B promised by 2035. Who is still waiting.</p>
+        <span class="go">Open dashboard →</span>
+      </a>
       <a class="panel card reveal" href="/devdataweekly/issues/2026-10-28-aid-gap/">
         <div class="thumb" aria-hidden="true"><i style="height:100%;background:linear-gradient(180deg,var(--coral),rgba(255,110,90,.12))"></i><i style="height:56%;background:linear-gradient(180deg,var(--amber),rgba(242,181,74,.12))"></i><i style="height:36%"></i><i style="height:70%;opacity:.45"></i><i style="height:48%;opacity:.45"></i><i style="height:30%;opacity:.45"></i><i style="height:22%;opacity:.3"></i><i style="height:16%;opacity:.3"></i></div>
         <div class="meta"><span class="tag live">Live · #01</span><span class="mono" style="color:var(--dim)">28 Oct 2026</span></div>
@@ -283,15 +290,15 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
       </a>
       <div class="panel card soon reveal d1">
         <div class="thumb" aria-hidden="true"></div>
-        <div class="meta"><span class="tag">Next · #02</span><span class="mono" style="color:var(--dim)">4 Nov 2026</span></div>
-        <h3>Climate finance: promised vs delivered</h3>
-        <p>Ahead of COP31, who pledged, who paid, and who is still waiting.</p>
+        <div class="meta"><span class="tag">Next · #03</span><span class="mono" style="color:var(--dim)">11 Nov 2026</span></div>
+        <h3>Who is most exposed to climate disasters?</h3>
+        <p>Risk, readiness and the countries that face both.</p>
       </div>
       <div class="panel card soon reveal d2">
         <div class="thumb" aria-hidden="true"></div>
-        <div class="meta"><span class="tag">Soon · #03</span><span class="mono" style="color:var(--dim)">11 Nov 2026</span></div>
-        <h3>Who is most exposed to climate disasters?</h3>
-        <p>Risk, readiness and the countries that face both.</p>
+        <div class="meta"><span class="tag">Soon · #04</span><span class="mono" style="color:var(--dim)">18 Nov 2026</span></div>
+        <h3>Child poverty and malnutrition</h3>
+        <p>Ahead of World Children's Day, how many children are left behind.</p>
       </div>
     </div>
   </div>
@@ -388,10 +395,10 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
 </footer>
 
 <script>
-/* Hero dot grid: 1 dot = 1 million people */
+/* Hero dot grid: 1 dot = $1 billion a year */
 (() => {
   const d = document.getElementById("hero-dots"); let h = "";
-  for (let i = 0; i < 239; i++) h += `<i class="${i < 87 ? "p" : i < 135 ? "t" : "n"}" style="transition-delay:${i * 4}ms"></i>`;
+  for (let i = 0; i < 300; i++) h += `<i class="${i < 137 ? "p" : "n"}" style="transition-delay:${i * 3}ms"></i>`;
   d.innerHTML = h;
 })();
 </script>
