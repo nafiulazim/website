@@ -323,3 +323,6 @@ a.byline{text-decoration:none;color:inherit}
 
 /* softer dark (Nov 2026) */
 :root:not([data-theme="light"]){--ink:#131c2c;--ink-2:#1a2539;--ink-3:#223048;--line:rgba(170,195,235,.16);--line-2:rgba(170,195,235,.28);--fg:#f1f4f9;--muted:#b3bfd0;--dim:#8d9bb0;--nav:22,31,48;--panel-bg:linear-gradient(180deg,rgba(255,255,255,.075),rgba(255,255,255,.04));--panel-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 24px 50px -36px rgba(0,0,0,.6)}
+.chart-dl{position:relative;top:-3px;margin-left:10px;vertical-align:middle;display:inline-flex;align-items:center;gap:5px;height:32px;padding:0 10px;border-radius:999px;border:1px solid var(--line-2);background:rgba(var(--w),.05);color:var(--muted);font:600 11px var(--mono);text-decoration:none;opacity:.75;transition:opacity .2s,color .2s,border-color .2s}
+.chart-dl:hover,.chart-dl:focus-visible{opacity:1;color:var(--fg);border-color:var(--fg)}
+.data-link{margin-top:12px!important;font-size:13px}.data-link a{color:var(--teal)}

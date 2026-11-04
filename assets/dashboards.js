@@ -77,3 +77,16 @@ document.addEventListener("click", (e) => {
 
 /* keep "latest dashboard" link on /subscribed current */
 (() => { const a = document.getElementById("latest"); if (a && window.DDW && DDW[0]) a.href = DDW[0].url; })();
+
+/* Chart image download icons (images pre-rendered in ./charts/chart-N.png by tools/build_assets.py) */
+(() => {
+  if (!document.querySelector("[data-related]")) return;
+  const ps = [...document.querySelectorAll(".panel")].filter((p) => p.querySelector("h2,h3") && p.querySelectorAll("[data-tip]").length >= 2);
+  ps.forEach((p, i) => {
+    const a = document.createElement("a");
+    a.className = "chart-dl"; a.href = `charts/chart-${i + 1}.png`; a.download = `DevDataWeekly-chart-${i + 1}.png`;
+    a.title = "Download this chart as an image"; a.setAttribute("aria-label", "Download chart as image: " + p.querySelector("h2,h3").textContent.trim());
+    a.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>PNG</span>';
+    p.querySelector("h2,h3").appendChild(a);
+  });
+})();
