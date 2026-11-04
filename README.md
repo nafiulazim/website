@@ -26,3 +26,14 @@ Settings live at the top of `assets/site.js` (`REVIEWS_CONFIG`).
 - Use the newest edition of a dataset; don't publish outdated figures when a newer edition exists.
 - Don't publish derived numbers (own arithmetic) unless clearly labelled as such.
 - If not enough validated numbers are available, make a smaller dashboard and say so in the PR, rather than filling gaps.
+
+## Issue design log (each new issue must differ from the last two)
+| Issue | Accent | Chart types | Layout |
+|---|---|---|---|
+| #01 Aid gap (28 Oct 2026) | coral / teal | KPI cards, dot grid (waffle), funnel bars, ranked horizontal bars, before/after pairs, "on the ground" cards | KPI row → wide + narrow panels → two panels → card row → perspective panel |
+| #02 Climate finance (4 Nov 2026) | green (#2f8a3e / #6fd685) | line/area trend with target, scorecard rail, donut + year table, proportional circles, slope chart, stat strip, comparison table with inline bars, needs progress band | full-width lead chart with scorecard rail → donut/circles split → slope + stat strip → comparison table → big-number band |
+
+## Homepage rules for each new issue
+- The hero "Latest" bento tile and the issue's card thumbnail must show a small version of THAT issue's main chart (its own chart type) in its own accent colour, as inline SVG with an `acc-<colour>` class defining `--a`/`--a-rgb` for light and dark. Never reuse another issue's preview visual (e.g. don't reuse the dot grid).
+- The first card in the Dashboards list is the featured one (full width); new issues go first.
+- Each issue's og.jpg must show that issue's own main chart and accent; give it a new file name if it replaces an older image (so social sites refresh their previews).

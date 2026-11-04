@@ -91,6 +91,16 @@
 .b-main:hover .b-go span{transform:translateX(4px)}
 .b-go span{transition:transform .3s var(--ease)}
 
+.acc-green{--a:#2f8a3e;--a-rgb:47,138,62}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .acc-green{--a:#6fd685;--a-rgb:111,214,133}}
+:root[data-theme="dark"] .acc-green{--a:#6fd685;--a-rgb:111,214,133}
+.acc-coral{--a:var(--coral);--a-rgb:255,110,90}
+.b-main .b-title em{color:var(--a,var(--coral))}
+.b-main .b-cat{border-color:rgba(var(--a-rgb,0,0,0),.4);color:var(--a,var(--muted))}
+.mini{width:100%;height:auto;display:block}
+.mini text{font-family:var(--mono);font-size:10px;fill:var(--dim)}
+.card .thumb svg{width:100%;height:100%}
+.card .thumb svg text{font-family:var(--mono);font-size:10px;fill:var(--dim)}
 .tile{display:grid;gap:10px;align-content:space-between;min-height:200px}
 .tile .k{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
 .tile .big{font-family:var(--display);font-size:clamp(40px,4.4vw,56px);font-weight:800;letter-spacing:-.04em;line-height:.95;font-variant-numeric:tabular-nums}
@@ -132,12 +142,10 @@
 /* ---------- dashboards ---------- */
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .card{display:grid;gap:14px;align-content:start;text-decoration:none;overflow:hidden;transition:transform .45s var(--ease),border-color .3s}
-.cards{grid-auto-flow:row dense}
-.cards>.card:first-child{grid-column:1 / span 2;grid-row:1 / span 2}
-.cards>.card:nth-child(2){grid-column:3;grid-row:1}
-.cards>.card:nth-child(3){grid-column:3;grid-row:2}
-.cards>.card:first-child{grid-template-rows:1fr auto auto auto auto}
-.cards>.card:first-child .thumb{height:auto;min-height:170px}
+.cards>.card:first-child{grid-column:1 / -1;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);grid-template-rows:auto auto auto 1fr;column-gap:clamp(20px,3vw,40px);align-items:start}
+.cards>.card:first-child .thumb{grid-row:1 / span 5;align-self:stretch}
+.cards>.card:first-child h3{font-size:clamp(24px,2.4vw,32px)}
+.cards>.card:first-child .thumb{height:auto;min-height:220px;padding:22px}
 a.card:hover{transform:translateY(-6px);border-color:rgba(var(--accent-rgb),.45)}
 .card .thumb{height:170px;border-radius:12px;background:linear-gradient(180deg,rgba(var(--w),.03),rgba(var(--w),.0));border:1px solid var(--line);position:relative;overflow:hidden;display:flex;align-items:flex-end;gap:8px;padding:16px}
 .card .thumb i{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--teal),rgba(var(--accent-rgb),.12));transform-origin:bottom;transition:transform .7s var(--spring)}
@@ -151,8 +159,8 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
 .card.soon{background:transparent;box-shadow:none;border-style:dashed}
 .card.soon .thumb{background:repeating-linear-gradient(135deg,transparent 0 9px,rgba(var(--w),.04) 9px 18px);border-style:dashed}
 .card .go{font-weight:600;font-size:14px;color:var(--teal)}
-@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}.cards>.card:first-child{grid-column:1 / span 2;grid-row:auto}.cards>.card:nth-child(2),.cards>.card:nth-child(3){grid-column:auto;grid-row:auto}}
-@media (max-width:600px){.cards{grid-template-columns:1fr}.cards>.card:first-child{grid-column:auto}.cards>.card:nth-child(2),.cards>.card:nth-child(3){grid-column:auto}}
+@media (max-width:900px){.cards{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.cards{grid-template-columns:1fr}.cards>.card:first-child{grid-template-columns:1fr}.cards>.card:first-child .thumb{grid-row:auto;min-height:0}}
 
 /* ---------- about ---------- */
 .about{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,6vw,80px);align-items:start}
@@ -222,12 +230,23 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     </div>
 
     <div class="bento">
-      <a class="panel b-main reveal" href="/devdataweekly/issues/2026-11-04-climate-finance/" aria-label="Open the latest dashboard: Climate finance, promised vs delivered">
+      <a class="panel b-main acc-green reveal" href="/devdataweekly/issues/2026-11-04-climate-finance/" aria-label="Open the latest dashboard: Climate finance, promised vs delivered">
         <div class="b-top"><span class="b-live"><span class="dot"></span>Latest · #02</span><span class="b-cat">Climate finance</span></div>
         <div class="b-title">Rich countries promised $100 billion. The new goal is <em>$300 billion.</em></div>
-        <div class="dots" id="hero-dots" data-anim aria-hidden="true"></div>
-        <div class="legend"><span><i style="background:var(--teal)"></i>Delivered in 2024 $137B</span><span><i style="background:var(--coral);opacity:.6"></i>Still to reach the 2035 goal $163B</span></div>
-        <div class="b-foot"><span class="src">1 dot = $1 billion a year · OECD 2026</span><span class="b-go">Open dashboard <span>→</span></span></div>
+        <svg class="mini" viewBox="0 0 320 150" aria-hidden="true">
+          <defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--a)" stop-opacity=".3"/><stop offset="1" stop-color="var(--a)" stop-opacity="0"/></linearGradient></defs>
+          <line x1="20" x2="310" y1="20" y2="20" stroke="var(--line)"/><line x1="20" x2="310" y1="71" y2="71" stroke="var(--line)"/><line x1="20" x2="310" y1="122" y2="122" stroke="var(--line)"/>
+          <line x1="20" x2="310" y1="96.5" y2="96.5" stroke="var(--dim)" stroke-dasharray="4 5"/>
+          <path d="M58.7,122 L58.7,62.9 L78,54.3 L97.3,52.3 L97.3,122 Z" fill="url(#hg)"/>
+          <path d="M58.7,62.9 L78,54.3 L97.3,52.3" fill="none" stroke="var(--a)" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M97.3,52.3 L310,20" fill="none" stroke="var(--a)" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+          <circle cx="58.7" cy="62.9" r="4" fill="var(--a)"/><circle cx="78" cy="54.3" r="4" fill="var(--a)"/><circle cx="97.3" cy="52.3" r="5" fill="var(--a)"/>
+          <circle cx="306" cy="20" r="6" fill="var(--ink-2)" stroke="var(--a)" stroke-width="2.5"/>
+          <text x="20" y="142">2020</text><text x="97" y="142" text-anchor="middle">2024</text><text x="306" y="142" text-anchor="end">2035</text>
+          <text x="306" y="89" text-anchor="end">old goal $100B</text>
+        </svg>
+        <div class="legend"><span><i style="background:var(--a)"></i>Delivered 2022–2024, up to $136.7B</span><span><i style="background:transparent;border:2px solid var(--a)"></i>Goal: $300B a year by 2035</span></div>
+        <div class="b-foot"><span class="src">US$ billion a year · OECD 2026 · UNFCCC</span><span class="b-go">Open dashboard <span>→</span></span></div>
       </a>
 
       <div class="panel tile reveal d1">
@@ -274,15 +293,26 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     <div class="sec-head reveal"><span class="eyebrow">Dev Data Weekly</span><h2>Dashboards, <span class="serif">one a week.</span></h2><p class="lede">Each one covers a single topic, built only from public sources, with every number cited.</p></div>
     <div class="cards">
       <!-- NEW ISSUES GO FIRST: copy one <a class="panel card"> block -->
-      <a class="panel card reveal" href="/devdataweekly/issues/2026-11-04-climate-finance/">
-        <div class="thumb" aria-hidden="true"><i style="height:100%;background:linear-gradient(180deg,var(--coral),rgba(255,110,90,.12))"></i><i style="height:23%;background:linear-gradient(180deg,var(--amber),rgba(242,181,74,.12))"></i><i style="height:10.5%"></i><i style="height:60%;opacity:.45"></i><i style="height:40%;opacity:.45"></i><i style="height:26%;opacity:.45"></i><i style="height:18%;opacity:.3"></i><i style="height:12%;opacity:.3"></i></div>
+      <a class="panel card acc-green reveal" href="/devdataweekly/issues/2026-11-04-climate-finance/">
+        <div class="thumb acc-green" aria-hidden="true"><svg viewBox="0 0 320 150" aria-hidden="true">
+          <defs><linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--a)" stop-opacity=".3"/><stop offset="1" stop-color="var(--a)" stop-opacity="0"/></linearGradient></defs>
+          <line x1="20" x2="310" y1="20" y2="20" stroke="var(--line)"/><line x1="20" x2="310" y1="71" y2="71" stroke="var(--line)"/><line x1="20" x2="310" y1="122" y2="122" stroke="var(--line)"/>
+          <line x1="20" x2="310" y1="96.5" y2="96.5" stroke="var(--dim)" stroke-dasharray="4 5"/>
+          <path d="M58.7,122 L58.7,62.9 L78,54.3 L97.3,52.3 L97.3,122 Z" fill="url(#hg2)"/>
+          <path d="M58.7,62.9 L78,54.3 L97.3,52.3" fill="none" stroke="var(--a)" stroke-width="3" stroke-linejoin="round"/>
+          <path d="M97.3,52.3 L310,20" fill="none" stroke="var(--a)" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+          <circle cx="58.7" cy="62.9" r="4" fill="var(--a)"/><circle cx="78" cy="54.3" r="4" fill="var(--a)"/><circle cx="97.3" cy="52.3" r="5" fill="var(--a)"/>
+          <circle cx="306" cy="20" r="6" fill="var(--ink-2)" stroke="var(--a)" stroke-width="2.5"/>
+          <text x="20" y="142">2020</text><text x="97" y="142" text-anchor="middle">2024</text><text x="306" y="142" text-anchor="end">2035</text>
+          <text x="306" y="89" text-anchor="end">old goal $100B</text>
+        </svg></div>
         <div class="meta"><span class="tag live">Live · #02</span><span class="mono" style="color:var(--dim)">4 Nov 2026</span></div>
         <h3>Climate finance: promised vs delivered</h3>
         <p>$136.7B delivered in 2024, $300B promised by 2035. Who is still waiting.</p>
         <span class="go">Open dashboard →</span>
       </a>
       <a class="panel card reveal" href="/devdataweekly/issues/2026-10-28-aid-gap/">
-        <div class="thumb" aria-hidden="true"><i style="height:100%;background:linear-gradient(180deg,var(--coral),rgba(255,110,90,.12))"></i><i style="height:56%;background:linear-gradient(180deg,var(--amber),rgba(242,181,74,.12))"></i><i style="height:36%"></i><i style="height:70%;opacity:.45"></i><i style="height:48%;opacity:.45"></i><i style="height:30%;opacity:.45"></i><i style="height:22%;opacity:.3"></i><i style="height:16%;opacity:.3"></i></div>
+        <div class="thumb" aria-hidden="true"><svg viewBox="0 0 300 130" preserveAspectRatio="xMidYMid meet"><circle cx="12.0" cy="14" r="5.2" fill="var(--teal)"/><circle cx="26.6" cy="14" r="5.2" fill="var(--teal)"/><circle cx="41.2" cy="14" r="5.2" fill="var(--teal)"/><circle cx="55.8" cy="14" r="5.2" fill="var(--teal)"/><circle cx="70.4" cy="14" r="5.2" fill="var(--teal)"/><circle cx="85.0" cy="14" r="5.2" fill="var(--teal)"/><circle cx="99.6" cy="14" r="5.2" fill="var(--teal)"/><circle cx="114.2" cy="14" r="5.2" fill="var(--teal)"/><circle cx="128.8" cy="14" r="5.2" fill="var(--teal)"/><circle cx="143.4" cy="14" r="5.2" fill="var(--teal)"/><circle cx="158.0" cy="14" r="5.2" fill="var(--teal)"/><circle cx="172.6" cy="14" r="5.2" fill="var(--teal)"/><circle cx="187.2" cy="14" r="5.2" fill="var(--teal)"/><circle cx="201.8" cy="14" r="5.2" fill="var(--teal)"/><circle cx="216.4" cy="14" r="5.2" fill="var(--teal)"/><circle cx="231.0" cy="14" r="5.2" fill="var(--teal)"/><circle cx="245.6" cy="14" r="5.2" fill="var(--teal)"/><circle cx="260.2" cy="14" r="5.2" fill="var(--teal)"/><circle cx="274.8" cy="14" r="5.2" fill="var(--teal)"/><circle cx="289.4" cy="14" r="5.2" fill="var(--teal)"/><circle cx="12.0" cy="34" r="5.2" fill="var(--teal)"/><circle cx="26.6" cy="34" r="5.2" fill="var(--teal)"/><circle cx="41.2" cy="34" r="5.2" fill="var(--teal)"/><circle cx="55.8" cy="34" r="5.2" fill="var(--teal)"/><circle cx="70.4" cy="34" r="5.2" fill="var(--teal)"/><circle cx="85.0" cy="34" r="5.2" fill="var(--teal)"/><circle cx="99.6" cy="34" r="5.2" fill="var(--teal)"/><circle cx="114.2" cy="34" r="5.2" fill="var(--teal)"/><circle cx="128.8" cy="34" r="5.2" fill="var(--teal)"/><circle cx="143.4" cy="34" r="5.2" fill="var(--teal)"/><circle cx="158.0" cy="34" r="5.2" fill="var(--teal)"/><circle cx="172.6" cy="34" r="5.2" fill="var(--teal)"/><circle cx="187.2" cy="34" r="5.2" fill="var(--teal)"/><circle cx="201.8" cy="34" r="5.2" fill="var(--teal)"/><circle cx="216.4" cy="34" r="5.2" fill="var(--teal)"/><circle cx="231.0" cy="34" r="5.2" fill="var(--teal)"/><circle cx="245.6" cy="34" r="5.2" fill="var(--teal)"/><circle cx="260.2" cy="34" r="5.2" fill="var(--teal)"/><circle cx="274.8" cy="34" r="5.2" fill="var(--teal)"/><circle cx="289.4" cy="34" r="5.2" fill="var(--teal)"/><circle cx="12.0" cy="54" r="5.2" fill="var(--teal)"/><circle cx="26.6" cy="54" r="5.2" fill="var(--teal)"/><circle cx="41.2" cy="54" r="5.2" fill="var(--teal)"/><circle cx="55.8" cy="54" r="5.2" fill="var(--teal)"/><circle cx="70.4" cy="54" r="5.2" fill="var(--amber)"/><circle cx="85.0" cy="54" r="5.2" fill="var(--amber)"/><circle cx="99.6" cy="54" r="5.2" fill="var(--amber)"/><circle cx="114.2" cy="54" r="5.2" fill="var(--amber)"/><circle cx="128.8" cy="54" r="5.2" fill="var(--amber)"/><circle cx="143.4" cy="54" r="5.2" fill="var(--amber)"/><circle cx="158.0" cy="54" r="5.2" fill="var(--amber)"/><circle cx="172.6" cy="54" r="5.2" fill="var(--amber)"/><circle cx="187.2" cy="54" r="5.2" fill="var(--amber)"/><circle cx="201.8" cy="54" r="5.2" fill="var(--amber)"/><circle cx="216.4" cy="54" r="5.2" fill="var(--amber)"/><circle cx="231.0" cy="54" r="5.2" fill="var(--amber)"/><circle cx="245.6" cy="54" r="5.2" fill="var(--amber)"/><circle cx="260.2" cy="54" r="5.2" fill="var(--amber)"/><circle cx="274.8" cy="54" r="5.2" fill="var(--amber)"/><circle cx="289.4" cy="54" r="5.2" fill="var(--amber)"/><circle cx="12.0" cy="74" r="5.2" fill="var(--amber)"/><circle cx="26.6" cy="74" r="5.2" fill="var(--amber)"/><circle cx="41.2" cy="74" r="5.2" fill="var(--amber)"/><circle cx="55.8" cy="74" r="5.2" fill="var(--amber)"/><circle cx="70.4" cy="74" r="5.2" fill="var(--amber)"/><circle cx="85.0" cy="74" r="5.2" fill="var(--amber)"/><circle cx="99.6" cy="74" r="5.2" fill="var(--amber)"/><circle cx="114.2" cy="74" r="5.2" fill="var(--amber)"/><circle cx="128.8" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="143.4" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="158.0" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="172.6" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="187.2" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="201.8" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="216.4" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="231.0" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="245.6" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="260.2" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="274.8" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="289.4" cy="74" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="12.0" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="26.6" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="41.2" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="55.8" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="70.4" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="85.0" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="99.6" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="114.2" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="128.8" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="143.4" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="158.0" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="172.6" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="187.2" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="201.8" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="216.4" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="231.0" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="245.6" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="260.2" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="274.8" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="289.4" cy="94" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="12.0" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="26.6" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="41.2" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="55.8" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="70.4" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="85.0" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="99.6" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="114.2" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="128.8" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="143.4" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="158.0" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="172.6" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="187.2" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="201.8" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="216.4" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="231.0" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="245.6" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="260.2" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="274.8" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/><circle cx="289.4" cy="114" r="5.2" fill="var(--coral)" fill-opacity=".55"/></svg></div>
         <div class="meta"><span class="tag live">Live · #01</span><span class="mono" style="color:var(--dim)">28 Oct 2026</span></div>
         <h3>The 2026 Aid Gap</h3>
         <p>239M people in need, 87M prioritised. Where the money goes, and who pays now.</p>
@@ -394,14 +424,6 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
   </div>
 </footer>
 
-<script>
-/* Hero dot grid: 1 dot = $1 billion a year */
-(() => {
-  const d = document.getElementById("hero-dots"); let h = "";
-  for (let i = 0; i < 300; i++) h += `<i class="${i < 137 ? "p" : "n"}" style="transition-delay:${i * 3}ms"></i>`;
-  d.innerHTML = h;
-})();
-</script>
 <script src="/assets/site.js?v=21"></script>
 <script src="/assets/globe.js?v=3"></script>
 <script>

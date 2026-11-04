@@ -16,7 +16,7 @@
 <link rel="canonical" href="https://nafiulazim.com/devdataweekly/issues/2026-11-04-climate-finance/">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Nafiul Azim · Dev Data Weekly">
-<meta property="og:image" content="https://nafiulazim.com/devdataweekly/issues/2026-11-04-climate-finance/og.jpg">
+<meta property="og:image" content="https://nafiulazim.com/devdataweekly/issues/2026-11-04-climate-finance/og-v2.jpg">
 <meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="2400"><meta property="og:image:height" content="1260">
 <meta property="og:image:alt" content="Bar chart: $136.7 billion of climate finance delivered in 2024, against a $300 billion goal for 2035 and a $1.3 trillion ambition.">
 <meta property="article:author" content="Nafiul Azim">
@@ -24,7 +24,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Climate finance: $136.7 billion delivered, $300 billion promised by 2035">
 <meta name="twitter:description" content="An interactive dashboard on climate finance, promised vs delivered, ahead of COP31. Dev Data Weekly #02 by Nafiul Azim.">
-<meta name="twitter:image" content="https://nafiulazim.com/devdataweekly/issues/2026-11-04-climate-finance/og.jpg">
+<meta name="twitter:image" content="https://nafiulazim.com/devdataweekly/issues/2026-11-04-climate-finance/og-v2.jpg">
 <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0a0f1a" media="(prefers-color-scheme: dark)">
 <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 
@@ -32,112 +32,120 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
 <link rel="stylesheet" href="/assets/site.css?v=20">
 <style>
+/* Issue 02 · Climate finance — accent: green. Layout: lead trend chart + scorecard rail, split donut/circles, slope + stat strip, comparison table, needs band */
+:root{--issue:#2f8a3e;--issue-rgb:47,138,62;--issue-2:#2b62c7;--issue-3:#b5720a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--issue:#6fd685;--issue-rgb:111,214,133;--issue-2:#86b6ff;--issue-3:#f2b54a}}
+:root[data-theme="dark"]{--issue:#6fd685;--issue-rgb:111,214,133;--issue-2:#86b6ff;--issue-3:#f2b54a}
 .d-hero{padding-block:clamp(48px,8vw,96px) 24px}
 .d-hero .wrap{display:grid;gap:20px}
 .crumbs{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:13px;color:var(--muted)}
-.crumbs a{text-decoration:none;color:var(--muted)} .crumbs a:hover{color:var(--teal)}
-.d-hero h1{font-size:clamp(36px,6vw,72px);max-width:16ch}
-.d-hero h1 em{font-style:normal;color:var(--coral)}
+.crumbs a{text-decoration:none;color:var(--muted)} .crumbs a:hover{color:var(--issue)}
+.d-hero h1{font-size:clamp(36px,6vw,72px);max-width:17ch}
+.d-hero h1 em{font-style:italic;color:var(--issue)}
 .metaline{display:flex;flex-wrap:wrap;gap:10px}
 .hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;padding-top:6px}
 section.tight{padding-block:clamp(28px,5vw,56px)}
-
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.kpi{display:grid;gap:8px;align-content:start}
-.kpi b{font-family:var(--display);font-size:clamp(34px,4.5vw,52px);font-weight:800;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
-.kpi span{color:var(--muted);font-size:14px}
-.kpi.hot b{color:var(--coral)} .kpi.cool b{color:var(--teal)}
-.kpi::after{content:"";position:absolute;left:24px;right:24px;bottom:0;height:2px;border-radius:2px;background:currentColor;opacity:.0}
-@media (max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:460px){.kpis{grid-template-columns:1fr}}
-
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.grid-wide{display:grid;grid-template-columns:1.3fr .7fr;gap:16px}
-@media (max-width:900px){.grid2,.grid-wide{grid-template-columns:1fr}}
+.eyebrow{color:var(--issue)}
 .ph{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:baseline;margin-bottom:18px}
 .ph p{margin:4px 0 0;color:var(--muted);font-size:14px}
-
-/* 239 dots: one dot = one million people */
-.dots{display:grid;grid-template-columns:repeat(24,1fr);gap:5px}
-@media (max-width:560px){.dots{grid-template-columns:repeat(16,1fr);gap:4px}}
-.dots i{aspect-ratio:1;border-radius:50%;background:rgba(var(--w),.08);max-width:100%}
-.dots i.p{background:var(--teal)} .dots i.t{background:var(--amber)} .dots i.n{background:rgba(255,107,87,.55)}
-.js [data-anim].dots i{transform:scale(0);transition:transform .5s var(--ease)}
-.js [data-anim].dots.in i{transform:scale(1)}
-.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--muted)}
-.legend span{display:flex;align-items:center;gap:8px}
-.legend i{width:10px;height:10px;border-radius:50%;display:inline-block}
-
-/* funnel */
-.funnel{display:grid;gap:14px}
-.fr{display:grid;gap:6px}
-.fr .lab{display:flex;justify-content:space-between;font-size:14px}
-.fr .lab b{font-family:var(--mono);font-weight:500}
-.fr .tr{height:40px;border-radius:10px;background:rgba(var(--w),.05);overflow:hidden}
-.fr .tr i{display:block;height:100%;border-radius:10px;transform-origin:left}
-.js [data-anim] .tr i,.js [data-anim] .cb i,.js [data-anim] .seg{transform:scaleX(0);transition:transform 1.3s var(--ease)}
-.js [data-anim].in .tr i,.js [data-anim].in .cb i,.js [data-anim].in .seg{transform:scaleX(1)}
-.js [data-anim] .fr:nth-child(2) i{transition-delay:.15s}.js [data-anim] .fr:nth-child(3) i{transition-delay:.3s}
-.callout{margin-top:18px;padding:14px 16px;border-radius:10px;background:rgba(255,107,87,.08);border:1px solid rgba(255,107,87,.25);font-size:14px;color:var(--fg)}
-
-/* countries */
-.cbars{display:grid;gap:4px}
-.crow{display:grid;grid-template-columns:150px 1fr 64px;gap:12px;align-items:center;padding:8px 6px;border-radius:8px;font-size:14px;transition:background .2s}
-.crow:hover{background:rgba(var(--w),.04)}
-.crow .cb{height:12px;border-radius:99px;background:rgba(var(--w),.05);overflow:hidden}
-.crow .cb i{display:block;height:100%;border-radius:99px;transform-origin:left;background:linear-gradient(90deg,var(--sky),var(--teal))}
-.crow:first-child .cb i{background:linear-gradient(90deg,var(--amber),var(--coral))}
-.crow .v{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
-@media (max-width:520px){.crow{grid-template-columns:110px 1fr 54px;gap:8px;font-size:13px}}
-
-/* donor shift */
-.shift{display:grid;gap:26px}
-.donor{display:grid;gap:8px}
-.sh-lab{display:flex;justify-content:space-between;gap:10px;font-size:15px;margin-bottom:2px}
-.pair{display:grid;grid-template-columns:56px 1fr 48px;gap:10px;align-items:center;font-size:13px}
-.pl{color:var(--muted)}
-.pt{height:14px;border-radius:99px;background:rgba(var(--w),.05);overflow:hidden}
-.pt .seg{display:block;height:100%;border-radius:99px;transform-origin:left}
-.pv{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
-.axis{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--dim);margin:0 58px 0 66px}
-/* ground */
-.ground{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media (max-width:1000px){.ground{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:520px){.ground{grid-template-columns:1fr}}
-.g{display:grid;gap:10px;align-content:start;transition:transform .35s var(--ease),border-color .35s}
-.g:hover{transform:translateY(-4px);border-color:rgba(255,107,87,.4)}
-.g .place{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)}
-.g b{font-family:var(--display);font-size:34px;line-height:1;font-weight:800}
-.g p{margin:0;color:var(--muted);font-size:14px}
-.meter{height:6px;border-radius:99px;background:rgba(var(--w),.07);overflow:hidden}
-.meter i{display:block;height:100%;background:var(--coral);border-radius:99px;transform-origin:left}
-.js [data-anim] .meter i{transform:scaleX(0);transition:transform 1.4s .2s var(--ease)}
-.js [data-anim].in .meter i{transform:scaleX(1)}
-
-.persp{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,48px);align-items:center}
-.persp .big{font-family:var(--display);font-size:clamp(64px,11vw,140px);font-weight:800;line-height:.9;letter-spacing:-.04em}
-.persp p{margin:0 0 10px;color:var(--muted);max-width:56ch;font-size:17px}
-.persp p strong{color:var(--fg)}
-@media (max-width:700px){.persp{grid-template-columns:1fr}}
-
+.chip{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid rgba(var(--issue-rgb),.35);color:var(--issue);background:rgba(var(--issue-rgb),.08)}
 .sources ol{margin:0;padding-left:18px;color:var(--muted);font-size:14px;display:grid;gap:6px}
-.sources a{color:var(--sky)}
-.end{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+.sources a{color:var(--issue-2)}
 
-/* climate finance */
-.stk{display:grid;gap:22px}
-.stk .row{display:grid;gap:8px}
-.stk .rl{display:flex;justify-content:space-between;font-size:15px}
-.stk .rl b{font-weight:600}.stk .rl span{font-family:var(--mono);font-size:14px}
-.stk .bar{display:flex;height:34px;border-radius:10px;overflow:hidden;background:rgba(var(--w),.05);gap:2px}
-.stk .bar i{display:block;height:100%;transform-origin:left}
-.js [data-anim] .stk .bar i{transform:scaleX(0);transition:transform 1.3s var(--ease)}
-.js [data-anim].in .stk .bar i{transform:scaleX(1)}
-.stk .vals{display:flex;flex-wrap:wrap;gap:4px 16px;font-family:var(--mono);font-size:12px;color:var(--muted)}
-.pair{grid-template-columns:48px 1fr 56px}
-.cbars.lo .crow{grid-template-columns:84px 1fr 62px;gap:8px}
-.sh-lab span.mono{white-space:nowrap}
-@media (max-width:380px){.sh-lab{flex-wrap:wrap}.pair{grid-template-columns:42px 1fr 50px;gap:8px}}
+/* A · lead: trend + scorecard rail */
+.lead{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:0;padding:0;overflow:hidden}
+.lead .chart{padding:clamp(20px,3vw,32px);min-width:0}
+.rail{border-left:1px solid var(--line);display:grid}
+.rail .sc{padding:clamp(18px,2.4vw,26px) clamp(20px,2.6vw,30px);border-top:1px solid var(--line);display:grid;gap:4px;align-content:center}
+.rail .sc:first-child{border-top:0}
+.rail .sc b{font-family:var(--display);font-size:clamp(30px,3.6vw,44px);font-weight:800;letter-spacing:-.035em;line-height:1;font-variant-numeric:tabular-nums}
+.rail .sc b.g{color:var(--issue)}
+.rail .sc span{color:var(--muted);font-size:14px}
+.rail .sc small{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.04em}
+#trend{width:100%;height:clamp(260px,32vw,360px);display:block}
+#trend text{font-family:var(--mono);font-size:11px;fill:var(--dim)}
+#trend .lbl{font-family:var(--body);font-size:13px;font-weight:600;fill:var(--fg)}
+#trend .lblg{fill:var(--issue)}
+#trend .pt{cursor:help}
+#trend .pt:focus-visible{outline:none;stroke:var(--fg);stroke-width:3}
+@media (max-width:900px){.lead{grid-template-columns:1fr}.rail{border-left:0;border-top:1px solid var(--line);grid-template-columns:1fr 1fr}.rail .sc:nth-child(2){border-top:0;border-left:1px solid var(--line)}.rail .sc:nth-child(4){border-left:1px solid var(--line)}}
+@media (max-width:420px){.rail{grid-template-columns:1fr}.rail .sc{border-left:0!important;border-top:1px solid var(--line)!important}.rail .sc:first-child{border-top:0!important}}
+
+/* B · split: donut + proportional circles */
+.split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:16px}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.donut-wrap{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(18px,3vw,32px);align-items:center}
+@media (max-width:520px){.donut-wrap{grid-template-columns:1fr;justify-items:center}}
+.donut{position:relative;width:200px;height:200px}
+.donut svg{width:100%;height:100%;transform:rotate(-90deg)}
+.donut circle{fill:none;stroke-width:26;cursor:help;transition:stroke-width .25s}
+.donut circle:hover,.donut circle:focus-visible{stroke-width:32;outline:none}
+.donut .mid{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none}
+.donut .mid b{font-family:var(--display);font-size:30px;font-weight:800;letter-spacing:-.03em}
+.donut .mid span{font-size:12px;color:var(--muted)}
+.ytab{width:100%;border-collapse:collapse;font-size:14px;font-variant-numeric:tabular-nums}
+.ytab th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:500;text-align:right;padding:0 0 10px}
+.ytab th:first-child{text-align:left}
+.ytab td{padding:10px 0;border-top:1px solid var(--line);text-align:right;font-family:var(--mono)}
+.ytab td:first-child{text-align:left;font-family:var(--body);display:flex;align-items:center;gap:9px}
+.ytab td i{width:10px;height:10px;border-radius:3px;display:inline-block;flex:none}
+.ytab .up{color:var(--issue)} .ytab .dn{color:var(--coral)}
+.circles{position:relative;height:300px;display:flex;align-items:flex-end;justify-content:center;gap:0}
+.circ{border-radius:50%;display:grid;place-content:center;text-align:center;cursor:help;transition:transform .5s var(--spring)}
+.circ:hover,.circ:focus-visible{transform:scale(1.03);outline:none}
+.circ.need{width:280px;height:280px;background:radial-gradient(circle at 35% 30%,rgba(var(--w),.10),rgba(var(--w),.04));border:1.5px dashed rgba(var(--w),.28)}
+.circ.need b{font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:-.03em}
+.circ.need span{font-size:12px;color:var(--muted);max-width:16ch;margin:2px auto 0}
+.circ.flow{width:81px;height:81px;margin-left:-60px;background:var(--issue);color:#06110f;box-shadow:0 10px 28px -10px rgba(var(--issue-rgb),.8)}
+.circ.flow b{font-family:var(--display);font-size:20px;font-weight:800}
+.circ.flow span{font-size:10px;font-weight:600}
+.js [data-anim] .circ{transform:scale(.2);opacity:0;transition:transform 1s var(--spring),opacity .6s}
+.js [data-anim].in .circ{transform:none;opacity:1}
+.js [data-anim].in .circ.flow{transition-delay:.35s}
+@media (max-width:420px){.circles{height:250px}.circ.need{width:230px;height:230px}.circ.flow{width:67px;height:67px;margin-left:-48px}}
+.big-x{font-family:var(--display);font-weight:800;font-size:22px;color:var(--issue)}
+
+/* C · slope + strip */
+.slope-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:16px;align-items:stretch}
+@media (max-width:900px){.slope-grid{grid-template-columns:1fr}}
+#slope{width:100%;height:280px;display:block}
+#slope text{font-family:var(--mono);font-size:12px;fill:var(--dim)}
+#slope .v{font-family:var(--display);font-size:18px;font-weight:700;fill:var(--fg)}
+.strip{display:grid;gap:0;padding:0;overflow:hidden}
+.strip .st{padding:20px 24px;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.strip .st:first-child{border-top:0}
+.strip .st b{font-family:var(--display);font-size:38px;font-weight:800;letter-spacing:-.03em;min-width:3.2ch;color:var(--issue)}
+.strip .st span{color:var(--muted);font-size:14px}
+
+/* D · comparison table */
+.cmp-wrap{overflow-x:auto}
+.cmp{width:100%;border-collapse:collapse;min-width:560px}
+.cmp th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);font-weight:500;text-align:left;padding:0 14px 12px 0}
+.cmp td{padding:16px 14px 16px 0;border-top:1px solid var(--line);vertical-align:middle;font-size:14px;color:var(--muted)}
+.cmp td.pl{font-family:var(--display);font-size:17px;font-weight:700;color:var(--fg);white-space:nowrap}
+.cmp td.fig{font-family:var(--display);font-size:26px;font-weight:800;color:var(--fg);white-space:nowrap;font-variant-numeric:tabular-nums}
+.cmp tr[data-tip]:hover td{background:rgba(var(--issue-rgb),.05)}
+.ib{height:10px;border-radius:99px;background:rgba(var(--w),.07);overflow:hidden;min-width:120px}
+.ib i{display:block;height:100%;border-radius:99px;background:var(--issue);transform-origin:left}
+.ib i.gap{background:var(--coral)}
+.js [data-anim] .ib i{transform:scaleX(0);transition:transform 1.2s var(--ease)}
+.js [data-anim].in .ib i{transform:scaleX(1)}
+.na{font-family:var(--mono);font-size:11px;color:var(--dim)}
+@media (max-width:640px){.cmp-wrap{overflow:visible}.cmp{min-width:0}.cmp thead{display:none}.cmp tr{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:baseline;padding:16px 0;border-top:1px solid var(--line)}.cmp tr:first-child{border-top:0}.cmp td{border:0;padding:0}.cmp td:nth-child(3),.cmp td:nth-child(4){grid-column:1/-1}.ib{min-width:0}}
+
+/* E · needs band */
+.needs{display:grid;gap:18px}
+.needs .row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:10px}
+.needs .huge{font-family:var(--display);font-size:clamp(56px,9vw,112px);font-weight:800;letter-spacing:-.045em;line-height:.9}
+.needs .huge em{font-style:italic;font-family:var(--serif);font-weight:400;color:var(--issue)}
+.track{height:28px;border-radius:10px;background:rgba(var(--w),.06);position:relative;overflow:hidden;cursor:help}
+.track i{position:absolute;left:0;top:0;bottom:0;border-radius:10px;background:linear-gradient(90deg,var(--issue),rgba(var(--issue-rgb),.55));transform-origin:left}
+.js [data-anim] .track i{transform:scaleX(0);transition:transform 1.6s var(--ease)}
+.js [data-anim].in .track i{transform:scaleX(1)}
+.ticks{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--dim)}
+.needs p{margin:0;color:var(--muted);max-width:68ch}
+.needs p strong{color:var(--fg)}
+.note{font-size:13px;color:var(--dim);margin:14px 0 0}
 </style>
 </head>
 <body>
@@ -179,82 +187,89 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
 </header>
 
 <section class="tight gut">
-  <div class="wrap kpis">
-    <div class="panel kpi cool reveal" data-tip="US$136.7 billion provided and mobilised by developed countries in 2024 (US$132.8B in 2023)" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); IISD SDG Knowledge Hub"><b data-count="136.7" data-dec="1" data-prefix="$" data-suffix="B">$136.7B</b><span>provided and mobilised by developed countries in 2024, above the old $100B goal</span></div>
-    <div class="panel kpi reveal d1" data-tip="At least US$300 billion a year by 2035 from developed countries, within a call to scale finance from all sources to US$1.3 trillion a year" data-src="UNFCCC COP29 decision on the New Collective Quantified Goal (Nov 2024)"><b data-count="300" data-prefix="$" data-suffix="B">$300B</b><span>a year by 2035 is the new goal agreed at COP29, within a $1.3T ambition</span></div>
-    <div class="panel kpi hot reveal d2" data-tip="Adaptation US$34.7B, mitigation US$86.9B, cross-cutting US$15.1B in 2024" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"><b data-count="34.7" data-dec="1" data-prefix="$" data-suffix="B">$34.7B</b><span>of the 2024 total went to adaptation. Mitigation got $86.9B</span></div>
-    <div class="panel kpi hot reveal d3" data-tip="Low-income countries received 7% of 2024 climate finance: US$9.6 billion" data-src="OECD (May 2026), via IISD and Down To Earth"><b data-count="7" data-suffix="%">7%</b><span>of 2024 climate finance reached low-income countries ($9.6B)</span></div>
-  </div>
-</section>
-
-<section class="tight gut">
-  <div class="wrap grid-wide">
-    <div class="panel reveal">
-      <div class="ph"><div><h3>The ladder of promises</h3><p>US$ billion a year, drawn to scale</p></div><span class="src">OECD 2026 · COP29 decision</span></div>
-      <div class="funnel" data-anim>
-        <div class="fr" data-tip="Delivered in 2024: US$136.7 billion" data-src="OECD (May 2026)"><div class="lab"><span>Delivered, 2024</span><b>$136.7B</b></div><div class="tr"><i style="width:10.5%;background:linear-gradient(90deg,var(--teal),#7ee6df)"></i></div></div>
-        <div class="fr" data-tip="Goal for 2035: at least US$300 billion a year" data-src="UNFCCC COP29 decision (Nov 2024)"><div class="lab"><span>Goal for 2035 (developed countries)</span><b>$300B</b></div><div class="tr"><i style="width:23.1%;background:linear-gradient(90deg,var(--amber),#ffd27a)"></i></div></div>
-        <div class="fr" data-tip="Ambition for 2035: US$1.3 trillion a year from all public and private sources" data-src="UNFCCC COP29 decision (Nov 2024)"><div class="lab"><span>Ambition for 2035 (all sources)</span><b>$1.3T</b></div><div class="tr"><i style="width:100%;background:linear-gradient(90deg,var(--coral),#ff8f6b)"></i></div></div>
-      </div>
-      <div class="callout" data-tip="2022: US$115.9B · 2023: US$132.8B · 2024: US$136.7B" data-src="OECD (May 2026); IISD SDG Knowledge Hub">The $100B goal was first met in 2022 ($115.9B), two years late. 2023 reached $132.8B and 2024 $136.7B. The 2035 goal is about <strong>2.2 times</strong> the 2024 level.</div>
+  <div class="wrap panel lead reveal">
+    <div class="chart">
+      <div class="ph"><div><span class="eyebrow">The road to $300 billion</span><h3 style="margin-top:8px">Delivered so far, and the new 2035 goal</h3><p>Climate finance provided and mobilised by developed countries, US$ billion a year</p></div><span class="chip">OECD · UNFCCC</span></div>
+      <svg id="trend" role="img" aria-label="Line chart: US$115.9B in 2022, US$132.8B in 2023, US$136.7B in 2024, against the old US$100B goal and the new goal of at least US$300B a year by 2035."></svg>
     </div>
-    <div class="panel reveal d1">
-      <div class="ph"><div><h3>What the money was for</h3><p>US$ billion, to scale</p></div><span class="src">OECD 2026</span></div>
-      <div class="stk" data-anim>
-        <div class="row"><div class="rl"><b>2023</b><span>$132.8B</span></div><div class="bar" style="width:97.1%"><i style="width:65.7%;background:var(--sky)" data-tip="2023 mitigation: US$87.3B" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"></i><i style="width:25.3%;background:var(--teal)" data-tip="2023 adaptation: US$33.6B" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"></i><i style="width:9%;background:var(--amber)" data-tip="2023 cross-cutting: US$11.9B" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"></i></div><div class="vals"><span>Mitigation 87.3</span><span>Adaptation 33.6</span><span>Cross-cutting 11.9</span></div></div>
-        <div class="row"><div class="rl"><b>2024</b><span>$136.7B</span></div><div class="bar" style="width:100%"><i style="width:63.6%;background:var(--sky)" data-tip="2024 mitigation: US$86.9B" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"></i><i style="width:25.4%;background:var(--teal)" data-tip="2024 adaptation: US$34.7B" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"></i><i style="width:11%;background:var(--amber)" data-tip="2024 cross-cutting: US$15.1B" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"></i></div><div class="vals"><span>Mitigation 86.9</span><span>Adaptation 34.7</span><span>Cross-cutting 15.1</span></div></div>
-      </div>
-      <div class="legend"><span><i style="background:var(--sky)"></i>Mitigation</span><span><i style="background:var(--teal)"></i>Adaptation</span><span><i style="background:var(--amber)"></i>Cross-cutting</span></div>
-      <p class="note">Developed countries still needed about $5.8B more in 2025 to double adaptation finance from the 2019 level (OECD).</p>
+    <div class="rail">
+      <div class="sc" data-tip="Provided and mobilised by developed countries in 2024: US$136.7 billion" data-src="OECD (May 2026); IISD SDG Knowledge Hub"><small>2024 · DELIVERED</small><b class="g" data-count="136.7" data-dec="1" data-prefix="$" data-suffix="B">$136.7B</b><span>above the old $100B goal for a third year</span></div>
+      <div class="sc" data-tip="New goal: at least US$300 billion a year by 2035 from developed countries" data-src="UNFCCC COP29 decision on the New Collective Quantified Goal (Nov 2024)"><small>2035 · GOAL</small><b data-count="300" data-prefix="$" data-suffix="B">$300B</b><span>a year, agreed at COP29 in Baku</span></div>
+      <div class="sc" data-tip="Wider ambition: US$1.3 trillion a year by 2035 from all public and private sources" data-src="UNFCCC COP29 decision (Nov 2024)"><small>2035 · ALL SOURCES</small><b>$1.3T</b><span>the wider ambition, off this chart's scale</span></div>
+      <div class="sc" data-tip="US$300B ÷ US$136.7B = 2.19 (calculated from OECD and UNFCCC figures)" data-src="Calculated from OECD (May 2026) and UNFCCC COP29 decision"><small>GAP TO CLOSE</small><b>2.2×</b><span>today's level is needed by 2035</span></div>
     </div>
   </div>
 </section>
 
 <section class="tight gut">
-  <div class="wrap grid2">
+  <div class="wrap split">
     <div class="panel reveal">
-      <div class="ph"><div><h3>Adaptation: needs vs money received</h3><p>US$ billion a year, to scale</p></div><span class="src">UNEP AGR 2025</span></div>
-      <div class="shift" data-anim>
-        <div class="donor">
-          <div class="sh-lab"><b>Adaptation, developing countries</b><span class="mono" style="color:var(--coral)">12–14× gap</span></div>
-          <div class="pair" data-tip="Adaptation finance need of developing countries: US$310–365 billion a year by 2035 (2023 prices)" data-src="UNEP, Adaptation Gap Report 2025; confirmed by IISD and Down To Earth"><span class="pl">Need</span><span class="pt"><i class="seg" style="width:100%;background:rgba(var(--w),.22)"></i></span><span class="pv">310+</span></div>
-          <div class="pair" data-tip="International public adaptation finance to developing countries: US$26 billion in 2023" data-src="UNEP, Adaptation Gap Report 2025; confirmed by IISD and Down To Earth"><span class="pl">Flow</span><span class="pt"><i class="seg" style="width:8.4%;background:var(--coral)"></i></span><span class="pv">26</span></div>
+      <div class="ph"><div><span class="eyebrow">What the money paid for</span><h3 style="margin-top:8px">Two-thirds still goes to cutting emissions</h3><p>2024 split, US$ billion</p></div><span class="chip">OECD 2026</span></div>
+      <div class="donut-wrap">
+        <div class="donut" role="img" aria-label="Donut chart of 2024 climate finance: mitigation US$86.9B, adaptation US$34.7B, cross-cutting US$15.1B.">
+          <svg viewBox="0 0 200 200" id="donut"></svg>
+          <div class="mid"><b>$136.7B</b><span>in 2024</span></div>
         </div>
+        <table class="ytab">
+          <thead><tr><th>Purpose</th><th>2023</th><th>2024</th></tr></thead>
+          <tbody>
+            <tr data-tip="Mitigation: US$87.3B (2023) → US$86.9B (2024)" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"><td><i style="background:var(--issue-2)"></i>Mitigation</td><td>87.3</td><td>86.9 <span class="dn">▾</span></td></tr>
+            <tr data-tip="Adaptation: US$33.6B (2023) → US$34.7B (2024)" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"><td><i style="background:var(--issue)"></i>Adaptation</td><td>33.6</td><td>34.7 <span class="up">▴</span></td></tr>
+            <tr data-tip="Cross-cutting: US$11.9B (2023) → US$15.1B (2024)" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times"><td><i style="background:var(--issue-3)"></i>Cross-cutting</td><td>11.9</td><td>15.1 <span class="up">▴</span></td></tr>
+          </tbody>
+        </table>
       </div>
-      <p class="note">Need by 2035 is $310–365B a year; international public flows were $26B in 2023, so needs are 12–14 times current flows (UNEP).</p>
+      <p class="note" data-tip="An extra US$5.8 billion (18%) was needed in 2025 to double adaptation finance from the 2019 level" data-src="OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times">To double adaptation finance from 2019 levels, another $5.8B was needed in 2025.</p>
     </div>
     <div class="panel reveal d1">
-      <div class="ph"><div><h3>Low-income countries</h3><p>Climate finance received, US$ billion</p></div><span class="src">OECD 2026 via IISD</span></div>
-      <div class="cbars lo" data-anim>
-        <div class="crow" data-tip="Low-income countries, 2022 (peak): US$11.1 billion" data-src="OECD (May 2026), via IISD and Fast Company Middle East"><span>2022 (peak)</span><span class="cb"><i style="width:100%"></i></span><span class="v">$11.1B</span></div>
-        <div class="crow" data-tip="Low-income countries, 2023: US$8.4 billion" data-src="OECD (May 2026), via IISD and Fast Company Middle East"><span>2023</span><span class="cb"><i style="width:75.7%"></i></span><span class="v">$8.4B</span></div>
-        <div class="crow" data-tip="Low-income countries, 2024: US$9.6 billion (7% of total)" data-src="OECD (May 2026), via IISD and Fast Company Middle East"><span>2024</span><span class="cb"><i style="width:86.5%"></i></span><span class="v">$9.6B</span></div>
+      <div class="ph"><div><span class="eyebrow">Adaptation</span><h3 style="margin-top:8px">What's needed vs what arrives</h3><p>Developing countries, US$ billion a year · circle area to scale</p></div><span class="chip">UNEP AGR 2025</span></div>
+      <div class="circles" data-anim role="img" aria-label="Proportional circles: need of at least US$310B a year by 2035 versus US$26B of international public adaptation finance in 2023.">
+        <div class="circ need" data-tip="Adaptation finance need of developing countries: US$310–365 billion a year by 2035 (2023 prices)" data-src="UNEP, Adaptation Gap Report 2025; confirmed by IISD and Down To Earth"><b>$310B+</b><span>needed a year by 2035</span></div>
+        <div class="circ flow" data-tip="International public adaptation finance to developing countries: US$26 billion in 2023" data-src="UNEP, Adaptation Gap Report 2025; confirmed by IISD and Down To Earth"><b>$26B</b><span>2023</span></div>
       </div>
-      <div class="callout" style="margin-top:22px" data-tip="Lower-middle-income countries: 39% of total (avg US$52.5B a year in 2023–24). Grants: about 65% of public climate finance to low-income countries, 2016–2024" data-src="OECD (May 2026), via Down To Earth and ESG Times">Lower-middle-income countries received the largest share (<strong>39%</strong>). Grants made up about 65% of public climate finance for low-income countries in 2016–2024.</div>
+      <p class="note">Needs are <span class="big-x">12–14×</span> today's international public flows (UNEP).</p>
     </div>
   </div>
 </section>
 
 <section class="tight gut">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:22px"><span class="eyebrow">On the ground</span><h2>What the gap looks like</h2></div>
-    <div class="ground" data-anim>
-      <div class="panel g reveal" data-tip="Pakistan needs US$331 billion in climate finance for 2024–2030" data-src="State Bank of Pakistan (Jul 2026), as reported by Profit and ProPakistani"><span class="place">Pakistan</span><b>$331B</b><p>needed in climate finance for 2024–2030, according to the State Bank of Pakistan.</p><span class="src">State Bank of Pakistan, Jul 2026</span></div>
-      <div class="panel g reveal d1" data-tip="Bangladesh faces a 59% funding gap in the climate finance it needs to 2050" data-src="ICIMOD Climate Finance Synthesis Report 2025, as reported by The Daily Star and The Financial Express"><span class="place">Bangladesh</span><b>59%</b><p>funding gap in the climate finance Bangladesh needs to 2050.</p><div class="meter"><i style="width:59%"></i></div><span class="src">ICIMOD synthesis</span></div>
-      <div class="panel g reveal d2" data-tip="Flows of US$43.7 billion a year in 2021/22 cover 23% of the needs in African NDCs" data-src="Climate Policy Initiative, Landscape of Climate Finance in Africa 2024"><span class="place">Africa</span><b>23%</b><p>of the finance Africa's national climate plans need is being met. $43.7B a year flowed in 2021/22.</p><div class="meter"><i style="width:23%"></i></div><span class="src">CPI Africa landscape 2024</span></div>
-      <div class="panel g reveal d3" data-tip="Small island developing states received US$3.8 billion in both 2023 and 2024" data-src="OECD (May 2026), via Down To Earth and ESG Times"><span class="place">Small islands</span><b>$3.8B</b><p>a year in 2023 and 2024, about 3% of the $136.7B total. Meter shows that share.</p><div class="meter"><i style="width:3%"></i></div><span class="src">OECD 2026</span></div>
+  <div class="wrap slope-grid">
+    <div class="panel reveal">
+      <div class="ph"><div><span class="eyebrow">The poorest countries</span><h3 style="margin-top:8px">Low-income countries got less than in 2022</h3><p>Climate finance received, US$ billion</p></div><span class="chip">OECD 2026</span></div>
+      <svg id="slope" role="img" aria-label="Slope chart: low-income countries received US$11.1B in 2022, US$8.4B in 2023 and US$9.6B in 2024."></svg>
+    </div>
+    <div class="panel strip reveal d1">
+      <div class="st" data-tip="Low-income countries received 7% of 2024 climate finance (US$9.6 billion)" data-src="OECD (May 2026), via Down To Earth and ESG Times"><b>7%</b><span>of 2024 climate finance reached low-income countries</span></div>
+      <div class="st" data-tip="Lower-middle-income countries: 39% of the total, averaging US$52.5B a year in 2023–2024" data-src="OECD (May 2026), via Down To Earth and ESG Times"><b>39%</b><span>went to lower-middle-income countries, the largest share</span></div>
+      <div class="st" data-tip="Grants: about 65% of public climate finance to low-income countries, 2016–2024" data-src="OECD (May 2026), via Down To Earth and ESG Times"><b>65%</b><span>of public finance to low-income countries came as grants (2016–2024)</span></div>
+      <div class="st" data-tip="Small island developing states received US$3.8 billion in both 2023 and 2024" data-src="OECD (May 2026), via Down To Earth and ESG Times"><b>$3.8B</b><span>a year reached small island states in 2023 and 2024</span></div>
     </div>
   </div>
 </section>
 
 <section class="tight gut">
-  <div class="wrap panel persp reveal" data-tip="Needs: US$6.3 trillion a year for 2024–2030. Tracked flows: US$1.9 trillion in 2023, over US$2 trillion in 2024 (early data)" data-src="Climate Policy Initiative, Global Landscape of Climate Finance 2025; Down To Earth">
-    <div class="big grad">$6.3T</div>
-    <div>
-      <p>Climate Policy Initiative estimates the world needs <strong>$6.3 trillion a year</strong> in climate finance for 2024–2030 to avoid the worst impacts.</p>
-      <p>Total tracked climate finance reached <strong>$1.9T in 2023</strong> and early data show it passed <strong>$2T in 2024</strong>. Most of it is raised and spent inside countries, not sent from rich to poor countries.</p>
-      <span class="src">CPI Global Landscape of Climate Finance 2025</span>
+  <div class="wrap panel reveal">
+    <div class="ph"><div><span class="eyebrow">Who is still waiting</span><h3 style="margin-top:8px">Country and regional gaps</h3><p>Each figure comes from a different study, so compare within a row, not across rows</p></div></div>
+    <div class="cmp-wrap">
+      <table class="cmp" data-anim>
+        <thead><tr><th>Where</th><th>Figure</th><th>What it means</th><th style="width:28%">Share of need</th></tr></thead>
+        <tbody>
+          <tr data-tip="Pakistan needs US$331 billion in climate finance for 2024–2030" data-src="State Bank of Pakistan (Jul 2026), as reported by Profit and ProPakistani"><td class="pl">Pakistan</td><td class="fig">$331B</td><td>needed in climate finance for 2024–2030 (State Bank of Pakistan)</td><td><span class="na">No validated share</span></td></tr>
+          <tr data-tip="Bangladesh faces a 59% funding gap in the climate finance it needs to 2050" data-src="ICIMOD Climate Finance Synthesis Report 2025, as reported by The Daily Star and The Financial Express"><td class="pl">Bangladesh</td><td class="fig">59%</td><td>funding gap in the climate finance it needs to 2050 (ICIMOD)</td><td><div class="ib"><i class="gap" style="width:59%"></i></div></td></tr>
+          <tr data-tip="Africa: US$43.7 billion a year in 2021/22, covering 23% of the needs in national climate plans" data-src="Climate Policy Initiative, Landscape of Climate Finance in Africa 2024"><td class="pl">Africa</td><td class="fig">23%</td><td>of the finance national climate plans need is met; $43.7B a year flowed in 2021/22 (CPI)</td><td><div class="ib"><i style="width:23%"></i></div></td></tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</section>
+
+<section class="tight gut">
+  <div class="wrap panel needs reveal" data-anim>
+    <span class="eyebrow">The bigger picture</span>
+    <div class="row"><div class="huge">$6.3T <em>a year</em></div><span class="chip">CPI 2025</span></div>
+    <p>Climate Policy Initiative estimates the world needs <strong>$6.3 trillion a year</strong> in climate finance for 2024–2030. Tracked flows reached <strong>$1.9 trillion in 2023</strong>, and early data show they passed $2 trillion in 2024. Most of it is raised and spent inside countries.</p>
+    <div class="track" data-tip="Tracked climate finance in 2023: US$1.9 trillion, about 30% of the US$6.3 trillion a year needed for 2024–2030 (calculated)" data-src="Climate Policy Initiative, Global Landscape of Climate Finance 2025; Down To Earth"><i style="width:30.2%"></i></div>
+    <div class="ticks"><span>$0</span><span>$1.9T tracked, 2023</span><span>$6.3T needed a year</span></div>
   </div>
 </section>
 
@@ -310,6 +325,78 @@ section.tight{padding-block:clamp(28px,5vw,56px)}
   </div>
 </footer>
 
+<script>
+/* Issue 02 charts (validated data only) */
+(() => {
+  const cs = () => getComputedStyle(document.documentElement);
+  const v = (n) => cs().getPropertyValue(n).trim();
+  const SRC = "OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); IISD SDG Knowledge Hub";
+  const ns = "http://www.w3.org/2000/svg";
+  const el = (t, a, p) => { const e = document.createElementNS(ns, t); for (const k in a) e.setAttribute(k, a[k]); p && p.appendChild(e); return e; };
+
+  function trend() {
+    const svg = document.getElementById("trend"); if (!svg) return;
+    const W = svg.clientWidth, H = svg.clientHeight; svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.innerHTML = "";
+    const m = { l: 44, r: W < 500 ? 16 : 70, t: 18, b: 30 }, x0 = 2020, x1 = 2035, ymax = 320;
+    const X = (y) => m.l + (y - x0) / (x1 - x0) * (W - m.l - m.r), Y = (val) => H - m.b - val / ymax * (H - m.t - m.b);
+    const grid = v("--line"), g = v("--issue"), fg = v("--fg"), dim = v("--dim");
+    [0, 100, 200, 300].forEach((t) => { el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: grid }, svg); const tx = el("text", { x: m.l - 8, y: Y(t) + 4, "text-anchor": "end" }, svg); tx.textContent = "$" + t; });
+    (W < 500 ? [2020, 2024, 2030, 2035] : [2020, 2022, 2024, 2026, 2028, 2030, 2032, 2035]).forEach((yy) => { const tx = el("text", { x: X(yy), y: H - 8, "text-anchor": "middle" }, svg); tx.textContent = yy; });
+    // old goal
+    el("line", { x1: X(2020), x2: W - m.r, y1: Y(100), y2: Y(100), stroke: dim, "stroke-dasharray": "4 5", "stroke-width": 1.5 }, svg);
+    const og = el("text", { x: W - m.r, y: Y(100) - 8, "text-anchor": "end", class: "lbl" }, svg); og.textContent = W < 500 ? "Old goal $100B" : "Old goal $100B (due 2020)";
+    // area + line for delivered
+    const pts = [[2022, 115.9], [2023, 132.8], [2024, 136.7]];
+    const area = `M${X(2022)},${Y(0)} ` + pts.map((p) => `L${X(p[0])},${Y(p[1])}`).join(" ") + ` L${X(2024)},${Y(0)} Z`;
+    const defs = el("defs", {}, svg), lg = el("linearGradient", { id: "ag", x1: 0, y1: 0, x2: 0, y2: 1 }, defs); el("stop", { offset: 0, "stop-color": g, "stop-opacity": .28 }, lg); el("stop", { offset: 1, "stop-color": g, "stop-opacity": 0 }, lg);
+    el("path", { d: area, fill: "url(#ag)" }, svg);
+    el("path", { d: "M" + pts.map((p) => `${X(p[0])},${Y(p[1])}`).join(" L"), fill: "none", stroke: g, "stroke-width": 3, "stroke-linejoin": "round" }, svg);
+    // projection to goal
+    el("path", { d: `M${X(2024)},${Y(136.7)} L${X(2035)},${Y(300)}`, fill: "none", stroke: g, "stroke-width": 2, "stroke-dasharray": "2 6", "stroke-linecap": "round" }, svg);
+    const gl = el("text", { x: X(2035) - 6, y: Y(300) - 12, "text-anchor": "end", class: "lbl lblg" }, svg); gl.textContent = "Goal: $300B by 2035";
+    const goal = el("circle", { cx: X(2035), cy: Y(300), r: 7, fill: v("--ink-2"), stroke: g, "stroke-width": 3, class: "pt", "data-tip": "New goal: at least US$300 billion a year by 2035", "data-src": "UNFCCC COP29 decision (Nov 2024)" }, svg);
+    pts.forEach((p, i) => {
+      const c = el("circle", { cx: X(p[0]), cy: Y(p[1]), r: 6, fill: g, stroke: v("--ink-2"), "stroke-width": 2, class: "pt", "data-tip": `Delivered in ${p[0]}: US$${p[1]} billion`, "data-src": SRC }, svg);
+      if (i === 2) { const t = el("text", { x: X(p[0]) - 4, y: Y(p[1]) - 14, "text-anchor": "end", class: "lbl" }, svg); t.textContent = "$136.7B in 2024"; }
+    });
+    svg.querySelectorAll("[data-tip]").forEach((n) => { n.setAttribute("tabindex", "0"); n.setAttribute("aria-label", n.getAttribute("data-tip")); });
+  }
+
+  function donut() {
+    const svg = document.getElementById("donut"); if (!svg) return; svg.innerHTML = "";
+    const r = 80, C = 2 * Math.PI * r, tot = 136.7;
+    const parts = [["Mitigation", 86.9, "--issue-2"], ["Adaptation", 34.7, "--issue"], ["Cross-cutting", 15.1, "--issue-3"]];
+    el("circle", { cx: 100, cy: 100, r, stroke: v("--line"), "stroke-width": 26, fill: "none" }, svg);
+    let off = 0;
+    parts.forEach(([n, val, c]) => {
+      const len = val / tot * C - 3;
+      el("circle", { cx: 100, cy: 100, r, stroke: v(c), "stroke-dasharray": `${len} ${C}`, "stroke-dashoffset": -off, tabindex: 0,
+        "data-tip": `${n}, 2024: US$${val} billion (${(val / tot * 100).toFixed(1)}% of US$136.7B, calculated)`, "data-src": "OECD, Climate Finance Provided and Mobilised 2013–2024 (May 2026); confirmed by Down To Earth and ESG Times", "aria-label": `${n} US$${val} billion` }, svg);
+      off += val / tot * C;
+    });
+  }
+
+  function slope() {
+    const svg = document.getElementById("slope"); if (!svg) return;
+    const W = svg.clientWidth, H = svg.clientHeight; svg.setAttribute("viewBox", `0 0 ${W} ${H}`); svg.innerHTML = "";
+    const d = [[2022, 11.1], [2023, 8.4], [2024, 9.6]], m = { l: 40, r: 40, t: 34, b: 34 };
+    const X = (i) => m.l + i / 2 * (W - m.l - m.r), Y = (val) => m.t + (12 - val) / (12 - 6) * (H - m.t - m.b);
+    const g = v("--issue"), cor = v("--coral");
+    d.forEach((p, i) => { el("line", { x1: X(i), x2: X(i), y1: m.t - 10, y2: H - m.b + 6, stroke: v("--line") }, svg); const t = el("text", { x: X(i), y: H - 8, "text-anchor": "middle" }, svg); t.textContent = p[0]; });
+    for (let i = 0; i < 2; i++) el("line", { x1: X(i), y1: Y(d[i][1]), x2: X(i + 1), y2: Y(d[i + 1][1]), stroke: i === 0 ? cor : g, "stroke-width": 3.5, "stroke-linecap": "round" }, svg);
+    d.forEach((p, i) => {
+      el("circle", { cx: X(i), cy: Y(p[1]), r: 8, fill: i === 1 ? cor : g, stroke: v("--ink-2"), "stroke-width": 3, tabindex: 0, class: "pt",
+        "data-tip": `Low-income countries, ${p[0]}${i === 0 ? " (peak)" : ""}: US$${p[1]} billion`, "data-src": "OECD (May 2026), via IISD and Fast Company Middle East", "aria-label": `${p[0]} US$${p[1]} billion` }, svg);
+      const t = el("text", { x: X(i), y: Y(p[1]) - 16, "text-anchor": "middle", class: "v" }, svg); t.textContent = "$" + p[1] + "B";
+    });
+  }
+  const draw = () => { trend(); donut(); slope(); };
+  draw();
+  let rt; addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(draw, 120); });
+  new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  matchMedia("(prefers-color-scheme: dark)").addEventListener("change", draw);
+})();
+</script>
 <script src="/assets/site.js?v=21"></script>
 </body>
 </html>
