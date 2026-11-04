@@ -71,6 +71,6 @@ The "Take it with you" reuse section (copy from Issue 02): primary button = brie
 Every dashboard headline (h1), homepage card title, registry title, <title>, og:title/twitter:title, preview image headline and citation must STATE THE FINDING with a validated number, not name the topic.
 Test: if someone reads only the title, do they know what the data says? "Climate finance: promised vs delivered" fails; "Rich countries delivered $136.7 billion. The poorest got 7%." passes.
 - h1: 1-2 short sentences, max ~12 words each, the key number or contrast highlighted in <em class="serif">.
-- Card/registry title: the same finding in under ~70 characters.
+- Card/registry title: the same finding in under ~70 characters. The homepage hero "Latest" tile (.b-main: .b-title, mini chart, legend, source line) must use the same finding headline and a mini chart that shows that finding.
 - The headline must match the main message of the preview image and the LinkedIn hook.
 - Never let the headline imply the opposite of the finding (e.g. leading with a bigger promise when the story is under-delivery).
