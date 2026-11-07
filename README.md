@@ -11,6 +11,14 @@ Credible, correct numbers matter more than design, speed or anything else. A das
 4. AUTOMATED CHECK: run `python3 tools/check_numbers.py <issue-slug>` after building. It must report 0 problems (every number in the headline, takeaways, social tags, homepage card/tile and data.csv must appear in a data-tip with a data-src). Fix and rerun until clean.
 5. REPORT: in the PR, include the validation log, the consistency checks you did (with the sums/percentages recomputed), the checker output, and the numbers you left out and why.
 
+
+## Audience angle (required for every dashboard and LinkedIn post)
+Nafiul's LinkedIn network is mostly UNFPA, public health, SRHR, gender and M&E (monitoring & evaluation) professionals. Posts on topics far from their work get little reach.
+- For EVERY topic, choose the angle most relevant to health, gender, SRHR, population data and M&E professionals, as long as credible, validated data supports it (e.g. climate disasters → who is affected, including women, girls and health impacts; climate finance → whether money reaches people and services). Never force an angle the data can't support, and never add unvalidated claims to make it fit.
+- Make that angle visible in the headline, takeaways and at least one chart where the data allows.
+- Aim for about 2 of every 3 dashboards to be squarely in these areas (health, gender/GBV, SRHR, population, HIV, maternal and child health, humanitarian health, data/M&E); the rest can be broader topics with a people/health bridge.
+- LinkedIn question: write it for this audience, ideally about measurement, indicators, data quality or what practitioners see in the field (e.g. "Which indicator would you track to know adaptation money reached communities?").
+
 ## Structure
 ```
 index.html                                  homepage (nafiulazim.com)
