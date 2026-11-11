@@ -49,6 +49,7 @@ Settings live at the top of `assets/site.js` (`REVIEWS_CONFIG`).
 |---|---|---|---|
 | #01 Aid gap (28 Oct 2026) | coral / teal | KPI cards, dot grid (waffle), funnel bars, ranked horizontal bars, before/after pairs, "on the ground" cards | KPI row → wide + narrow panels → two panels → card row → perspective panel |
 | #02 Climate finance (4 Nov 2026) | green (#2f8a3e / #6fd685) | line/area trend with target, scorecard rail, donut + year table, proportional circles, slope chart, stat strip, comparison table with inline bars, needs progress band | full-width lead chart with scorecard rail → donut/circles split → slope + stat strip → comparison table → big-number band |
+| #03 Climate disaster exposure (11 Nov 2026) | amber (#b5720a / #f2b54a) | big-number scorecard grid, ranked tile grid shaded by rank + ranked side list, small-multiple 100% stacked bars, stacked column chart, ratio bars, horizontal bars in a story column | scorecard grid (1 tall + 4) → full-width tile grid with side panel → small-multiples panel → columns / vulnerability split → single tall story column (i–iii) |
 
 ## Homepage rules for each new issue
 - The hero "Latest" bento tile and the issue's card thumbnail must show a small version of THAT issue's main chart (its own chart type) in its own accent colour, as inline SVG with an `acc-<colour>` class defining `--a`/`--a-rgb` for light and dark. Never reuse another issue's preview visual (e.g. don't reuse the dot grid).

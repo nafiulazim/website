@@ -11,6 +11,8 @@ window.DDW_TOPICS = {
 };
 window.DDW_REGIONS = { global: "Global", asiapac: "Asia-Pacific", africa: "Africa", mena: "Middle East & North Africa", latam: "Latin America & Caribbean", europe: "Europe" };
 window.DDW = [
+  { n: 3, title: "Extreme weather killed 832,000 in 30 years. 6 of 10 worst hit are poorer.", url: "/devdataweekly/issues/2026-11-11-climate-disaster-exposure/", date: "2026-11-11",
+    topic: "climate", also: ["humanitarian", "gender"], region: "global", summary: "Who extreme weather hits hardest, who is forced from home, and the cost for women and health." },
   { n: 2, title: "$136.7B in climate finance. Just 7% reached the poorest countries.", url: "/devdataweekly/issues/2026-11-04-climate-finance/", date: "2026-11-04",
     topic: "climate", also: ["finance"], region: "global", summary: "$136.7B delivered in 2024, $300B promised by 2035. Who is still waiting." },
   { n: 1, title: "239M people need humanitarian aid. The 2026 plan targets 87M.", url: "/devdataweekly/issues/2026-10-28-aid-gap/", date: "2026-10-28",
