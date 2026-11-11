@@ -96,6 +96,10 @@
 :root[data-theme="dark"] .acc-green{--a:#6fd685;--a-rgb:111,214,133}
 .acc-coral{--a:var(--coral);--a-rgb:255,110,90}
 .hero .acc-green{--a:#6fd685;--a-rgb:111,214,133}
+.acc-amber{--a:#b5720a;--a-rgb:181,114,10}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .acc-amber{--a:#f2b54a;--a-rgb:242,181,74}}
+:root[data-theme="dark"] .acc-amber{--a:#f2b54a;--a-rgb:242,181,74}
+.hero .acc-amber{--a:#f2b54a;--a-rgb:242,181,74}
 .b-main .b-title em{color:var(--a,var(--coral))}
 .b-main .b-cat{border-color:rgba(var(--a-rgb,0,0,0),.4);color:var(--a,var(--muted))}
 .mini{width:100%;height:auto;display:block}
@@ -111,7 +115,7 @@
 .ring circle{fill:none;stroke-width:9}
 .ring .bg{stroke:rgba(var(--w),.08)}
 .ring .fg{stroke:var(--teal);stroke-linecap:round;stroke-dasharray:226.2;stroke-dashoffset:226.2;transition:stroke-dashoffset 1.8s var(--ease) .3s}
-.ring.in .fg{stroke-dashoffset:123}
+.ring.in .fg{stroke-dashoffset:151.6}
 .count{display:flex;gap:10px}
 .count div{display:grid;gap:2px;text-align:center;min-width:54px;padding:10px 6px;border-radius:12px;background:rgba(var(--w),.04);border:1px solid var(--line)}
 .count b{font-family:var(--mono);font-size:26px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1}
@@ -220,7 +224,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
       </h1>
       <p class="lede fade">I'm Nafiul, an international development professional who loves building dashboards. Every week I turn public data on aid, crises, climate and the SDGs into one clear, interactive story.</p>
       <div class="hero-actions fade f2">
-        <a class="btn btn-primary" href="/devdataweekly/issues/2026-11-04-climate-finance/">Explore the latest dashboard <span class="arr">→</span></a>
+        <a class="btn btn-primary" href="/devdataweekly/issues/2026-11-11-climate-disaster-exposure/">Explore the latest dashboard <span class="arr">→</span></a>
         <a class="btn btn-ghost" href="#dashboards">Browse all</a>
       </div>
     </div>
@@ -231,43 +235,68 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     </div>
 
     <div class="bento">
-      <a class="panel b-main acc-green reveal" href="/devdataweekly/issues/2026-11-04-climate-finance/" aria-label="Open the latest dashboard: rich countries delivered $136.7 billion in climate finance; the poorest got 7%">
-        <div class="b-top"><span class="b-live"><span class="dot"></span>Latest · #02</span><span class="b-cat">Climate finance</span></div>
-        <div class="b-title">Rich countries delivered $136.7 billion in climate finance. The poorest got <em>7%.</em></div>
+      <a class="panel b-main acc-amber reveal" href="/devdataweekly/issues/2026-11-11-climate-disaster-exposure/" aria-label="Open the latest dashboard: extreme weather killed 832,000 people in 30 years; 6 of the 10 hardest-hit countries are lower-middle-income">
+        <div class="b-top"><span class="b-live"><span class="dot"></span>Latest · #03</span><span class="b-cat">Climate disasters</span></div>
+        <div class="b-title">Extreme weather killed <em>832,000 people</em> in 30 years. 6 of the 10 hardest-hit countries are lower-middle-income.</div>
         <svg class="mini" viewBox="0 0 320 150" aria-hidden="true">
-          <text x="20" y="40" style="font-size:30px;font-weight:800;fill:var(--fg)">$136.7B</text>
-          <text x="20" y="62">delivered in 2024</text>
-          <rect x="20" y="80" width="290" height="40" rx="8" fill="rgba(var(--w),.10)"/>
-          <rect x="20" y="80" width="20.3" height="40" rx="8" fill="var(--a)"/>
-          <path d="M30 124 L30 134" stroke="var(--a)" stroke-width="2"/>
-          <text x="20" y="146" style="fill:var(--a);font-weight:700">7% to low-income countries</text>
+          <rect x="10.0" y="10.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.40" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="17.0" y="30.0" style="font-size:15px;font-weight:800;fill:var(--a)">1</text>
+          <text x="17.0" y="59.0" style="font-size:7px;fill:var(--fg)">Dominica</text>
+          <rect x="71.2" y="10.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.37" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="78.2" y="30.0" style="font-size:15px;font-weight:800;fill:var(--a)">2</text>
+          <text x="78.2" y="59.0" style="font-size:7px;fill:var(--fg)">Myanmar</text>
+          <rect x="132.4" y="10.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.34" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="139.4" y="30.0" style="font-size:15px;font-weight:800;fill:var(--a)">3</text>
+          <text x="139.4" y="59.0" style="font-size:7px;fill:var(--fg)">Honduras</text>
+          <rect x="193.6" y="10.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.30" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="200.6" y="30.0" style="font-size:15px;font-weight:800;fill:var(--a)">4</text>
+          <text x="200.6" y="59.0" style="font-size:7px;fill:var(--fg)">Libya</text>
+          <rect x="254.8" y="10.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.27" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="261.8" y="30.0" style="font-size:15px;font-weight:800;fill:var(--a)">5</text>
+          <text x="261.8" y="59.0" style="font-size:7px;fill:var(--fg)">Haiti</text>
+          <rect x="10.0" y="73.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.24" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="17.0" y="93.0" style="font-size:15px;font-weight:800;fill:var(--a)">6</text>
+          <text x="17.0" y="122.0" style="font-size:7px;fill:var(--fg)">Grenada</text>
+          <rect x="71.2" y="73.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.21" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="78.2" y="93.0" style="font-size:15px;font-weight:800;fill:var(--a)">7</text>
+          <text x="78.2" y="122.0" style="font-size:7px;fill:var(--fg)">Philippines</text>
+          <rect x="132.4" y="73.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.18" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="139.4" y="93.0" style="font-size:15px;font-weight:800;fill:var(--a)">8</text>
+          <text x="139.4" y="122.0" style="font-size:7px;fill:var(--fg)">Nicaragua</text>
+          <rect x="193.6" y="73.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.15" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="200.6" y="93.0" style="font-size:15px;font-weight:800;fill:var(--a)">9</text>
+          <text x="200.6" y="122.0" style="font-size:7px;fill:var(--fg)">India</text>
+          <rect x="254.8" y="73.0" width="55.2" height="57.0" rx="6" fill="var(--a)" fill-opacity="0.12" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="261.8" y="93.0" style="font-size:15px;font-weight:800;fill:var(--a)">10</text>
+          <text x="261.8" y="122.0" style="font-size:7px;fill:var(--fg)">Bahamas</text>
+          <text x="10" y="146">Most affected 1995–2024, rank 1 to 10</text>
         </svg>
-        <div class="legend"><span><i style="background:var(--a)"></i>Low-income countries: 7%</span><span><i style="background:rgba(var(--w),.25)"></i>Everyone else</span></div>
-        <div class="b-foot"><span class="src">Share of 2024 climate finance · OECD (May 2026)</span><span class="b-go">Open dashboard <span>→</span></span></div>
+        <div class="legend"><span><i style="background:var(--a)"></i>6 of the 10 are lower-middle-income</span><span><i style="background:rgba(var(--w),.25)"></i>Darker = higher rank</span></div>
+        <div class="b-foot"><span class="src">10 hardest-hit countries, 1995–2024 · Germanwatch CRI 2026</span><span class="b-go">Open dashboard <span>→</span></span></div>
       </a>
 
       <div class="panel tile reveal d1">
-        <span class="k">2035 goal, covered</span>
+        <span class="k">Deaths from heat waves</span>
         <div class="ring" id="ring" data-anim>
           <svg viewBox="0 0 84 84" aria-hidden="true"><circle class="bg" cx="42" cy="42" r="36"/><circle class="fg" cx="42" cy="42" r="36"/></svg>
-          <div class="big"><span data-count="46" data-suffix="%">46%</span></div>
+          <div class="big"><span data-count="33" data-suffix="%">33%</span></div>
         </div>
-        <p>of the $300B-a-year goal is already delivered (2024 level)</p>
+        <p>of extreme-weather deaths in 1995–2024 were caused by heat waves</p>
       </div>
 
       <div class="panel tile reveal d2">
-        <span class="k">Low-income countries</span>
-        <div class="big"><span data-count="7" data-suffix="%">7%</span></div>
-        <p>of 2024 climate finance reached them</p>
+        <span class="k">Forced from home</span>
+        <div class="big"><span data-count="29.9" data-dec="1" data-suffix="M">29.9M</span></div>
+        <p>disaster displacements in 2025, down 35% from 2024's record</p>
       </div>
 
       <div class="panel tile t-next reveal d3">
         <div class="row">
           <div style="display:grid;gap:8px">
             <span class="k">Next dashboard drops in</span>
-            <h3>Who is most exposed to climate disasters?</h3>
+            <h3>Child poverty and malnutrition</h3>
           </div>
-          <div class="count" data-next-drop data-latest="2026-11-04" aria-label="Time until the next dashboard">
+          <div class="count" data-next-drop data-latest="2026-11-11" aria-label="Time until the next dashboard">
             <div><b data-d>--</b><small>days</small></div>
             <div><b data-h>--</b><small>hrs</small></div>
             <div><b data-m>--</b><small>min</small></div>
@@ -291,6 +320,35 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     <div class="ftbar" id="topic-filter" role="toolbar" aria-label="Filter by theme"></div><p class="topic-status" id="topic-status" role="status"></p>
     <div class="cards">
       <!-- NEW ISSUES GO FIRST: copy one <a class="panel card"> block -->
+      <a class="panel card acc-amber reveal" data-topics="climate humanitarian gender" href="/devdataweekly/issues/2026-11-11-climate-disaster-exposure/">
+        <div class="thumb acc-amber" aria-hidden="true"><svg viewBox="0 0 320 150" aria-hidden="true">
+          <rect x="10.0" y="12.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.40" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="17.0" y="32.0" style="font-size:15px;font-weight:800;fill:var(--a)">1</text>
+          <rect x="71.2" y="12.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.37" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="78.2" y="32.0" style="font-size:15px;font-weight:800;fill:var(--a)">2</text>
+          <rect x="132.4" y="12.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.34" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="139.4" y="32.0" style="font-size:15px;font-weight:800;fill:var(--a)">3</text>
+          <rect x="193.6" y="12.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.30" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="200.6" y="32.0" style="font-size:15px;font-weight:800;fill:var(--a)">4</text>
+          <rect x="254.8" y="12.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.27" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="261.8" y="32.0" style="font-size:15px;font-weight:800;fill:var(--a)">5</text>
+          <rect x="10.0" y="70.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.24" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="17.0" y="90.0" style="font-size:15px;font-weight:800;fill:var(--a)">6</text>
+          <rect x="71.2" y="70.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.21" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="78.2" y="90.0" style="font-size:15px;font-weight:800;fill:var(--a)">7</text>
+          <rect x="132.4" y="70.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.18" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="139.4" y="90.0" style="font-size:15px;font-weight:800;fill:var(--a)">8</text>
+          <rect x="193.6" y="70.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.15" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="200.6" y="90.0" style="font-size:15px;font-weight:800;fill:var(--a)">9</text>
+          <rect x="254.8" y="70.0" width="55.2" height="52.0" rx="6" fill="var(--a)" fill-opacity="0.12" stroke="var(--a)" stroke-opacity=".5"/>
+          <text x="261.8" y="90.0" style="font-size:15px;font-weight:800;fill:var(--a)">10</text>
+          <text x="10" y="144">10 most affected, 1995–2024</text>
+        </svg></div>
+        <div class="meta"><span class="tag live">Live · #03</span><span class="mono" style="color:var(--dim)">11 Nov 2026</span></div><div class="tags"><span class="ttag t-climate">🌿 Climate</span><span class="ttag t-humanitarian">⛑ Humanitarian</span><span class="ttag t-gender">⚥ Gender</span></div>
+        <h3>Extreme weather killed 832,000 in 30 years. 6 of 10 worst hit are poorer.</h3>
+        <p>Who extreme weather hits hardest, who is forced from home, and the cost for women and health.</p>
+        <span class="go">Open dashboard →</span>
+      </a>
       <a class="panel card acc-green reveal" data-topics="climate finance" href="/devdataweekly/issues/2026-11-04-climate-finance/">
         <div class="thumb acc-green" aria-hidden="true"><svg viewBox="0 0 320 150" aria-hidden="true">
           <defs><linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--a)" stop-opacity=".3"/><stop offset="1" stop-color="var(--a)" stop-opacity="0"/></linearGradient></defs>
@@ -316,17 +374,17 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
         <p>239M people in need, 87M prioritised. Where the money goes, and who pays now.</p>
         <span class="go">Open dashboard →</span>
       </a>
-      <div data-topics="climate humanitarian" class="panel card soon reveal d1">
+      <div data-topics="children health" class="panel card soon reveal d1">
         <div class="thumb" aria-hidden="true"></div>
-        <div class="meta"><span class="tag">Next · #03</span><span class="mono" style="color:var(--dim)">11 Nov 2026</span></div><div class="tags"><span class="ttag t-climate">🌿 Climate</span><span class="ttag t-humanitarian">⛑ Humanitarian</span></div>
-        <h3>Who is most exposed to climate disasters?</h3>
-        <p>Risk, readiness and the countries that face both.</p>
-      </div>
-      <div data-topics="children" class="panel card soon reveal d2">
-        <div class="thumb" aria-hidden="true"></div>
-        <div class="meta"><span class="tag">Soon · #04</span><span class="mono" style="color:var(--dim)">18 Nov 2026</span></div><div class="tags"><span class="ttag t-children">✎ Children</span></div>
+        <div class="meta"><span class="tag">Next · #04</span><span class="mono" style="color:var(--dim)">18 Nov 2026</span></div><div class="tags"><span class="ttag t-children">✎ Children</span><span class="ttag t-health">✚ Health</span></div>
         <h3>Child poverty and malnutrition</h3>
         <p>Ahead of World Children's Day, how many children are left behind.</p>
+      </div>
+      <div data-topics="gender" class="panel card soon reveal d2">
+        <div class="thumb" aria-hidden="true"></div>
+        <div class="meta"><span class="tag">Soon · #05</span><span class="mono" style="color:var(--dim)">25 Nov 2026</span></div><div class="tags"><span class="ttag t-gender">⚥ Gender</span></div>
+        <h3>Gender-based violence by the numbers</h3>
+        <p>For the 16 Days of Activism, what the data show and what it misses.</p>
       </div>
     </div>
   </div>
@@ -424,7 +482,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
 </footer>
 
 <script src="/assets/site.js?v=23"></script>
-<script src="/assets/dashboards.js?v=9"></script>
+<script src="/assets/dashboards.js?v=10"></script>
 <script src="/assets/globe.js?v=4"></script>
 <script>
 /* Drifting data-network background */
