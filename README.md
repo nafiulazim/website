@@ -104,3 +104,6 @@ Test: if someone reads only the title, do they know what the data says? "Climate
 - Every issue page must define its dark accent for the hero: on :root add --issue-d and --issue-d-rgb (the dark-mode values of --issue), e.g. :root{--issue-d:#6fd685;--issue-d-rgb:111,214,133;--issue:#2f8a3e;...}.
 - Homepage hero tiles using an accent class need a dark value inside .hero (e.g. .hero .acc-green{--a:#6fd685;--a-rgb:111,214,133}).
 - Check every new page in BOTH modes: light (default) and dark (toggle).
+
+## Newsletter feed (required for every new dashboard)
+After the dashboard is final, run `python3 tools/build_feed.py` and commit `feed.xml`. Buttondown watches https://nafiulazim.com/feed.xml and emails each new dashboard (headline as subject, the 3 key takeaways and the link) to all subscribers once it is live on main. Never edit old feed items' links (that could resend them).
