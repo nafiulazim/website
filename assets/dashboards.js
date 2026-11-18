@@ -11,6 +11,8 @@ window.DDW_TOPICS = {
 };
 window.DDW_REGIONS = { global: "Global", asiapac: "Asia-Pacific", africa: "Africa", mena: "Middle East & North Africa", latam: "Latin America & Caribbean", europe: "Europe" };
 window.DDW = [
+  { n: 4, title: "150.2M young children are stunted. In Africa, the number is still rising.", url: "/devdataweekly/issues/2026-11-18-child-malnutrition/", date: "2026-11-18",
+    topic: "children", also: ["health"], region: "global", summary: "Stunting, wasting and overweight in under-5s, child deaths, and two ways to count child poverty." },
   { n: 3, title: "Extreme weather killed 832,000 in 30 years. 6 of 10 worst hit are poorer.", url: "/devdataweekly/issues/2026-11-11-climate-disaster-exposure/", date: "2026-11-11",
     topic: "climate", also: ["humanitarian", "gender"], region: "global", summary: "Who extreme weather hits hardest, who is forced from home, and the cost for women and health." },
   { n: 2, title: "$136.7B in climate finance. Just 7% reached the poorest countries.", url: "/devdataweekly/issues/2026-11-04-climate-finance/", date: "2026-11-04",
