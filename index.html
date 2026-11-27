@@ -94,7 +94,10 @@
 .acc-green{--a:#2f8a3e;--a-rgb:47,138,62}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .acc-green{--a:#6fd685;--a-rgb:111,214,133}}
 :root[data-theme="dark"] .acc-green{--a:#6fd685;--a-rgb:111,214,133}
-.acc-coral{--a:var(--coral);--a-rgb:255,110,90}
+.acc-coral{--a:#d6432d;--a-rgb:214,67,45}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .acc-coral{--a:#ff6e5a;--a-rgb:255,110,90}}
+:root[data-theme="dark"] .acc-coral{--a:#ff6e5a;--a-rgb:255,110,90}
+.hero .acc-coral{--a:#ff6e5a;--a-rgb:255,110,90}
 .hero .acc-green{--a:#6fd685;--a-rgb:111,214,133}
 .acc-amber{--a:#b5720a;--a-rgb:181,114,10}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .acc-amber{--a:#f2b54a;--a-rgb:242,181,74}}
@@ -119,7 +122,7 @@
 .ring circle{fill:none;stroke-width:9}
 .ring .bg{stroke:rgba(var(--w),.08)}
 .ring .fg{stroke:var(--teal);stroke-linecap:round;stroke-dasharray:226.2;stroke-dashoffset:226.2;transition:stroke-dashoffset 1.8s var(--ease) .3s}
-.ring.in .fg{stroke-dashoffset:173.7}
+.ring.in .fg{stroke-dashoffset:90.5}
 .count{display:flex;gap:10px}
 .count div{display:grid;gap:2px;text-align:center;min-width:54px;padding:10px 6px;border-radius:12px;background:rgba(var(--w),.04);border:1px solid var(--line)}
 .count b{font-family:var(--mono);font-size:26px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1}
@@ -229,7 +232,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
       </h1>
       <p class="lede fade">I'm Nafiul, an international development professional who loves building dashboards. Every week I turn public data on aid, crises, climate and the SDGs into one clear, interactive story.</p>
       <div class="hero-actions fade f2">
-        <a class="btn btn-primary" href="/devdataweekly/issues/2026-11-11-climate-disaster-exposure/">Explore the latest dashboard <span class="arr">→</span></a>
+        <a class="btn btn-primary" href="/devdataweekly/issues/2026-11-27-gender-based-violence/">Explore the latest dashboard <span class="arr">→</span></a>
         <a class="btn btn-ghost" href="#dashboards">Browse all</a>
       </div>
     </div>
@@ -240,49 +243,45 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     </div>
 
     <div class="bento">
-      <a class="panel b-main acc-violet reveal" href="/devdataweekly/issues/2026-11-18-child-malnutrition/" aria-label="Open the latest dashboard: child malnutrition, 150.2 million under-5s are stunted; in Africa the number is still rising">
-        <div class="b-top"><span class="b-live"><span class="dot"></span>Latest · #04</span><span class="b-cat">Child malnutrition</span></div>
-        <div class="b-title">Child malnutrition: <em>150.2 million</em> under-5s are stunted. In Africa, the number is still rising.</div>
+      <a class="panel b-main acc-coral reveal" href="/devdataweekly/issues/2026-11-27-gender-based-violence/" aria-label="Open the latest dashboard: gender-based violence, partners or relatives killed 47,000 women and girls in 2025">
+        <div class="b-top"><span class="b-live"><span class="dot"></span>Latest · #05</span><span class="b-cat">Gender-based violence</span></div>
+        <div class="b-title">Gender-based violence: partners or relatives killed <em>47,000</em> women and girls in 2025. That is 129 every day.</div>
         <svg class="mini" viewBox="0 0 320 150" aria-hidden="true">
-          <rect x="10" y="10" width="195.2" height="120" rx="7" fill="var(--a)"/>
-          <text x="20" y="40" style="font-size:24px;font-weight:800;fill:#fff;font-family:var(--display)">150.2M</text>
-          <text x="20" y="56" style="font-size:9px;fill:#fff">stunted · 23.2%</text>
-          <rect x="209.2" y="10" width="100.8" height="63.6" rx="7" fill="var(--a)" fill-opacity=".5"/>
-          <rect x="209.2" y="55.5" width="100.8" height="18.1" rx="4" fill="#d24c98"/>
-          <text x="216" y="30" style="font-size:13px;font-weight:800;fill:var(--fg);font-family:var(--display)">42.8M</text>
-          <text x="216" y="42" style="font-size:8px;fill:var(--fg)">wasted</text>
-          <text x="216" y="68" style="font-size:8px;fill:#fff">12.2M severe</text>
-          <rect x="209.2" y="77.6" width="100.8" height="52.4" rx="7" fill="var(--a)" fill-opacity=".2" stroke="var(--a)" stroke-opacity=".5"/>
-          <text x="216" y="97" style="font-size:13px;font-weight:800;fill:var(--fg);font-family:var(--display)">35.5M</text>
-          <text x="216" y="109" style="font-size:8px;fill:var(--fg)">overweight</text>
-          <text x="10" y="146">Children under 5, 2024 · areas to scale</text>
+          <circle cx="72" cy="72" r="62" fill="var(--a)" fill-opacity=".14" stroke="var(--a)" stroke-opacity=".6" stroke-width="1.5"/>
+          <circle cx="72" cy="85.87" r="48.13" fill="var(--a)"/>
+          <text x="72" y="96" text-anchor="middle" style="font-size:19px;font-weight:800;fill:#fff;font-family:var(--display)">47,000</text>
+          <text x="150" y="40" style="font-size:20px;font-weight:800;fill:var(--fg);font-family:var(--display)">78,000</text>
+          <text x="150" y="56" style="font-size:11px;fill:var(--fg);font-family:var(--body)">killed intentionally</text>
+          <text x="150" y="88" style="font-size:20px;font-weight:800;fill:var(--a);font-family:var(--display)">60%</text>
+          <text x="150" y="104" style="font-size:11px;fill:var(--fg);font-family:var(--body)">by a partner or relative</text>
+          <text x="10" y="146">World, 2025 · circle areas to scale</text>
         </svg>
-        <div class="legend"><span><i style="background:var(--a)"></i>Stunting</span><span><i style="background:rgba(var(--a-rgb),.5)"></i>Wasting</span><span><i style="background:rgba(var(--a-rgb),.2);border:1px solid var(--a)"></i>Overweight</span></div>
-        <div class="b-foot"><span class="src">Children under 5, 2024 · UNICEF/WHO/World Bank JME 2025</span><span class="b-go">Open dashboard <span>→</span></span></div>
+        <div class="legend"><span><i style="background:rgba(var(--a-rgb),.14);border:1px solid var(--a)"></i>All killed intentionally</span><span><i style="background:var(--a)"></i>By a partner or family member</span></div>
+        <div class="b-foot"><span class="src">Women and girls, 2025 · UNODC &amp; UN Women Femicide Brief 2026</span><span class="b-go">Open dashboard <span>→</span></span></div>
       </a>
 
       <div class="panel tile reveal d1">
-        <span class="k">Stunted under-5s</span>
+        <span class="k">Killed by someone close</span>
         <div class="ring" id="ring" data-anim>
           <svg viewBox="0 0 84 84" aria-hidden="true"><circle class="bg" cx="42" cy="42" r="36"/><circle class="fg" cx="42" cy="42" r="36"/></svg>
-          <div class="big"><span data-count="23.2" data-dec="1" data-suffix="%">23.2%</span></div>
+          <div class="big"><span data-count="60" data-suffix="%">60%</span></div>
         </div>
-        <p>of all children under 5 worldwide were stunted in 2024, down from 26.4% in 2012</p>
+        <p>of the women and girls killed intentionally in 2025 were killed by a partner or family member</p>
       </div>
 
       <div class="panel tile reveal d2">
-        <span class="k">Extreme child poverty</span>
-        <div class="big"><span data-count="412" data-suffix="M">412M</span></div>
-        <p>children lived on less than US$3 a day in 2024, down from 507M in 2014</p>
+        <span class="k">Partner or sexual violence</span>
+        <div class="big"><span data-count="840" data-suffix="M">840M</span></div>
+        <p>women, nearly 1 in 3, have faced partner or sexual violence in their lifetime (WHO)</p>
       </div>
 
       <div class="panel tile t-next reveal d3">
         <div class="row">
           <div style="display:grid;gap:8px">
             <span class="k">Next dashboard drops in</span>
-            <h3>Gender-based violence by the numbers</h3>
+            <h3>HIV progress and funding risks</h3>
           </div>
-          <div class="count" data-next-drop data-latest="2026-11-18" aria-label="Time until the next dashboard">
+          <div class="count" data-next-drop data-latest="2026-11-25" aria-label="Time until the next dashboard">
             <div><b data-d>--</b><small>days</small></div>
             <div><b data-h>--</b><small>hrs</small></div>
             <div><b data-m>--</b><small>min</small></div>
@@ -306,6 +305,21 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
     <div class="ftbar" id="topic-filter" role="toolbar" aria-label="Filter by theme"></div><p class="topic-status" id="topic-status" role="status"></p>
     <div class="cards">
       <!-- NEW ISSUES GO FIRST: copy one <a class="panel card"> block -->
+      <a class="panel card acc-coral reveal" data-topics="gender health" href="/devdataweekly/issues/2026-11-27-gender-based-violence/">
+        <div class="thumb acc-coral" aria-hidden="true"><svg viewBox="0 0 320 150" aria-hidden="true">
+          <circle cx="72" cy="72" r="62" fill="var(--a)" fill-opacity=".14" stroke="var(--a)" stroke-opacity=".6" stroke-width="1.5"/>
+          <circle cx="72" cy="85.87" r="48.13" fill="var(--a)"/>
+          <text x="72" y="96" text-anchor="middle" style="font-size:19px;font-weight:800;fill:#fff;font-family:var(--display)">47,000</text>
+          <text x="150" y="40" style="font-size:20px;font-weight:800;fill:var(--fg);font-family:var(--display)">78,000</text>
+          <text x="150" y="56" style="font-size:11px;fill:var(--fg);font-family:var(--body)">killed intentionally</text>
+          <text x="150" y="88" style="font-size:20px;font-weight:800;fill:var(--a);font-family:var(--display)">60%</text>
+          <text x="150" y="104" style="font-size:11px;fill:var(--fg);font-family:var(--body)">by a partner or relative</text>
+        </svg></div>
+        <div class="meta"><span class="tag live">Live · #05</span><span class="mono" style="color:var(--dim)">27 Nov 2026</span></div><div class="tags"><span class="ttag t-gender">⚥ Gender</span><span class="ttag t-health">✚ Health</span></div>
+        <h3>Partners or relatives killed 47,000 women and girls in 2025.</h3>
+        <p>Femicide by region, partner and sexual violence, and how few survivors reach the police.</p>
+        <span class="go">Open dashboard →</span>
+      </a>
       <a class="panel card acc-violet reveal" data-topics="children health" href="/devdataweekly/issues/2026-11-18-child-malnutrition/">
         <div class="thumb acc-violet" aria-hidden="true"><svg viewBox="0 0 320 150" aria-hidden="true">
           <rect x="10" y="10" width="195.2" height="120" rx="7" fill="var(--a)"/>
@@ -380,17 +394,17 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
         <p>239M people in need, 87M prioritised. Where the money goes, and who pays now.</p>
         <span class="go">Open dashboard →</span>
       </a>
-      <div data-topics="gender" class="panel card soon reveal d1">
+      <div data-topics="health gender" class="panel card soon reveal d1">
         <div class="thumb" aria-hidden="true"></div>
-        <div class="meta"><span class="tag">Next · #05</span><span class="mono" style="color:var(--dim)">25 Nov 2026</span></div><div class="tags"><span class="ttag t-gender">⚥ Gender</span></div>
-        <h3>Gender-based violence by the numbers</h3>
-        <p>For the 16 Days of Activism, what the data show and what it misses.</p>
-      </div>
-      <div data-topics="health gender" class="panel card soon reveal d2">
-        <div class="thumb" aria-hidden="true"></div>
-        <div class="meta"><span class="tag">Soon · #06</span><span class="mono" style="color:var(--dim)">2 Dec 2026</span></div><div class="tags"><span class="ttag t-health">✚ Health</span><span class="ttag t-gender">⚥ Gender</span></div>
+        <div class="meta"><span class="tag">Next · #06</span><span class="mono" style="color:var(--dim)">2 Dec 2026</span></div><div class="tags"><span class="ttag t-health">✚ Health</span><span class="ttag t-gender">⚥ Gender</span></div>
         <h3>HIV progress and funding risks</h3>
         <p>For World AIDS Day, how far the response has come and what funding cuts put at risk.</p>
+      </div>
+      <div data-topics="humanitarian" class="panel card soon reveal d2">
+        <div class="thumb" aria-hidden="true"></div>
+        <div class="meta"><span class="tag">Soon · #07</span><span class="mono" style="color:var(--dim)">9 Dec 2026</span></div><div class="tags"><span class="ttag t-humanitarian">⛑ Humanitarian</span></div>
+        <h3>First look at the Global Humanitarian Overview 2027</h3>
+        <p>How many people will need aid next year, and how much the appeal asks for.</p>
       </div>
     </div>
   </div>
@@ -488,7 +502,7 @@ a.card:hover .thumb i:nth-child(even){transform:scaleY(.94)}
 </footer>
 
 <script src="/assets/site.js?v=23"></script>
-<script src="/assets/dashboards.js?v=11"></script>
+<script src="/assets/dashboards.js?v=12"></script>
 <script src="/assets/globe.js?v=4"></script>
 <script>
 /* Drifting data-network background */

@@ -11,6 +11,8 @@ window.DDW_TOPICS = {
 };
 window.DDW_REGIONS = { global: "Global", asiapac: "Asia-Pacific", africa: "Africa", mena: "Middle East & North Africa", latam: "Latin America & Caribbean", europe: "Europe" };
 window.DDW = [
+  { n: 5, title: "Partners or relatives killed 47,000 women and girls in 2025.", url: "/devdataweekly/issues/2026-11-27-gender-based-violence/", date: "2026-11-27",
+    topic: "gender", also: ["health"], region: "global", summary: "Femicide by region, partner and sexual violence, and how few survivors reach the police." },
   { n: 4, title: "150.2M young children are stunted. In Africa, the number is still rising.", url: "/devdataweekly/issues/2026-11-18-child-malnutrition/", date: "2026-11-18",
     topic: "children", also: ["health"], region: "global", summary: "Stunting, wasting and overweight in under-5s, child deaths, and two ways to count child poverty." },
   { n: 3, title: "Extreme weather killed 832,000 in 30 years. 6 of 10 worst hit are poorer.", url: "/devdataweekly/issues/2026-11-11-climate-disaster-exposure/", date: "2026-11-11",
